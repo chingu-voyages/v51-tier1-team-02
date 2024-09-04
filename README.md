@@ -34,7 +34,7 @@ Everyone on your team should add their name along with a link to their GitHub
 your repo access and to practice PR'ing with your team *before* you start
 coding!
 
-- Teammate name #1: https://github.com/nataliedex / www.linkedin.com/in/natalieblumen
+- Natalie Blumen: https://github.com/nataliedex / www.linkedin.com/in/natalieblumen
 - Teammate name #2: https://github.com/jaltrock / www.linkedin.com/in/jessi-altrock-developer
 - Teammate name #3: https://github.com/Robodlan / https://www.linkedin.com/in/reinaldo-robles-4b3281221/
 

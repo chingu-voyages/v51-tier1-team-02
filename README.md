@@ -1,11 +1,11 @@
 # voyage-tasks
 
-Your project's `readme` is as important to success as your code. For 
+Your project's `readme` is as important to success as your code. For
 this reason you should put as much care into its creation and maintenance
 as you would any other component of the application.
 
 If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
+written by an experienced Chingu, be your starting point -
 [Keys to a well written README](https://tinyurl.com/yk3wubft).
 
 And before we go there's "one more thing"! Once you decide what to include
@@ -31,13 +31,14 @@ Meeting Agenda templates (located in the `/docs` directory in this repo):
 
 Everyone on your team should add their name along with a link to their GitHub
 & optionally their LinkedIn profiles below. Do this in Sprint #1 to validate
-your repo access and to practice PR'ing with your team *before* you start
+your repo access and to practice PR'ing with your team _before_ you start
 coding!
 
 - Natalie Blumen: https://github.com/nataliedex / www.linkedin.com/in/natalieblumen
 - Teammate name #2: https://github.com/jaltrock / www.linkedin.com/in/jessi-altrock-developer
 - Reinaldo Robles: https://github.com/Robodlan / https://www.linkedin.com/in/reinaldo-robles-4b3281221/
-- Carina Young: 
+- Carina Young: https://github.com/carinawyoung / https://www.linkedin.com/in/carina-w-young/
 
-   ...
+  ...
+
 - Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)

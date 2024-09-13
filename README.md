@@ -39,6 +39,7 @@ coding!
 - Reinaldo Robles: https://github.com/Robodlan / https://www.linkedin.com/in/reinaldo-robles-4b3281221/
 - Carina Young: https://github.com/carinawyoung / https://www.linkedin.com/in/carina-w-young/
 - Valerie: https://github.com/val-ue / https://www.linkedin.com/in/valerielabideveloper/
+- Molly Brown: https://github.com/learningcoding2022 / https://www.linkedin.com/in/molly-b-97877492/
 
   ...
 

@@ -1,3 +1,5 @@
+![Static Badge](https://img.shields.io/badge/HOT_SHOT_Team_2-%23e25822?style=for-the-badge)
+
 # voyage-tasks
 
 Your project's `readme` is as important to success as your code. For

@@ -39,6 +39,8 @@ function closeUserForm () {
 
 closeUserForm();
 
+//tomorrow, we add the text inputs (and maybe picture input). 
+//then have the inputs show on a div on the screen after pressing "submit"
 
 
 

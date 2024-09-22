@@ -17,15 +17,17 @@ button.addEventListener("click", () => {
  
 const addUserButton = document.querySelector('#add-user');  
 const addUserForm = document.querySelector('#add-user-form');
-const submitUserButton = document.querySelector('submit-user');
+const submitUserButton = document.querySelector('#submit-user');
 
-function openUserForm {
+function openUserForm () {
     addUserButton.onClick = function () {
-        addUserForm.classList.add("active");
-        document.body.classList.add("no-scroll");    
+        //addUserForm.classList.add("active");
+        //document.body.classList.add("active");    
+        document.body.style.backgroundColor = red;
     }
 };
 
+console.log(addUserButton);
 openUserForm();
 
 

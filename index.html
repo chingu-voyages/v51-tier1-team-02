@@ -15,22 +15,17 @@
 </head>
 <body>
 
-    <h2 class="roboto-bold" >Making progress, and learning lots!</h2> <!--feel free to delete this - Carina -->
-    <h3 class="testing-testing">Testing out branching!</h3> <!--feel free to delete this - Jessi -->
-    <h1 class="awesome" id="awesome" ></h1> <!--feel free to delete this - Reinaldo -->
-    <button class="button" id="button">Click Me!</button> <!--feel free to delete this - Reinaldo -->
-    <input name="user name" placeholder="Type your name here">
-    <input type="submit"> 
 
-
-
+    <h1 id="h1text">this is some h1 text</h1>
 
 <!--button to add a person. -->
     <button id="add-user">
         add user
     </button>
 
-    <div id="add-user-form">
+    <!--add user-form is the modal-->
+    <div id="add-user-form" class="hidden">
+        <p id="example-modal-text">hello pls enter your name</p>
         <button id="submit-user">submit</button>
       <!--modal popup-->  
     </div>
@@ -44,6 +39,7 @@
 
             <div class="profile-name">
                 <!--Where the name of the user will be displayed-->
+                <p id="example-name"></p>
             </div>
         </div>
     </section>

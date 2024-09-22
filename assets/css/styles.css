@@ -7,73 +7,6 @@ body {
     height: 100vh;
 }
 
-.roboto-bold {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-  }
-
-.button {
-  align-items: center;
-  background-color: #fee6e3;
-  border: 2px solid #111;
-  border-radius: 8px;
-  box-sizing: border-box;
-  color: #111;
-  cursor: pointer;
-  display: flex;
-  font-family: Inter,sans-serif;
-  font-size: 16px;
-  height: 48px;
-  justify-content: center;
-  line-height: 24px;
-  max-width: 100%;
-  padding: 0 25px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button:after {
-  background-color: #111;
-  border-radius: 8px;
-  content: "";
-  display: block;
-  height: 48px;
-  left: 0;
-  width: 100%;
-  position: absolute;
-  top: -2px;
-  transform: translate(8px, 8px);
-  transition: transform .2s ease-out;
-  z-index: -1;
-}
-
-.button:hover:after {
-  transform: translate(0, 0);
-}
-
-.button:active {
-  background-color: #ffdeda;
-  outline: 0;
-}
-
-.button:hover {
-  outline: 0;
-}
-
-@media (min-width: 768px) {
-  .button {
-    padding: 0 40px;
-  }
-}
-
-.visability {
-    opacity: 0;
-}
 /* ========== */
 
 .active {
@@ -90,3 +23,57 @@ body {
   height: 100%;
   overflow: hidden;
 }
+
+/*turn on this class for modal to show up*/
+.show-user-form {
+  display: flex;
+  background: #72bdeb;
+  color: black;
+  border-radius: 20px;
+  box-sizing: border-box;
+  max-height: 600px;
+  max-width: 600px;
+  height: 80%;
+  padding: 20px;
+  position: relative;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px lightgray;
+  font-size: 1.5em;
+  font-weight: 500;
+  /*transitions modal*/
+  animation: popUPAnimation 1.5s forwards; 
+}
+
+/*turn off this class for modal to close*/
+.hidden {
+  display: none;
+}
+
+/*turn off this class for modal to close*/
+/* #add-user-form {
+  display: none;
+  background: #72bdeb;
+  color: black;
+  border-radius: 20px;
+  box-sizing: border-box;
+  max-height: 600px;
+  max-width: 600px;
+  height: 80%;
+  padding: 20px;
+  position: relative;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px lightgray;
+  font-size: 1.5em;
+  font-weight: 500;
+  /*transitions modal*/
+  /*
+  animation: popUPAnimation 1.5s forwards; 
+} */
+
+

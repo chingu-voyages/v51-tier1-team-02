@@ -11,21 +11,35 @@ console.log(addUserForm);
 const submitUserButton = document.querySelector('#submit-user');
 console.log(submitUserButton);
 
+const closeButton = document.querySelector('#form-close');
+console.log(closeButton);
+
 h1.classList.add("active");
 
 addUserButton.classList.add("active");
 
 function openUserForm () {
     addUserButton.onclick = function () {
-        //addUserForm.classList.add("show-user-form");
-        //document.body.classList.add("active");    
-        //document.body.classList.add("active"); 
+        addUserForm.classList.remove('hidden');
+        addUserForm.classList.add('show-user-form');
+
         alert('the button works');
 
     }
 }; 
 
 openUserForm();
+
+function closeUserForm () {
+    closeButton.onclick = function () {
+        addUserForm.classList.remove('show-user-form');
+        addUserForm.classList.add('hidden');
+    }
+};
+
+closeUserForm();
+
+
 
 
 

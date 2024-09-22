@@ -76,4 +76,17 @@ body {
 }
 /* ========== */
 
-  
+.active {
+  background-color: purple;
+}
+
+/* to allow scrolling */
+.allow-scroll {
+  height: 1000px;
+}
+
+/* to prevent scrolling */
+.no-scroll {
+  height: 100%;
+  overflow: hidden;
+}

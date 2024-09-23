@@ -24,7 +24,7 @@ function renderEvents() {
         deleteEventButton.textContent = "X";
 
         eventItem.addEventListener("click", () =>{
-            console.log("event clicked");
+            console.log(`${event.name} clicked`);
             
         });
         

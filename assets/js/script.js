@@ -11,29 +11,16 @@ const eventContainer = document.getElementById("eventContainer");
 function renderEvents() {
     eventContainer.innerHTML = "";
 
-    const eventTable = document.createElement("table");
-    
-    // Add table headers
-    const headerRow = document.createElement("tr");
-    const headerName = document.createElement("th");
-    headerName.textContent = "Event Name";
-    
-    headerRow.appendChild(headerName);
-    eventTable.appendChild(headerRow);
-
-    // Loop through events and create rows
+    // loop through the events and create a list
+    const row = document.getElementById("events-list");
+    row.innerHTML = "";
+    // Loop through the events and create a list
     events.forEach(event => {
-        const row = document.createElement("tr");
-
-        const nameCell = document.createElement("td");
-        nameCell.textContent = event.name;
-
-        row.appendChild(nameCell);
-        eventTable.appendChild(row);
+        const eventItem = document.createElement("li");
+        eventItem.textContent = event.name;
+        row.appendChild(eventItem);
     });
 
-    // Append the table to the container
-    eventContainer.appendChild(eventTable);
 }
 // Render the events table on refresh
 renderEvents();

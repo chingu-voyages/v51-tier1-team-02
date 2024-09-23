@@ -7,3 +7,8 @@ body {
     height: 100vh;
 }
 
+/* Remove the bullet points on the list of events */
+#events-list {
+    list-style-type: none;
+}
+

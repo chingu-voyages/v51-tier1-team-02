@@ -14,12 +14,23 @@ function renderEvents() {
     // loop through the events and create a list
     const row = document.getElementById("events-list");
     row.innerHTML = "";
+    
     // Loop through the events and create a list
     events.forEach(event => {
         const eventItem = document.createElement("li");
         eventItem.textContent = event.name;
+        const deleteEventButton = document.createElement("button");
+        deleteEventButton.type = "button";
+        deleteEventButton.textContent = "X";
+
+        eventItem.addEventListener("click", () =>{
+            console.log("event clicked");
+            
+        });
+        
         row.appendChild(eventItem);
-    });
+        row.appendChild(deleteEventButton);
+    }); 
 
 }
 // Render the events table on refresh
@@ -54,3 +65,6 @@ addEvent.addEventListener("click", () => {
     eventContainer.appendChild(eventInputBox);
     eventContainer.appendChild(eventInputButton);
 });
+
+
+

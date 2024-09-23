@@ -16,18 +16,49 @@ function renderEvents() {
     row.innerHTML = "";
     
     // Loop through the events and create a list
-    events.forEach(event => {
+    events.forEach((event, index) => {
         const eventItem = document.createElement("li");
         eventItem.textContent = event.name;
         const deleteEventButton = document.createElement("button");
         deleteEventButton.type = "button";
         deleteEventButton.textContent = "X";
 
-        eventItem.addEventListener("click", () =>{
+        // event listener for when an event is clicked should render modify page
+        eventItem.addEventListener("click", () => {
             console.log(`${event.name} clicked`);
             
         });
-        
+
+        // event listener to delete the event from the main page
+        deleteEventButton.addEventListener("click", () => {
+            const eventDeleteWarning = document.createElement("p");
+            eventDeleteWarning.textContent = `Are you sure you want to delete the ${event.name} event?`;
+
+            // Create a "yes" button
+            const yesDeleteButton = document.createElement("button");
+            yesDeleteButton.type = "button";
+            yesDeleteButton.textContent = "Yes";
+
+            // handle the delete action on the "yes" click
+            yesDeleteButton.addEventListener("click", function() {
+                events.splice(index, 1);
+                renderEvents();
+            });
+            // Create and handle the "no" button
+            const noDeleteButton = document.createElement("button");
+            noDeleteButton.type = "button";
+            noDeleteButton.textContent = "No";
+            noDeleteButton.addEventListener("click", function() {
+                row.removeChild(eventDeleteWarning);
+                row.removeChild(yesDeleteButton);
+                row.removeChild(noDeleteButton);
+            });
+            // append the warning and the yes/no buttons
+            row.appendChild(eventDeleteWarning);
+            row.appendChild(yesDeleteButton);
+            row.appendChild(noDeleteButton);
+        });
+        // append the event list and the delete buttons
         row.appendChild(eventItem);
         row.appendChild(deleteEventButton);
     }); 

@@ -12,3 +12,7 @@ body {
     list-style-type: none;
 }
 
+.warning-text {
+    color: red;
+}
+

@@ -33,6 +33,7 @@ function renderEvents() {
         deleteEventButton.addEventListener("click", () => {
             const eventDeleteWarning = document.createElement("p");
             eventDeleteWarning.textContent = `Are you sure you want to delete the ${event.name} event?`;
+            eventDeleteWarning.classList.add("warning-text");
 
             // Create a "yes" button
             const yesDeleteButton = document.createElement("button");

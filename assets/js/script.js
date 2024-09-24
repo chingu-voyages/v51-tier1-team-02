@@ -48,6 +48,7 @@ function createDeleteButton(event, index) {
 // this function asks user whether they want to delete or not
 function confirmDelete(event, index) {
     const warning = document.createElement("p");
+    warning.classList.add("warning-text");
     warning.textContent = `Are you sure you want to delete ${event.name}?`;
 
     // When clicking the yes button, the event will be removed from the events array

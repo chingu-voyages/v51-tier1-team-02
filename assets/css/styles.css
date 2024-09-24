@@ -57,7 +57,24 @@ body {
   width: auto;
 }
 
+.user {
+  border: 5px solid #3eb0d4;
+  height: 200px;
+  width: 500px;
+}
 
+.profile-picture {
+  border: 5px solid #d43ed1;
+  height: 100px;
+  width: 100px;
+}
+
+.profile-name {
+  border: 5px solid #d5a53f;
+  height: 70px;
+  width: 100px;
+
+}
 
 /*turn off this class for modal to close*/
 /* #add-user-form {

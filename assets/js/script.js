@@ -17,6 +17,12 @@ function renderEvents() {
         row.appendChild(eventItem);
     });
 }
+
+// The event details will render here.  Currently there is just an H2 with the event name
+function renderEventDetails(eventName) {
+    eventMods.innerHTML = `<h2>${eventName}</h2>`;
+}
+
 // Creates an individual event list item and a delete buttton
 function createEventItem(event,index) {
     const eventItem = document.createElement("li");
@@ -30,48 +36,6 @@ function createEventItem(event,index) {
     listItem.appendChild(deleteEventButton);
 
     return listItem;
-}
-// The event details will render here.  Currently there is just an H2 with the event name
-function renderEventDetails(eventName) {
-    eventMods.innerHTML = `<h2>${eventName}</h2>`;
-}
-
-// this function creates a delete button and listens for the confirm delete event
-function createDeleteButton(event, index) {
-    const deleteEventButton = document.createElement("button");
-    deleteEventButton.type = "button";
-    deleteEventButton.textContent = "X";
-    deleteEventButton.addEventListener("click", () => confirmDelete(event, index));
-    return deleteEventButton;
-}
-
-// this function asks user whether they want to delete or not
-function confirmDelete(event, index) {
-    const warning = document.createElement("p");
-    warning.classList.add("warning-text");
-    warning.textContent = `Are you sure you want to delete ${event.name}?`;
-
-    // When clicking the yes button, the event will be removed from the events array
-    const yesButton = document.createElement("button");
-    yesButton.textContent = "Yes";
-    yesButton.addEventListener("click", () => {
-        events.splice(index, 1);
-        renderEvents();
-    });
-
-    // When clicking the no button, the event will not be removed and the warning and 
-    // yes/no buttons will go away
-    const noButton = document.createElement("button");
-    noButton.textContent = "No";
-    noButton.addEventListener("click", () => {
-        warning.remove();
-        yesButton.remove();
-        noButton.remove();
-    });
-
-    row.appendChild(warning);
-    row.appendChild(yesButton);
-    row.appendChild(noButton);
 }
 
 // This function adds the input field so the user can type a new event
@@ -110,6 +74,44 @@ function createAddButton(input) {
         }
     });
     return button;
+}
+
+// this function creates a delete button and listens for the confirm delete event
+function createDeleteButton(event, index) {
+    const deleteEventButton = document.createElement("button");
+    deleteEventButton.type = "button";
+    deleteEventButton.textContent = "X";
+    deleteEventButton.addEventListener("click", () => confirmDelete(event, index));
+    return deleteEventButton;
+}
+
+// this function asks user whether they want to delete or not
+function confirmDelete(event, index) {
+    const warning = document.createElement("p");
+    warning.classList.add("warning-text");
+    warning.textContent = `Are you sure you want to delete ${event.name}?`;
+
+    // When clicking the yes button, the event will be removed from the events array
+    const yesButton = document.createElement("button");
+    yesButton.textContent = "Yes";
+    yesButton.addEventListener("click", () => {
+        events.splice(index, 1);
+        renderEvents();
+    });
+
+    // When clicking the no button, the event will not be removed and the warning and 
+    // yes/no buttons will go away
+    const noButton = document.createElement("button");
+    noButton.textContent = "No";
+    noButton.addEventListener("click", () => {
+        warning.remove();
+        yesButton.remove();
+        noButton.remove();
+    });
+
+    row.appendChild(warning);
+    row.appendChild(yesButton);
+    row.appendChild(noButton);
 }
 
 addEvent.addEventListener("click", addNewEvent);

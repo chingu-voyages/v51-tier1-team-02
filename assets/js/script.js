@@ -2,7 +2,7 @@
 let events = [
     {name: "Movie", eventID: 1234},
     {name: "Dinner Party",eventID: 1235},
-    {name: "Ski Tip",eventID: 12534},
+    {name: "Ski Trip",eventID: 12534},
 ];
 const addEvent = document.getElementById("addEvent");
 const eventContainer = document.getElementById("eventContainer");

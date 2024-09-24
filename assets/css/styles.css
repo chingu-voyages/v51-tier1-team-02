@@ -1,18 +1,27 @@
 /* Feel free to erase all this -- Reinaldo -- */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 }
 
 /* Remove the bullet points on the list of events */
 #events-list {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .warning-text {
-    color: red;
+  color: red;
 }
 
+/* Result div  */
+.expense-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.result {
+  border: 1px solid #ccc;
+}

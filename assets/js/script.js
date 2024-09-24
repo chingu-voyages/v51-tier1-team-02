@@ -24,9 +24,14 @@ function renderEvents() {
         deleteEventButton.textContent = "X";
 
         // event listener for when an event is clicked should render modify page
+        const eventMods = document.getElementById("event-modifications");
+
         eventItem.addEventListener("click", () => {
             console.log(`${event.name} clicked`);
-            
+            eventMods.innerHTML = "";
+            const eventHeader = document.createElement("h2");
+            eventHeader.textContent = `${event.name}`;
+            eventMods.appendChild(eventHeader);
         });
 
         // event listener to delete the event from the main page
@@ -71,6 +76,7 @@ renderEvents();
 // Click the add button to add an event
 addEvent.addEventListener("click", () => {
     console.log("clicked");
+
 
     // Create a new input element
     const eventInputBox = document.createElement("input");

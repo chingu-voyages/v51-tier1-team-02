@@ -75,6 +75,8 @@ function createAddButton(input) {
             const newEvent = {name: eventName, eventItem: Date.now()};
             events.push(newEvent);
             renderEvents();
+            // The new event will automatically render so you can add all member and expense information
+            renderEventDetails(newEvent.name);
             eventContainer.innerHTML = "";
         }
     });

@@ -112,20 +112,23 @@ addEvent.addEventListener("click", () => {
 // Expense functions
 let display = [];
 function expenseDiv() {
-  group.forEach((item) => {
+  group.forEach((item, index) => {
     display = `
     <div class="expense-container">
         <h3>Event: ${item.name}</h3>
-        <spam> $${item.expense}</spam>
-        <button id="delete-btn">Delete</button>
+        <span> $${item.expense}</span>
+        <button onclick=(${deleteBtn()}) id="delete-btn">Delete</button>
         <button id="edit-btn" >Edit</button>
+        <p>${index}</p>
     </div>
     `;
   });
+
   document.getElementById("result").innerHTML += display;
-}
-function deleteBtn() {
-  console.log("hi");
+
+  function deleteBtn() {
+    console.log("hi");
+  }
 }
 
 /**************************************************/

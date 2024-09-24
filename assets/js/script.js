@@ -36,6 +36,7 @@ function renderEventDetails(eventName) {
     eventMods.innerHTML = `<h2>${eventName}</h2>`;
 }
 
+// this function creates a delete button and listens for the confirm delete event
 function createDeleteButton(event, index) {
     const deleteEventButton = document.createElement("button");
     deleteEventButton.type = "button";
@@ -44,10 +45,12 @@ function createDeleteButton(event, index) {
     return deleteEventButton;
 }
 
+// this function asks user whether they want to delete or not
 function confirmDelete(event, index) {
     const warning = document.createElement("p");
     warning.textContent = `Are you sure you want to delete ${event.name}?`;
 
+    // When clicking the yes button, the event will be removed from the events array
     const yesButton = document.createElement("button");
     yesButton.textContent = "Yes";
     yesButton.addEventListener("click", () => {
@@ -55,15 +58,22 @@ function confirmDelete(event, index) {
         renderEvents();
     });
 
+    // When clicking the no button, the event will not be removed and the warning and 
+    // yes/no buttons will go away
     const noButton = document.createElement("button");
     noButton.textContent = "No";
-    noButton.addEventListener("click", () => warning.remove());
+    noButton.addEventListener("click", () => {
+        warning.remove();
+        yesButton.remove();
+        noButton.remove();
+    });
 
     row.appendChild(warning);
     row.appendChild(yesButton);
     row.appendChild(noButton);
 }
 
+// This function adds the input field so the user can type a new event
 function addNewEvent() {
     if(!eventContainer.querySelector("input")) {
         const eventInputBox = createInputElement();
@@ -73,6 +83,8 @@ function addNewEvent() {
     }
 }
 
+// This function creates the input field and returns the input to be used in the event array
+// the input value is used in the createAddButton function
 function createInputElement() {
     const input = document.createElement("input");
     input.type = "text";
@@ -80,6 +92,9 @@ function createInputElement() {
     return input;
 }
 
+// This function adds an "Add" button when the "Add" button is clicked
+// the input value is added to an new object "newEvent" which is pushed to the "events"
+// array.  Finally the field is cleared.
 function createAddButton(input) {
     const button = document.createElement("button");
     button.type = "button";

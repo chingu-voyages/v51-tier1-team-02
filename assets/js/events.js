@@ -115,6 +115,14 @@ function confirmDelete(event, index) {
     yesButton.addEventListener("click", () => {
         events.splice(index, 1);
         renderEvents();
+
+        // Deletes the innerHTML if the selected event is also deleted
+        if(eventHeader.innerText === event.name){
+            eventHeader.innerHTML = "";
+            eventMembers.innerHTML = "";
+            eventExpenses.innerHTML = "";
+        }
+        
     });
 
     // When clicking the no button, the event will not be removed and the warning and 

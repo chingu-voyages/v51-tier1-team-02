@@ -33,6 +33,7 @@ function createEventItem(event,index) {
     const eventItem = document.createElement("li");
     eventItem.textContent = event.name;
     eventItem.classList.add("event-item");
+    eventItem.classList.add("event-button");
 
     // Create a container for each event and its delete button
     const eventContainerItem = document.createElement("div");

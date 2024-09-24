@@ -24,7 +24,7 @@ function openUserForm () {
         addUserForm.classList.remove('hidden');
         addUserForm.classList.add('show-user-form');
 
-        alert('the button works');
+        //alert('the button works');
 
     }
 }; 
@@ -47,10 +47,10 @@ const profilePic = document.querySelector('#profile-picture');
 
 const username = document.querySelector('#username');
 const usernameInput = username.value;
-console.log(usernameInput);
+//console.log(usernameInput);
 
 
-function example() {
+/* function example() {
   const username1 = document.querySelector('#username').value;
   console.log(username1);
 
@@ -59,10 +59,24 @@ function example() {
   //value is showing up as undefined
   //alert(`hello, your username is ${username1}`);
 };
-example();
+example(); */
 
+/* function submitUser () {
+  submitUserButton.onclick = function () {
+    const username1 = document.getElementById("username").value;
 
+    alert(`hello, your username is ${username1}`);
+    console.log(username1);
+  }
+}; 
 
+submitUser();  */
+
+const getInformation = document.getElementById("get-information");
+getInformation.addEventListener("submit", (e) => {
+  e.preventDefault()
+  console.log(`${usernameInput} has been submitted!`);
+});
 
 
 

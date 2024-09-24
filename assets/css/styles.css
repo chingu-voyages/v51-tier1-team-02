@@ -52,6 +52,11 @@ body {
   display: none;
 }
 
+#anon {
+  height: 30px;
+  width: auto;
+}
+
 /*turn off this class for modal to close*/
 /* #add-user-form {
   display: none;

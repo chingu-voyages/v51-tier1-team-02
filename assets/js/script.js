@@ -32,15 +32,20 @@ function renderEventDetails(eventName) {
 function createEventItem(event,index) {
     const eventItem = document.createElement("li");
     eventItem.textContent = event.name;
+    eventItem.classList.add("event-item");
+
+    // Create a container for each event and its delete button
+    const eventContainerItem = document.createElement("div");
+    eventContainerItem.classList.add("event-container"); // add this class to apply the css
 
     const deleteEventButton = createDeleteButton(event, index);
     eventItem.addEventListener("click", () => renderEventDetails(event.name));
 
-    const listItem = document.createElement("div");
-    listItem.appendChild(eventItem);
-    listItem.appendChild(deleteEventButton);
+    // const listItem = document.createElement("div");
+    eventContainerItem.appendChild(eventItem);
+    eventContainerItem.appendChild(deleteEventButton);
 
-    return listItem;
+    return eventContainerItem;
 }
 
 // This function adds the input field so the user can type a new event
@@ -86,8 +91,13 @@ function createAddButton(input) {
 // this function creates a delete button and listens for the confirm delete event
 function createDeleteButton(event, index) {
     const deleteEventButton = document.createElement("button");
+    // Create a container for each event and its delete button
+    const eventContainerItem = document.createElement("div");
+    eventContainerItem.classList.add("event-container"); // add this class to apply the css
     deleteEventButton.type = "button";
     deleteEventButton.textContent = "X";
+    deleteEventButton.classList.add("delete-button");
+    
     deleteEventButton.addEventListener("click", () => confirmDelete(event, index));
     return deleteEventButton;
 }

@@ -1,11 +1,3 @@
-/* Feel free to erase all this -- Reinaldo -- */
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-}
 
 /* Remove the bullet points on the list of events */
 #events-list {
@@ -16,3 +8,30 @@ body {
     color: red;
 }
 
+/* Container for each event */
+.event-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px; /* Adjust the width as needed */
+    padding: 5px;
+    border-bottom: 1px solid #ccc; /* Optional: adds a separator between events */
+}
+
+/* Style for the event name */
+.event-item {
+    margin: 0;
+    list-style: none; /* Remove default list styling */
+}
+
+/* Style for the delete button */
+.delete-button {
+    margin-left: 10px; /* Space between the event name and 'X' button */
+    border: none;
+    padding: 2px 5px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}

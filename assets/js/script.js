@@ -7,7 +7,10 @@ let events = [
 const addEvent = document.getElementById("addEvent");
 const eventContainer = document.getElementById("eventContainer");
 const row = document.getElementById("events-list");
-const eventMods = document.getElementById("event-modifications");
+const eventHeader = document.getElementById("event-header");
+const eventMembers = document.getElementById("event-members");
+const eventExpenses = document.getElementById("event-expenses");
+
 
 // function will display array of events
 function renderEvents() {
@@ -20,7 +23,9 @@ function renderEvents() {
 
 // The event details will render here.  Currently there is just an H2 with the event name
 function renderEventDetails(eventName) {
-    eventMods.innerHTML = `<h2>${eventName}</h2>`;
+    eventHeader.innerHTML = `<h2>${eventName}</h2>`;
+    eventMembers.innerHTML = `<h3>members</h3>`;
+    eventExpenses.innerHTML = `<h3>expenses</h3>`;
 }
 
 // Creates an individual event list item and a delete buttton

@@ -2,107 +2,100 @@
 let events = [
     {name: "Movie", eventID: 1234},
     {name: "Dinner Party",eventID: 1235},
-    {name: "Ski Tip",eventID: 12534},
+    {name: "Ski Trip",eventID: 12534},
 ];
 const addEvent = document.getElementById("addEvent");
 const eventContainer = document.getElementById("eventContainer");
+const row = document.getElementById("events-list");
+const eventMods = document.getElementById("event-modifications");
 
-// display array
+// function will display array of events
 function renderEvents() {
-    eventContainer.innerHTML = "";
-
-    // loop through the events and create a list
-    const row = document.getElementById("events-list");
     row.innerHTML = "";
-    
-    // Loop through the events and create a list
     events.forEach((event, index) => {
-        const eventItem = document.createElement("li");
-        eventItem.textContent = event.name;
-        const deleteEventButton = document.createElement("button");
-        deleteEventButton.type = "button";
-        deleteEventButton.textContent = "X";
-
-        // event listener for when an event is clicked should render modify page
-        const eventMods = document.getElementById("event-modifications");
-
-        eventItem.addEventListener("click", () => {
-            console.log(`${event.name} clicked`);
-            eventMods.innerHTML = "";
-            const eventHeader = document.createElement("h2");
-            eventHeader.textContent = `${event.name}`;
-            eventMods.appendChild(eventHeader);
-        });
-
-        // event listener to delete the event from the main page
-        deleteEventButton.addEventListener("click", () => {
-            const eventDeleteWarning = document.createElement("p");
-            eventDeleteWarning.textContent = `Are you sure you want to delete the ${event.name} event?`;
-            eventDeleteWarning.classList.add("warning-text");
-
-            // Create a "yes" button
-            const yesDeleteButton = document.createElement("button");
-            yesDeleteButton.type = "button";
-            yesDeleteButton.textContent = "Yes";
-
-            // handle the delete action on the "yes" click
-            yesDeleteButton.addEventListener("click", function() {
-                events.splice(index, 1);
-                renderEvents();
-            });
-            // Create and handle the "no" button
-            const noDeleteButton = document.createElement("button");
-            noDeleteButton.type = "button";
-            noDeleteButton.textContent = "No";
-            noDeleteButton.addEventListener("click", function() {
-                row.removeChild(eventDeleteWarning);
-                row.removeChild(yesDeleteButton);
-                row.removeChild(noDeleteButton);
-            });
-            // append the warning and the yes/no buttons
-            row.appendChild(eventDeleteWarning);
-            row.appendChild(yesDeleteButton);
-            row.appendChild(noDeleteButton);
-        });
-        // append the event list and the delete buttons
+        const eventItem = createEventItem(event, index);
         row.appendChild(eventItem);
-        row.appendChild(deleteEventButton);
-    }); 
-
+    });
 }
-// Render the events table on refresh
-renderEvents();
+// Creates an individual event list item and a delete buttton
+function createEventItem(event,index) {
+    const eventItem = document.createElement("li");
+    eventItem.textContent = event.name;
 
-// Click the add button to add an event
-addEvent.addEventListener("click", () => {
-    console.log("clicked");
+    const deleteEventButton = createDeleteButton(event, index);
+    eventItem.addEventListener("click", () => renderEventDetails(event.name));
 
+    const listItem = document.createElement("div");
+    listItem.appendChild(eventItem);
+    listItem.appendChild(deleteEventButton);
 
-    // Create a new input element
-    const eventInputBox = document.createElement("input");
-    eventInputBox.type = "text";
-    eventInputBox.placeholder = "Enter event name";
-    
-    const eventInputButton = document.createElement("button");
-    eventInputButton.type = "button";
-    eventInputButton.textContent = "Add";
+    return listItem;
+}
+// The event details will render here.  Currently there is just an H2 with the event name
+function renderEventDetails(eventName) {
+    eventMods.innerHTML = `<h2>${eventName}</h2>`;
+}
 
-    eventInputButton.addEventListener("click", () =>{
-        const eventName = eventInputBox.value;
-        console.log(eventName);
+function createDeleteButton(event, index) {
+    const deleteEventButton = document.createElement("button");
+    deleteEventButton.type = "button";
+    deleteEventButton.textContent = "X";
+    deleteEventButton.addEventListener("click", () => confirmDelete(event, index));
+    return deleteEventButton;
+}
+
+function confirmDelete(event, index) {
+    const warning = document.createElement("p");
+    warning.textContent = `Are you sure you want to delete ${event.name}?`;
+
+    const yesButton = document.createElement("button");
+    yesButton.textContent = "Yes";
+    yesButton.addEventListener("click", () => {
+        events.splice(index, 1);
+        renderEvents();
+    });
+
+    const noButton = document.createElement("button");
+    noButton.textContent = "No";
+    noButton.addEventListener("click", () => warning.remove());
+
+    row.appendChild(warning);
+    row.appendChild(yesButton);
+    row.appendChild(noButton);
+}
+
+function addNewEvent() {
+    if(!eventContainer.querySelector("input")) {
+        const eventInputBox = createInputElement();
+        const eventInputButton = createAddButton(eventInputBox);
+        eventContainer.appendChild(eventInputBox);
+        eventContainer.appendChild(eventInputButton);
+    }
+}
+
+function createInputElement() {
+    const input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = "Enter event name";
+    return input;
+}
+
+function createAddButton(input) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = "Add";
+    button.addEventListener("click", () => {
+        const eventName = input.value.trim();
         if(eventName) {
-            const newEvent = {name:eventName, eventID: Date.now() };
-            events.push(newEvent); // Add event to the array
-            console.log("Event add:", newEvent.name);
-            console.log("Event ID:",newEvent.eventID);
-            eventInputBox.value = "";
+            const newEvent = {name: eventName, eventItem: Date.now()};
+            events.push(newEvent);
             renderEvents();
+            eventContainer.innerHTML = "";
         }
-    })
-    // Append the input box to the container
-    eventContainer.appendChild(eventInputBox);
-    eventContainer.appendChild(eventInputButton);
-});
+    });
+    return button;
+}
 
+addEvent.addEventListener("click", addNewEvent);
 
-
+renderEvents();

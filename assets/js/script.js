@@ -43,9 +43,23 @@ closeUserForm();
 //tomorrow, we add the text inputs (and maybe picture input). 
 //then have the inputs show on a div on the screen after pressing "submit"
 
+const profilePic = document.querySelector('#profile-picture');
+
+const username = document.querySelector('#username');
+const usernameInput = username.value;
+console.log(usernameInput);
 
 
+function example() {
+  const username1 = document.querySelector('#username').value;
+  console.log(username1);
 
+  const orangeDiv = document.querySelector('#example-name');
+  orangeDiv.innerText = username1.value;
+  //value is showing up as undefined
+  //alert(`hello, your username is ${username1}`);
+};
+example();
 
 
 

@@ -17,11 +17,27 @@ function renderEvents() {
     
     // Loop through the events and create a list
     events.forEach((event, index) => {
+        // Create a container for each event and its delete button
+        const eventContainerItem = document.createElement("div");
+        eventContainerItem.classList.add("event-container"); // add this class to apply the css
+        
+        // Create the event item (event name)
         const eventItem = document.createElement("li");
         eventItem.textContent = event.name;
+        eventItem.classList.add("event-item");
+
+        // Create the delete button
         const deleteEventButton = document.createElement("button");
         deleteEventButton.type = "button";
         deleteEventButton.textContent = "X";
+        deleteEventButton.classList.add("delete-button");
+
+        // Append the event item and delete button to the container
+        eventContainerItem.appendChild(eventItem);
+        eventContainerItem.appendChild(deleteEventButton);
+
+        // Append the container to the row
+        row.appendChild(eventContainerItem);
 
         // event listener for when an event is clicked should render modify page
         const eventMods = document.getElementById("event-modifications");
@@ -64,9 +80,7 @@ function renderEvents() {
             row.appendChild(yesDeleteButton);
             row.appendChild(noDeleteButton);
         });
-        // append the event list and the delete buttons
-        row.appendChild(eventItem);
-        row.appendChild(deleteEventButton);
+
     }); 
 
 }
@@ -99,9 +113,6 @@ addEvent.addEventListener("click", () => {
             renderEvents();
         }
     })
-    // Append the input box to the container
-    eventContainer.appendChild(eventInputBox);
-    eventContainer.appendChild(eventInputButton);
 });
 
 

@@ -57,7 +57,7 @@ body {
   width: auto;
 }
 
-.user {
+.user-container {
   border: 5px solid #3eb0d4;
   height: 200px;
   width: 500px;

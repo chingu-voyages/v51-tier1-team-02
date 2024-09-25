@@ -39,11 +39,11 @@ closeUserForm();
 /************************************************************/
 
 //this code worked!
-const getInformation = document.getElementById("get-information");
+/* const getInformation = document.getElementById("get-information");
 getInformation.addEventListener("submit", (e) => {
   e.preventDefault() //this prevents the page from refreshing
-  console.log(`${/*dont know what to put here*/} has been submitted!`);
-});
+  console.log(` has been submitted!`);
+}); */
 
 
 //variables

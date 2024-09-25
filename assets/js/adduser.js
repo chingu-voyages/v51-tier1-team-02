@@ -137,7 +137,7 @@ function renderUsers() {
 renderUsers();
 
 // Click the add button to add a user
-addUser.addEventListener("click", () => {
+addUserButton.addEventListener("click", () => {
   console.log("clicked");
 
   // Create a new input element

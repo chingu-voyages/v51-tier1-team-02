@@ -1,6 +1,6 @@
 
 const h1 = document.querySelector('#h1text');
-console.logh(h1);
+console.log(h1);
 
 const addUserButton = document.querySelector('#add-user');
 console.log(addUserButton);

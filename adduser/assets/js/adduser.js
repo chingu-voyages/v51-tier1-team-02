@@ -169,6 +169,8 @@ submitUserButton.addEventListener('click', () => {
   templateusersList.insertAdjacentHTML('beforeend', `<li>${inputValue}</li>`);
 });
 
+//TO DO: add delete buttons for users, add an alert message for deleting, clean up modal buttons and styling, auto generated id
+
 //})
 
 /********************************************************************* *

@@ -13,10 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const addEvent = document.getElementById("addEvent");
     const eventContainer = document.getElementById("eventContainer");
     const row = document.getElementById("events-list");
-    const eventHeader = document.getElementById("event-header");
-    const eventMembers = document.getElementById("event-members");
-    const eventExpenses = document.getElementById("event-expenses");
-    
+    const eventModificationContainer = document.getElementById("event-modifications");
     
     // function will display array of events
     function renderEvents() {
@@ -29,9 +26,18 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // The event details will render here.  Currently there is just an H2 with the event name
     function renderEventDetails(eventName) {
-        eventHeader.innerHTML = `<h2>${eventName}</h2>`;
-        eventMembers.innerHTML = `<h3>members</h3>`;
-        eventExpenses.innerHTML = `<h3>expenses</h3>`;
+
+        const eventHeader = document.createElement("h2");
+        eventHeader.textContent = `${eventName}`;
+        const eventMembers = document.createElement("h3");
+        eventMembers.textContent = "Members";
+        const eventExpenses = document.createElement("h3");
+        eventExpenses.textContent = "Expenses";
+
+        eventModificationContainer.appendChild(eventHeader);
+        eventModificationContainer.appendChild(eventMembers);
+        eventModificationContainer.appendChild(eventExpenses);
+
     }
     
     // Creates an individual event list item and a delete buttton

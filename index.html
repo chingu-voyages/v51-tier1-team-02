@@ -5,28 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Team 2 Practice website</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/expense.js" defer></script>
   </head>
   <body>
     <!-- Events section -->
-    <section id="events">
-      <h2>User Events</h2>
-      <div id="list_of_events">
-        <ul id="events-list"></ul>
-      </div>
-      <button id="addEvent">+</button>
-      <div id="eventContainer"></div>
-    </section>
-    <section id="event-modifications">
-      <div id="event-header"></div>
-    </section>
+
     <!--Box to display divided costs-->
     <section class="expense-box">
-      <span></span>
-      <label for="expense"></label>
-      <input id="expense-input" type="number" placeholder="Add Expense" />
-      <div class="result" id="result"></div>
+      <input id="expenseName" type="text" placeholder="Expense Name" />
+      <input id="expenseAmount" type="text" placeholder="Expense Amount" />
+      <button onclick="addExpense()">Add Expense</button>
+      <div class="result" id="result">
+        <ul id="expenseList"></ul>
+
+        <h3>
+          Total Amount:
+          <span id="totalAmount">0</span>
+        </h3>
+      </div>
     </section>
   </body>
 </html>
-

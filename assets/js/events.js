@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const eventContainer = document.getElementById("eventContainer");
     const row = document.getElementById("events-list");
     const eventModificationContainer = document.getElementById("event-modifications");
+
+    let eventHeader, eventMembers, eventExpenses;
     
     // function will display array of events
     function renderEvents() {
@@ -26,18 +28,20 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // The event details will render here.  Currently there is just an H2 with the event name
     function renderEventDetails(eventName) {
-
-        const eventHeader = document.createElement("h2");
+        eventModificationContainer.innerHTML = "";
+        eventHeader = document.createElement("h2");
         eventHeader.textContent = `${eventName}`;
-        const eventMembers = document.createElement("h3");
+        
+        eventMembers = document.createElement("h3");
         eventMembers.textContent = "Members";
-        const eventExpenses = document.createElement("h3");
+        
+        eventExpenses = document.createElement("h3");
         eventExpenses.textContent = "Expenses";
-
+        
         eventModificationContainer.appendChild(eventHeader);
         eventModificationContainer.appendChild(eventMembers);
         eventModificationContainer.appendChild(eventExpenses);
-
+        
     }
     
     // Creates an individual event list item and a delete buttton
@@ -129,10 +133,8 @@ document.addEventListener("DOMContentLoaded", function() {
             renderEvents();
     
             // Deletes the innerHTML if the selected event is also deleted
-            if(eventHeader.innerText === event.name){
-                eventHeader.innerHTML = "";
-                eventMembers.innerHTML = "";
-                eventExpenses.innerHTML = "";
+            if(eventHeader.textContent === event.name){
+                eventModificationContainer.innerHTML = "";
             }
             
         });

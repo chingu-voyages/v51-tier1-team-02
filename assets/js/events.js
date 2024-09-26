@@ -27,23 +27,72 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
     // The event details will render here.  Currently there is just an H2 with the event name
-    function renderEventDetails(eventName) {
+    function renderEventDetails(eventName, index) {
         eventModificationContainer.innerHTML = "";
+
+        // Create a container to hold the event name and edit button
+        const eventNameContainer = document.createElement("div");
+        eventNameContainer.classList.add("event-name-container");
+
+        // Create an H2 for the event name
         eventHeader = document.createElement("h2");
         eventHeader.textContent = `${eventName}`;
         
+        // Create the 'Edit Event Name' button
+        const editEventNameButton = document.createElement("button");
+        editEventNameButton.textContent = "Edit Event Name";
+        editEventNameButton.classList.add("edit-event-name-button");
+
+        // When clicking the 'Edit' button, switch the event name to a text box using a function
+        editEventNameButton.addEventListener("click", () => startEditingEventName(eventName, index));
+
+        // Append the event name and edit button to the container
+        eventNameContainer.appendChild(eventHeader);
+        eventNameContainer.appendChild(editEventNameButton);
+
         eventMembers = document.createElement("h3");
         eventMembers.textContent = "Members";
         
         eventExpenses = document.createElement("h3");
         eventExpenses.textContent = "Expenses";
         
-        eventModificationContainer.appendChild(eventHeader);
+        // Append everything to the main modification container
+        eventModificationContainer.appendChild(eventNameContainer);
         eventModificationContainer.appendChild(eventMembers);
         eventModificationContainer.appendChild(eventExpenses);
         
     }
     
+    // a function to switch the event name to editing mode
+    function startEditingEventName(eventName, index) {
+        eventModificationContainer.innerHTML = ""; // Clear existing content
+
+        // Create an input text box with the current event name
+        const editInput = document.createElement("input");
+        editInput.type = "text";
+        editInput.value = eventName;
+        editInput.classList.add("edit-event-name-input");
+
+        // Create a 'Done Editing' button
+        const doneButton = document.createElement("button");
+        doneButton.textContent = "Done editing";
+        doneButton.classList.add("done-button");
+
+        // Save the edited name when 'Done editing' is clicked
+        doneButton.addEventListener("click", () => {
+            const editedEventName = editInput.value.trim();
+            if (editedEventName) {
+                events[index].name = editedEventName; // Update the event name in the array
+                renderEvents(); // Re-render the events list
+                renderEventDetails(editedEventName, index); // SHow the updated event details
+            }
+        });
+
+        eventModificationContainer.appendChild(editInput);
+        eventModificationContainer.append(doneButton);
+
+    }
+
     // Creates an individual event list item and a delete buttton
     function createEventItem(event,index) {
         const eventItem = document.createElement("li");
@@ -53,10 +102,10 @@ document.addEventListener("DOMContentLoaded", function() {
     
         // Create a container for each event and its delete button
         const eventContainerItem = document.createElement("div");
-        eventContainerItem.classList.add("event-container"); // add this class to apply the css
+        eventContainerItem.classList.add("event-container"); 
     
         const deleteEventButton = createDeleteButton(event, index);
-        eventItem.addEventListener("click", () => renderEventDetails(event.name));
+        eventItem.addEventListener("click", () => renderEventDetails(event.name, index));
     
         // const listItem = document.createElement("div");
         eventContainerItem.appendChild(eventItem);
@@ -84,9 +133,10 @@ document.addEventListener("DOMContentLoaded", function() {
         return input;
     }
     
-    // This function adds an "Add" button when the "Add" button is clicked
-    // the input value is added to an new object "newEvent" which is pushed to the "events"
-    // array.  Finally the field is cleared.
+    // This function adds an "Add" button. 
+    // When the "Add" button is clicked, the input value is added to 
+    // a new object "newEvent" which is pushed to the "events" array.
+    // Finally the field is cleared.
     function createAddButton(input) {
         const button = document.createElement("button");
         button.type = "button";

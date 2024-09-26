@@ -47,3 +47,36 @@
 .event-button:hover {
     font-weight: bold; /* Bold on hover */
 }
+
+/* Container for the event name and the edit button */
+.event-name-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px; /* Adjust the width as needed */
+    padding: 5px;
+    border-bottom: 1px solid #ccc; /* Optional: adds a separator between events */
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; Adjust width as needed */
+}
+
+/* Event name edit button styling */
+.edit-event-name-button {
+    margin-left: 10px; /* Space between the event name and the button */
+    padding: 2px 5px;
+    cursor: pointer;
+}
+
+.edit-event-name-button:hover {
+    background-color: #4CAF50; /* Green background on hover */
+    color: white;
+}
+
+.edit-event-name-input {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 3px;
+    margin: 10px;
+}

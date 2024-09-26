@@ -25,7 +25,7 @@ function addExpense() {
     clearInputs();
     // split();
   } else {
-    alert("Nope");
+    alert("Please enter an event name and amount.");
   }
 }
 

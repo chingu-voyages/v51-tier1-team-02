@@ -72,9 +72,11 @@ let users = [
 //const for add user button
 //const addUserButton = document.querySelector('#add-user');
 //const for container of users that appear
+
+/*
 const userContainer = document.getElementById("user-container");
 
-let userGroup = []; /* array for pushing users*/
+let userGroup = []; / array for pushing users/
 
 // display users array
 function renderUsers() {
@@ -149,14 +151,14 @@ renderUsers();
 submitUserButton.addEventListener("click", () => {
   console.log("clicked");
 
-/********************************************************************* */
+/*********************************************************************/
 //trial code for submit button
 
 //button
 //const submitUserButton1 = document.getElementById('submit-user');
 
 //input
-const username = document.getElementById('username');
+//const username = document.getElementById('username');
 
 //ul
 const templateusersList = document.getElementById('users-list');
@@ -167,11 +169,9 @@ submitUserButton.addEventListener('click', () => {
   templateusersList.insertAdjacentHTML('beforeend', `<li>${inputValue}</li>`);
 });
 
-//button.addEventListener('click', () => {
-    //showName((username.value))
 //})
 
-/********************************************************************* */
+/********************************************************************* *
 
   // Create a new input element
   const userInputBox = document.createElement("input");
@@ -185,16 +185,16 @@ submitUserButton.addEventListener('click', () => {
     const userName = userInputBox.value;
     let userValue = parseFloat(
       document.getElementById("user-input").value
-    ); /* user input */
+    ); /* user input /
     if (userName) {
       const newUser = { name: userName, userlistID: Date.now(), expense: value };
-      userGroup.push(newUser); /* for expense div */
+      userGroup.push(newUser); /* for expense div /
       users.push(newUser); // Add user to the array
       console.log("User add:", newUser.name);
       console.log("User ID:", newUser.userlistID);
       userInputBox.value = "";
       renderUsers();
-      userDiv(); /* expense function */
+      userDiv(); /* expense function /
     }
   });
   // Append the input box to the container
@@ -202,7 +202,7 @@ submitUserButton.addEventListener('click', () => {
   userContainer.appendChild(userInputButton);
 });
 
-/**************************************************/
+/**************************************************
 
 // User display functions
 let userDisplay = [];
@@ -226,6 +226,21 @@ function userDiv() {
     console.log("hi");
   }
 }
+
+
+
+**********************/
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -36,9 +36,9 @@ function render() {
     li.classList.add("expense-item"); /* Todo */
     li.innerHTML = `
       <span>${expen.name}: $${expen.amount.toFixed(2)}</span>
-      <input type="number value="${expen.amount}" oninput="editExpense(${
-      expen.id
-    }, this.value)" >
+      <input id="input-amount" type="number value="${
+        expen.amount
+      }" oninput="editExpense(${expen.id}, this.value)" >
       <button onclick="deleteExpense(${expen.id})">Delete</button>
     `;
     expenseList.appendChild(li);
@@ -61,6 +61,7 @@ function editExpense(id, newAmount) {
   const expense = expenses.find((exp) => exp.id === id);
   if (expense) {
     expense.amount = parseFloat(newAmount) || 0;
+    updateTotal();
   }
 }
 

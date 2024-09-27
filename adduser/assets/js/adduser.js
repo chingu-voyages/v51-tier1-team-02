@@ -39,9 +39,18 @@ function closeUserForm () {
 
 closeUserForm();
 
+const profilePic = document.querySelector('#profile-picture');
+const username = document.querySelector('#username');
+const usernameInput = username.value;
 
+const templateusersList = document.getElementById('users-list');
 
-
+//when button is clicked this adds a user to the list
+submitNameButton.addEventListener('click', () => {
+  const inputValue = username.value;
+  const usernameId = "id" + Math.random().toString(16).slice(2);
+  templateusersList.insertAdjacentHTML('beforeend', `<li>${inputValue}</li> <p class = "hidden">${usernameId}</p>`);
+});
 
 /************************************************************/
 
@@ -56,18 +65,38 @@ getInformation.addEventListener("submit", (e) => {
 
 
 //variables
-const profilePic = document.querySelector('#profile-picture');
 
-const username = document.querySelector('#username');
-const usernameInput = username.value;
 //console.log(usernameInput);
 
 // Add Username
-let users = [
-  { name: "Bob", userlistID: 1234, expense: 100 },
-  { name: "Jake", userlistID: 1235, expense: 200 },
-  { name: "Sally", userlistID: 12534, expense: 300 },
-];
+//let users = [
+//  { name: "Bob", userlistID: 1234, expense: 100 },
+ // { name: "Jake", userlistID: 1235, expense: 200 },
+//  { name: "Sally", userlistID: 12534, expense: 300 },
+//];
+
+//ul
+
+
+
+
+
+
+
+
+
+
+
+  // Loop through the users and create a list
+  //inputValue.forEach((user) => {
+  //  const userId = document.createElement("li");
+  //  userItem.textContent = user.name;
+  //  const deleteUserButton = document.createElement("button");
+
+
+//var id = "id" + Math.random().toString(16).slice(2)
+    
+//console.log(id)
 
 //const for add user button
 //const addUserButton = document.querySelector('#add-user');
@@ -160,14 +189,7 @@ submitUserButton.addEventListener("click", () => {
 //input
 //const username = document.getElementById('username');
 
-//ul
-const templateusersList = document.getElementById('users-list');
 
-//when button is clicked this adds a user to the list
-submitNameButton.addEventListener('click', () => {
-  const inputValue = username.value;
-  templateusersList.insertAdjacentHTML('beforeend', `<li>${inputValue}</li>`);
-});
 
 //TO DO: add delete buttons for users, add an alert message for deleting, clean up modal buttons and styling, auto generated id
 

@@ -24,6 +24,10 @@ body {
   overflow: hidden;
 }
 
+#users-list {
+    list-style-type: none;
+}
+
 /*turn on this class for modal to show up*/
 .show-user-form {
   display: flex;
@@ -78,28 +82,6 @@ body {
 
 
 
-/*turn off this class for modal to close*/
-/* #add-user-form {
-  display: none;
-  background: #72bdeb;
-  color: black;
-  border-radius: 20px;
-  box-sizing: border-box;
-  max-height: 600px;
-  max-width: 600px;
-  height: 80%;
-  padding: 20px;
-  position: relative;
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 0 10px lightgray;
-  font-size: 1.5em;
-  font-weight: 500;
-  /*transitions modal*/
-  /*
-  animation: popUPAnimation 1.5s forwards; 
-} */
+
 
 

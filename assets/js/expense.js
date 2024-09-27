@@ -1,10 +1,3 @@
-// Add Event
-// let events = [
-//   { name: "Movie", eventID: 1234, expense: 100 },
-//   { name: "Dinner Party", eventID: 1235, expense: 200 },
-//   { name: "Ski Tip", eventID: 12534, expense: 300 },
-// ];
-
 let expenses = [];
 const expenseList = document.getElementById("expenseList");
 const totalAmount = document.getElementById("totalAmount");
@@ -47,7 +40,7 @@ function render() {
 
 function updateTotal() {
   const total = expenses.reduce((acc, expense) => acc + expense.amount, 0);
-  totalAmount.textContent = total;
+  totalAmount.textContent = `$${total}`;
   console.log(expenses);
 }
 

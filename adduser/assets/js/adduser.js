@@ -164,7 +164,7 @@ submitUserButton.addEventListener("click", () => {
 const templateusersList = document.getElementById('users-list');
 
 //when button is clicked this adds a user to the list
-submitUserButton.addEventListener('click', () => {
+submitNameButton.addEventListener('click', () => {
   const inputValue = username.value;
   templateusersList.insertAdjacentHTML('beforeend', `<li>${inputValue}</li>`);
 });

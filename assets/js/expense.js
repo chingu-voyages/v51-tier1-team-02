@@ -1,6 +1,7 @@
 let expenses = [];
 const expenseList = document.getElementById("expenseList");
 const totalAmount = document.getElementById("totalAmount");
+const warning = document.getElementById("expense-warning")
 
 function addExpense() {
   const name = document.getElementById("expenseName").value;
@@ -17,9 +18,14 @@ function addExpense() {
     updateTotal();
     clearInputs();
     // split();
-  } else {
-    alert("Please enter an event name and amount.");
-  }
+  } else if (isNaN(amount)){
+    warning.innerHTML = `
+      <h3>Please enter an event name and amount.</h3>
+      `;
+    setTimeout( () => {
+      warning.innerHTML = ""
+    },5000)
+    }
 }
 
 function render() {
@@ -40,7 +46,7 @@ function render() {
 
 function updateTotal() {
   const total = expenses.reduce((acc, expense) => acc + expense.amount, 0);
-  totalAmount.textContent = `$${total}`;
+  totalAmount.innerHTML = `<p>$${total}</p>`;
   console.log(expenses);
 }
 
@@ -63,4 +69,4 @@ function clearInputs() {
   document.getElementById("expenseAmount").value = "";
 }
 /**************************************************/
-/* change branch to expense */
+

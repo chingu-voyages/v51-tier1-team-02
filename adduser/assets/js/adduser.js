@@ -1,4 +1,6 @@
 
+/***GENERAL/MODAL VARIABLES*********************************************************/
+
 const h1 = document.querySelector('#h1text');
 console.log(h1);
 
@@ -15,6 +17,8 @@ const closeButton = document.querySelector('#form-close');
 console.log(closeButton);
 
 const submitNameButton = document.querySelector('#submit-name');
+
+/***MODAL FUNCTION*********************************************************/
 
 h1.classList.add("active");
 
@@ -39,30 +43,39 @@ function closeUserForm () {
 
 closeUserForm();
 
+/***AUTO ID VARIABLES*********************************************************/
+
 const profilePic = document.querySelector('#profile-picture');
 const username = document.querySelector('#username');
 const usernameInput = username.value;
 
 const templateusersList = document.getElementById('users-list');
 
+/***AUTO ID FUNCTION*********************************************************/
+
+
+
 //when button is clicked this adds a user to the list
 submitNameButton.addEventListener('click', () => {
   const inputValue = username.value;
   const usernameId = "id" + Math.random().toString(16).slice(2);
-  templateusersList.insertAdjacentHTML('beforeend', `<li>${inputValue}</li> <p class = "hidden">${usernameId}</p>`);
+  templateusersList.insertAdjacentHTML('beforeend', `<li>${inputValue}</li> <p class = "hidden">${usernameId}</p>
+   <button type="delete" class="delete-user">X</button>`);
+
+   const deleteUserButton = document.querySelector(".delete-user");
+   deleteUserButton.addEventListener('click', () => {
+     //templateusersList.innerHTML = "";
+     deleteUserButton.classList.add('hidden');
+
+    
+   deleteUserButton.classList.add("active");
+
+    })
+   
+   
 });
 
 /************************************************************/
-
-
-
-//this code worked!
-/* const getInformation = document.getElementById("get-information");
-getInformation.addEventListener("submit", (e) => {
-  e.preventDefault() //this prevents the page from refreshing
-  console.log(` has been submitted!`);
-}); */
-
 
 //variables
 
@@ -76,15 +89,6 @@ getInformation.addEventListener("submit", (e) => {
 //];
 
 //ul
-
-
-
-
-
-
-
-
-
 
 
   // Loop through the users and create a list

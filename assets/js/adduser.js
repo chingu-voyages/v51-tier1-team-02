@@ -81,6 +81,7 @@ function renderUsers () {
   members.forEach((member, index) => {
     const memberItem = document.createElement("li");
     memberItem.textContent = member.name;
+
     const deleteButton = document.createElement("button");
     deleteButton.type = "button";
     deleteButton.textContent = "X";
@@ -93,6 +94,7 @@ function renderUsers () {
       members.splice(index, 1);
       renderUsers();
     });
+
   });
 
 }

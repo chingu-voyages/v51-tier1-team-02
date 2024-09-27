@@ -9,7 +9,9 @@ function addExpense() {
 
   if (name && !isNaN(amount) && amount > 0) {
     const date = new Date()
-    const dDate = date.toLocaleString()
+    const month = date.getMonth() + 1
+    const day = date.getDate()
+    const dDate = `${month}/${day}`
     const expense = {
       id: Date.now(),
       name: name,
@@ -38,7 +40,7 @@ function render() {
     li.classList.add("expense-item"); /* Todo */
     li.innerHTML = `
       <p>${expen.date}</p>
-      <span>${expen.name}: $${expen.amount.toFixed(2)}</span>
+      <p>${expen.name}: $${expen.amount.toFixed(2)}</p>
       <input id="input-amount" type="number" value="${
         expen.amount
       }" oninput="editExpense(${expen.id}, this.value)" >

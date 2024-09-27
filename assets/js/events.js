@@ -81,6 +81,8 @@ document.addEventListener("DOMContentLoaded", function() {
         // Save the edited name when 'Done editing' is clicked
         doneButton.addEventListener("click", () => {
             const editedEventName = editInput.value.trim();
+            console.log(editedEventName);
+
             if (editedEventName) {
                 events[index].name = editedEventName; // Update the event name in the array
                 renderEvents(); // Re-render the events list

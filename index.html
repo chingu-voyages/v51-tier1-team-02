@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Sharing App</title>
     <link rel="stylesheet" href="assets/css/styles.css">
-
-    
+    <script src="assets/js/script.js" defer></script>
 
 </head>
 <body>
@@ -16,23 +15,24 @@
         <div id="list_of_events">
             <ul id="events-list"></ul>
         </div>
-            <button id="addEvent">Add Event</button>
+        <button id="addEvent">+</button>
         <div id="eventContainer"></div>
     </section>
-<!-- This is where all of the pieces will come together  -->
-    <section id="event-modifications">
-        <div id="event-header"></div>
-        <div id="event-members"></div>
-        <div id="event-expenses"></div>
-    </section>
-<!--Box to display divided costs-->
-    <section class="expence-box">
-       <label for="expense"></label> 
-       <input type="number" placeholder="Add Expense">
-    </section>
+     <!--Box to display divided costs-->
+     <section class="expense-box">
+      <input id="expenseName" type="text" placeholder="Expense Name" />
+      <input id="expenseAmount" type="text" placeholder="Expense Amount" />
+      <button onclick="addExpense()">Add Expense</button>
+      <div class="result" id="result">
+        <ul id="expenseList"></ul>
 
-
+        <h3>
+          Total Amount:
+          <span id="totalAmount">0</span>
+        </h3>
+      </div>
+    </section>
     <script src="assets/js/events.js"></script>
-    <!-- <script src="assets/js/natalie.js"></script> -->
-</body>
+    <script src="assets/js/expense.js" defer></script>
+  </body>
 </html>

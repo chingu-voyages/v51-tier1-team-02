@@ -1,11 +1,13 @@
+/* Feel free to erase all this -- Reinaldo -- */
+
 
 /* Remove the bullet points on the list of events */
 #events-list {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .warning-text {
-    color: red;
+  color: red;
 }
 
 /* Container for each event */
@@ -79,4 +81,21 @@
     font-weight: bold;
     padding: 3px;
     margin: 10px;
+}/* Result div  */
+.expense-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.result {
+  border: 1px solid #ccc;
+  display: block;
+}
+
+/* expenses */
+.expense-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }

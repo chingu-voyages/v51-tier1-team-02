@@ -8,10 +8,13 @@ function addExpense() {
   const amount = parseFloat(document.getElementById("expenseAmount").value);
 
   if (name && !isNaN(amount) && amount > 0) {
+    const date = new Date()
+    const dDate = date.toLocaleString()
     const expense = {
       id: Date.now(),
       name: name,
       amount: amount,
+      date: dDate
     };
     expenses.push(expense);
     render();
@@ -34,8 +37,9 @@ function render() {
     const li = document.createElement("li");
     li.classList.add("expense-item"); /* Todo */
     li.innerHTML = `
+      <p>${expen.date}</p>
       <span>${expen.name}: $${expen.amount.toFixed(2)}</span>
-      <input id="input-amount" type="number value="${
+      <input id="input-amount" type="number" value="${
         expen.amount
       }" oninput="editExpense(${expen.id}, this.value)" >
       <button onclick="deleteExpense(${expen.id})">Delete</button>

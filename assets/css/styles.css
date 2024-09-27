@@ -1,6 +1,5 @@
 /* Feel free to erase all this -- Reinaldo -- */
 
-
 /* Remove the bullet points on the list of events */
 #events-list {
   list-style-type: none;
@@ -12,53 +11,53 @@
 
 /* Container for each event */
 .event-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 300px; /* Adjust the width as needed */
-    padding: 5px;
-    border-bottom: 1px solid #ccc; /* Optional: adds a separator between events */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px; /* Adjust the width as needed */
+  padding: 5px;
+  border-bottom: 1px solid #ccc; /* Optional: adds a separator between events */
 }
 
 /* Style for the event name */
 .event-item {
-    margin: 0;
-    list-style: none; /* Remove default list styling */
+  margin: 0;
+  list-style: none; /* Remove default list styling */
 }
 
 /* Style for the delete button */
 .delete-button {
-    margin-left: 10px; /* Space between the event name and 'X' button */
-    border: none;
-    padding: 2px 5px;
-    cursor: pointer;
+  margin-left: 10px; /* Space between the event name and 'X' button */
+  border: none;
+  padding: 2px 5px;
+  cursor: pointer;
 }
 
 .delete-button:hover {
-    background-color: #d32f2f; /* Darker red on hover */
+  background-color: #d32f2f; /* Darker red on hover */
 }
 
 /* Style for the event button */
 .event-button {
-    margin-left: 10px; /* Space between the event name and 'X' button */
-    border: none;
-    padding: 2px 5px;
-    cursor: pointer;
+  margin-left: 10px; /* Space between the event name and 'X' button */
+  border: none;
+  padding: 2px 5px;
+  cursor: pointer;
 }
 
 .event-button:hover {
-    font-weight: bold; /* Bold on hover */
+  font-weight: bold; /* Bold on hover */
 }
 
 /* Container for the event name and the edit button */
 .event-name-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 300px; /* Adjust the width as needed */
-    padding: 5px;
-    border-bottom: 1px solid #ccc; /* Optional: adds a separator between events */
-    /* display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px; /* Adjust the width as needed */
+  padding: 5px;
+  border-bottom: 1px solid #ccc; /* Optional: adds a separator between events */
+  /* display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%; Adjust width as needed */
@@ -66,22 +65,26 @@
 
 /* Event name edit button styling */
 .edit-event-name-button {
-    margin-left: 10px; /* Space between the event name and the button */
-    padding: 2px 5px;
-    cursor: pointer;
+  margin-left: 10px; /* Space between the event name and the button */
+  padding: 2px 5px;
+  cursor: pointer;
 }
 
 .edit-event-name-button:hover {
-    background-color: #4CAF50; /* Green background on hover */
-    color: white;
+  background-color: #4caf50; /* Green background on hover */
+  color: white;
 }
 
 .edit-event-name-input {
-    font-size: 24px;
-    font-weight: bold;
-    padding: 3px;
-    margin: 10px;
-}/* Result div  */
+  font-size: 24px;
+  font-weight: bold;
+  padding: 3px;
+  margin: 10px;
+}
+
+/***** Expense *****/
+
+/* Result div  */
 .expense-container {
   display: flex;
   justify-content: center;
@@ -92,7 +95,6 @@
   display: block;
 }
 
-/* expenses */
 .expense-item {
   display: flex;
   justify-content: center;

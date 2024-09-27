@@ -1,9 +1,9 @@
 // Add Event
-let events = [
-  { name: "Movie", eventID: 1234, expense: 100 },
-  { name: "Dinner Party", eventID: 1235, expense: 200 },
-  { name: "Ski Tip", eventID: 12534, expense: 300 },
-];
+// let events = [
+//   { name: "Movie", eventID: 1234, expense: 100 },
+//   { name: "Dinner Party", eventID: 1235, expense: 200 },
+//   { name: "Ski Tip", eventID: 12534, expense: 300 },
+// ];
 
 let expenses = [];
 const expenseList = document.getElementById("expenseList");

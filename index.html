@@ -10,6 +10,38 @@
 
 </head>
 <body>
+   <!--button to add a person.-->
+   <button id="add-user">
+    add user
+</button>
+
+<!--add user-form is the modal-->
+<div id="add-user-form" class="hidden">
+    <button id="form-close">x</button>
+    <form id="get-information">
+
+        <label for="picture"><img class="anon" src="assets/img/anon.png" alt="placeholder for profile picture"></label>
+        <!--<input type="text" id="profile-picture" name="profile-picture" />-->
+        <label for="username">Username:</label>
+        <input type="text" id="username"/>
+    </form>  
+    <button type="submit" id="submit-name">Submit!!!</button>
+
+  <!--modal popup-->  
+</div>
+
+<!--This is where the list of people will be displayed-->        
+<section id="user-list-section">
+  <h2>User List</h2>
+    <div id="list-of-users">
+      <ul id="users-list"></ul>
+      <div id="user-container"></div>
+    </div>
+</section>
+
+<section id="user-modifications">
+  <div id="user-header"></div>
+</section> 
 <!-- Events section -->
     <section id="events">
       <h2>User Events</h2>
@@ -36,8 +68,6 @@
 
     <script src="assets/js/events.js"></script>
     <script src="assets/js/adduser.js"></script>
-
-</body>
     <script src="assets/js/expense.js"></script>
   </body>
 </html>

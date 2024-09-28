@@ -1,7 +1,9 @@
 let expenses = [];
 const expenseList = document.getElementById("expenseList");
 const totalAmount = document.getElementById("totalAmount");
-const warning = document.getElementById("expense-warning")
+const splitAmount = document.getElementById("splitAmount");
+const numOfPeople = document.getElementById("numPeople");
+const warning = document.getElementById("expense-warning");
 
 function addExpense() {
   const name = document.getElementById("expenseName").value;

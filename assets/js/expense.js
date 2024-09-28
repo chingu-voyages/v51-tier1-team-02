@@ -27,7 +27,7 @@ function addExpense() {
     split();
   } else if (isNaN(amount)){
     warning.innerHTML = `
-      <h3>Please enter an event name and amount.</h3>
+      <h3>Please enter an event name and a valid number.</h3>
       `;
     setTimeout( () => {
       warning.innerHTML = ""

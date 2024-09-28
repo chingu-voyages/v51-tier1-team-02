@@ -58,15 +58,15 @@ function updateTotal() {
   console.log(expenses);
 }
 
-function split() {
-  const numOfPeople = parseInt(document.getElementById("numPeople").value)
-  const totalAmount = parseInt(document.getElementById("totalAmount").textContent);
+function split() {     /*  TODO  */
+  const numPeople = parseInt(numOfPeople.value)
+  const total = parseFloat(totalAmount.textContent);
 
   if (numOfPeople > 0) {
-    const split = totalAmount / numOfPeople;
-    splitAmount.textContent = split.toFixed(2);
+    const split = total / numPeople;
+    splitAmount.innerHTML = `<p>${split.toFixed(2)}</p>`;
   } else {
-    splitAmount.textContent = "0.00";
+    splitAmount.textContent = "0";
   }
 }
 

@@ -1,12 +1,15 @@
-let expenses = [];
+
+// Variables
+let expenses = []; /* events data */
 const expenseList = document.getElementById("expenseList");
 const totalAmount = document.getElementById("totalAmount");
 const splitAmount = document.getElementById("splitAmount");
 const numOfPeople = document.getElementById("numPeople");
 const warning = document.getElementById("expense-warning");
 
+// Create a new obj of expense
 function addExpense() {
-  const name = document.getElementById("expenseName").value;
+  const name = document.getElementById("expenseName").value;        /****  values for names and amount *** */ 
   const amount = parseFloat(document.getElementById("expenseAmount").value);
 
   if (name && !isNaN(amount) && amount > 0) {
@@ -20,7 +23,7 @@ function addExpense() {
       amount: amount,
       date: dDate
     };
-    expenses.push(expense);
+    expenses.push(expense);  /* Events data to Expense data */
     render();
     updateTotal();
     clearInputs();
@@ -31,11 +34,11 @@ function addExpense() {
       `;
     setTimeout( () => {
       warning.innerHTML = ""
-    },5000)
+    },5000) /* Clear warning at 5 sec */
     }
 }
 
-function render() {
+function render() {  
   expenseList.innerHTML = "";
   expenses.forEach((expen, index) => {
     const li = document.createElement("li");
@@ -58,7 +61,7 @@ function updateTotal() {
   console.log(expenses);
 }
 
-function split() {     /*  TODO  */
+function split() {     /*  TODO friday 28  */ 
   const numPeople = parseInt(numOfPeople.value)
   const total = parseFloat(totalAmount.textContent);
 

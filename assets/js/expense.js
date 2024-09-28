@@ -24,7 +24,7 @@ function addExpense() {
     render();
     updateTotal();
     clearInputs();
-    // split();
+    split();
   } else if (isNaN(amount)){
     warning.innerHTML = `
       <h3>Please enter an event name and amount.</h3>
@@ -58,6 +58,18 @@ function updateTotal() {
   console.log(expenses);
 }
 
+function split() {
+  const numOfPeople = parseInt(document.getElementById("numPeople").value)
+  const totalAmount = parseInt(document.getElementById("totalAmount").textContent);
+
+  if (numOfPeople > 0) {
+    const split = totalAmount / numOfPeople;
+    splitAmount.textContent = split.toFixed(2);
+  } else {
+    splitAmount.textContent = "0.00";
+  }
+}
+
 function deleteExpense(id) {
   expenses = expenses.filter((expense) => expense.id !== id);
   render();
@@ -69,6 +81,7 @@ function editExpense(id, newAmount) {
   if (expense) {
     expense.amount = parseFloat(newAmount) || 0;
     updateTotal();
+    split();
   }
 }
 

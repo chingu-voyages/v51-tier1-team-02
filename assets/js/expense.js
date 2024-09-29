@@ -1,8 +1,7 @@
 
 // Variables
 let expenses = []; /* events data */
-let dollars = false; 
-let euros = false;
+
 const expenseList = document.getElementById("expenseList");
 const totalAmount = document.getElementById("totalAmount");
 const splitAmount = document.getElementById("splitAmount");
@@ -11,10 +10,7 @@ const warning = document.getElementById("expense-warning");
 const dollarBtn = document.getElementById("dollar-btn");
 const euroBtn = document.getElementById("euro-btn");
 
-// function currency(){ 
-  
-// } 
-// dollarBtn.addEventListener("click", currency)
+
 
 // Create a new obj of expense
 function addExpense() {
@@ -110,13 +106,3 @@ function clearInputs() {
 }
 /**************************************************/
 
-// const price = 14340;
-
-// // Format the price above to USD using the locale, style, and currency.
-// let USDollar = new Intl.NumberFormat('en-US', {
-//     style: 'currency',
-//     currency: 'USD',
-// });
-
-// console.log(`The formated version of ${price} is ${USDollar.format(price)}`);
-// The formated version of 14340 is $14,340.00

@@ -7,78 +7,94 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
+<!--grey-->
 <div class="header-container">
-  <section class="header">
-    <button id="header">Home</button>
-    <button id="header">Groups</button>
-    <button id="header">Expenses</button>
-    <div id="welcome">
-      <img src="assets/img/anon.png">
-      <p>Hi, Cole!</p>
-    </div>
-  </section>
-
-  <section class="search">
-    <!--search -->
-  </section>
-
+  <!--yellow-->
   <div class="img-container">
     <div id="icon">
-      <img src="assets/img/Split.png">
+      <img id="pizza" src="assets/img/Split.png">
+      <h1>Sp|it</h1>
     </div>
   </div>
-</div>  
-
-<!-- button to add a person.-->
-<button id="add-user">
-  add user
-</button>
-
-<!--add user-form is the modal-->
-<div id="add-user-form" class="hidden">
-    <button id="form-close">x</button>
-    <form id="get-information">
-
-        <label for="picture"><img class="anon" src="assets/img/anon.png" alt="placeholder for profile picture"></label>
-        <!--<input type="text" id="profile-picture" name="profile-picture" />-->
-        <label for="username">Username:</label>
-        <input type="text" id="username"/>
-    </form>  
-    <button type="submit" id="submit-name">Submit!!!</button>
-
-  <!--modal popup-->  
-</div>
-
-<!--This is where the list of people will be displayed-->        
-<section id="user-list-section">
-  <h2>User List</h2>
-    <div id="list-of-users">
-      <ul id="users-list" ></ul>
-      <div id="user-container"></div>
-    </div>
-</section>
-
-<section id="user-modifications">
-  <div id="user-header"></div>
-</section> 
-
-<!-- Balances section -->
-<section class="balances">
-
-</section>
-
-<!-- Events section -->
-    <section id="events">
-      <h2>User Events</h2>
-      <div id="list_of_events">
-        <ul id="events-list"></ul>
+  <!--black and red-->
+  <section class="header">
+    <!--black-->
+    <div class="nav">
+      <div class="nav-bar">
+        <button id="header">Home</button>
+        <button id="header">Groups</button>
+        <button id="header">Expenses</button>
       </div>
-      <button id="addEvent">+</button>
-      <div id="eventContainer"></div>
+
+      <div class="welcome-info">
+        <img id="welcome" src="assets/img/anon.png">
+        <p>Hi, Cole!</p>
+      </div>
+    </div>  
+    <!--red-->
+    <section class="search">
+      <!--search -->
+      <p>search bar goes here</p>
+    </section>
+    
+  </section>
+
+
+</div> 
+
+<!--GREY-->
+<!-- Events section -->
+<div class="group-expenses">
+  <!--GREEN-->
+  <section id="events">
+    <h2>User Events</h2>
+    <div id="list_of_events">
+      <ul id="events-list"></ul>
+    </div>
+    <button id="addEvent">+</button>
+    <div id="eventContainer"></div>
+  </section>
+
+  <!--LIME-->
+  <div class="main-rows">
+    <!--PURPLE-->
+    <!-- button to add a person.-->
+    <button id="add-user">
+      add user
+    </button>
+
+    <!--add user-form is the modal-->
+    <div id="add-user-form" class="hidden">
+        <button id="form-close">x</button>
+        <form id="get-information">
+
+            <label for="picture"><img class="anon" src="assets/img/anon.png" alt="placeholder for profile picture"></label>
+            <!--<input type="text" id="profile-picture" name="profile-picture" />-->
+            <label for="username">Username:</label>
+            <input type="text" id="username"/>
+        </form>  
+        <button type="submit" id="submit-name">Submit!!!</button>
+
+      <!--modal popup-->  
+    </div>
+
+    <!--This is where the list of people will be displayed-->        
+    <section id="user-list-section">
+      <h2>User List</h2>
+        <div id="list-of-users">
+          <ul id="users-list" ></ul>
+          <div id="user-container"></div>
+        </div>
     </section>
 
+    <!--ORANGE-->
+    <!-- Balances section -->
+    <section class="balances">
+    <p>balances section</p>
+    </section>
+
+    <!--PINK-->
     <!--Box to display divided costs-->
-    
     <section class="expense-box">
       <div id="expense-warning"></div>
       <input id="expenseName" type="text" placeholder="Expense Name" />
@@ -95,6 +111,10 @@
         <input type="number" id="numPeople" placeholder="Number of People" oninput="split()">
       </div>
     </section>
+  </div>
+</div>
+
+
 
     <script src="assets/js/events.js"></script>
     <script src="assets/js/adduser.js"></script>

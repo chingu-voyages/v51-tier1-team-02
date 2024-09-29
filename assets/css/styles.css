@@ -1,26 +1,105 @@
-/* Feel free to erase all this -- Reinaldo -- */
+/******************* TO DO LIST **********************/
 /*TO DO:
 -have wireframe of all sections
 -create colored divs
 
 */
 
-section .header-container {
-  background-color: gray;
+/******************* BODY CSS **********************/
+
+html {
+  background-color: white;
+  display: flex;
+  justify-content: center;
 }
 
-section .header {
-  background-color: black;
+body {
+  display: flex;
+  width: 80%;
+  background-color: aquamarine;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+
+/******************* HEADER CSS **********************/
+
+.img-container {
+  background-color: yellow;
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-container {
+  background-color: gray;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 200px;
+}
+
+.header {
+  border-color: rgb(6, 91, 227);
+  border-width: 2px;
+  border-style: dashed;
+  width: 75%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav {
+  border-color: black;
+  border-width: 5px;
+  border-style: dashed;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-bar {
+  width: 70%;
 }
 
 section .search {
   background-color: #d32f2f;
+  width:100%;
+  height: 100%;
 }
 
-section .img-container {
-  background-color: yellow;
+
+
+
+#welcome {
+  height: 40px;
+  width: auto;
 }
 
+#pizza {
+  height: 60px;
+  width: auto;
+}
+
+#icon {
+  display: flex;
+  justify-content: center;
+}
+
+/******************* EVENTS CSS **********************/
+
+.group-expenses {
+  background-color: gray;
+  width: 100%;
+  display: flex;
+}
+
+.main-rows {
+  background-color: limegreen;
+}
 
 
 /* Remove the bullet points on the list of events */
@@ -109,13 +188,18 @@ section .img-container {
   padding: 3px;
   margin: 10px;
 }
+
+/******************* BALANCES CSS **********************/
+
 /***** Balances *****/
 
- section .balances {
+ .balances {
   background-color: #d5a53f;
+  height: 60px;
+  
  }
 
-/***** Expense *****/
+/******************* EXPENSE CSS **********************/
 
 /* Result div  */
 
@@ -153,17 +237,8 @@ input[type="number"]::-webkit-inner-spin-button {
 /* input[type="number"] { */
  /* -moz-appearance: textfield; */
 /* } */
-/*** add user CSS *************************************/
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    /* height: 100vh; */
-}
-
-/* ========= */
+/******************* ADD-USER CSS **********************/
 
 .active {
   background-color: purple;

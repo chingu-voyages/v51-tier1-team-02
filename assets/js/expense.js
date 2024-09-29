@@ -1,11 +1,20 @@
 
 // Variables
 let expenses = []; /* events data */
+let dollars = false; 
+let euros = false;
 const expenseList = document.getElementById("expenseList");
 const totalAmount = document.getElementById("totalAmount");
 const splitAmount = document.getElementById("splitAmount");
 const numOfPeople = document.getElementById("numPeople");
 const warning = document.getElementById("expense-warning");
+const dollarBtn = document.getElementById("dollar-btn");
+const euroBtn = document.getElementById("euro-btn");
+
+// function currency(){ 
+  
+// } 
+// dollarBtn.addEventListener("click", currency)
 
 // Create a new obj of expense
 function addExpense() {
@@ -43,6 +52,7 @@ function render() {
   expenses.forEach((expen, index) => {
     const li = document.createElement("li");
     li.classList.add("expense-item"); /* Todo */
+    // li.classList.add('hidden');
     li.innerHTML = `
       <p>${expen.date}</p>
       <p>${expen.name}: $${expen.amount.toFixed(2)}</p>
@@ -57,7 +67,13 @@ function render() {
 
 function updateTotal() {
   const total = expenses.reduce((acc, expense) => acc + expense.amount, 0);
-  totalAmount.innerHTML = `<p>$${total}</p>`;
+  // Add Currency Format
+  let UsDollar =  new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
+
+  totalAmount.innerText = `${UsDollar.format(total)}`;
   console.log(expenses);
 }
 
@@ -94,3 +110,13 @@ function clearInputs() {
 }
 /**************************************************/
 
+// const price = 14340;
+
+// // Format the price above to USD using the locale, style, and currency.
+// let USDollar = new Intl.NumberFormat('en-US', {
+//     style: 'currency',
+//     currency: 'USD',
+// });
+
+// console.log(`The formated version of ${price} is ${USDollar.format(price)}`);
+// The formated version of 14340 is $14,340.00

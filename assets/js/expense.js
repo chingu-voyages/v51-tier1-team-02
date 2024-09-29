@@ -52,7 +52,7 @@ function render() {
     li.innerHTML = `
       <p>${expen.date}</p>
       <p>${expen.name}: $${expen.amount.toFixed(2)}</p>
-      <input id="input-amount" type="number" value="${
+      <input id="input-amount" type="number" inputmode="numeric" pattern="[0-9]+" value="${
         expen.amount
       }" oninput="editExpense(${expen.id}, this.value)" >
       <button onclick="deleteExpense(${expen.id})">Delete</button>

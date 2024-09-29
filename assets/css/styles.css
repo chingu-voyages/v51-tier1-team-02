@@ -107,8 +107,15 @@
   flex-wrap: wrap;
 }
 
-
-
+/* remove arrows from input type number */
+    /* Chromium & Safari */
+input[type="number"]::-webkit-inner-spin-button {
+ display: none;
+}
+     /* Firefox */
+/* input[type="number"] { */
+ /* -moz-appearance: textfield; */
+/* } */
 /*** add user CSS *************************************/
 body {
     display: flex;

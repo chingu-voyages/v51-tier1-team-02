@@ -97,7 +97,7 @@ function deleteExpense(id) {
 function editExpense(id) {
    const expense = expenses.find((expense) => expense.id === id)
    if (expense) {
-    const newName = prompt(`Edith name:`, expense.name)
+    const newName = prompt(`Edit name:`, expense.name)
     const newAmount = parseFloat(prompt(`edith the amount:`, expense.amount))
 
     if(!newName || isNaN(newAmount) || newAmount <= 0) {

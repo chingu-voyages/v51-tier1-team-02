@@ -3,6 +3,7 @@
 let expenses = []; /* events data */
 let dollars = false; 
 let euros = false;
+let total = 0; 
 const expenseList = document.getElementById("expenseList");
 const totalAmount = document.getElementById("totalAmount");
 const splitAmount = document.getElementById("splitAmount");
@@ -54,11 +55,10 @@ function render() {
     li.classList.add("expense-item"); /* Todo */
     // li.classList.add('hidden');
     li.innerHTML = `
+       
       <p>${expen.date}</p>
       <p>${expen.name}: $${expen.amount.toFixed(2)}</p>
-      <input id="input-amount" type="number" value="${
-        expen.amount
-      }" oninput="editExpense(${expen.id}, this.value)" >
+      <button onclick="editExpense(${expen.id})">Edit</button>  
       <button onclick="deleteExpense(${expen.id})">Delete</button>
     `;
     expenseList.appendChild(li);
@@ -74,12 +74,11 @@ function updateTotal() {
     });
 
   totalAmount.innerText = `${UsDollar.format(total)}`;
-  console.log(expenses);
 }
 
 function split() {     /*  TODO friday 28  */ 
   const numPeople = parseInt(numOfPeople.value)
-  const total = parseFloat(totalAmount.textContent);
+  total = parseFloat(totalAmount.textContent.replace(/[^0-9.-]+/g,""));
 
   if (numOfPeople > 0) {
     const split = total / numPeople;
@@ -95,20 +94,45 @@ function deleteExpense(id) {
   updateTotal();
 }
 
-function editExpense(id, newAmount) {
-  const expense = expenses.find((exp) => exp.id === id);
-  if (expense) {
-    expense.amount = parseFloat(newAmount) || 0;
+function editExpense(id) {
+   const expense = expenses.find((expense) => expense.id === id)
+   if (expense) {
+    const newName = prompt(`Edith name:`, expense.name)
+    const newAmount = parseFloat(prompt(`edith the amount:`, expense.amount))
+
+    if(!newName || isNaN(newAmount) || newAmount <= 0) {
+      alert('nope');
+      return;
+    }
+    
+    expense.name = newName;
+    expense.amount = newAmount;
+
+    render();
     updateTotal();
     split();
-  }
+
+   }
 }
+
+// function editExpense(id, newAmount) {
+//   const expense = expenses.find((exp) => exp.id === id);
+//   if (expense) {
+//     expense.amount = parseFloat(newAmount) || 0;
+//     updateTotal();
+//     split();
+//   }
+// }
 
 function clearInputs() {
   document.getElementById("expenseName").value = "";
   document.getElementById("expenseAmount").value = "";
 }
 /**************************************************/
+
+{/* <input id="input-amount" type="number" value="${expen.amount}" > */}
+
+
 
 // const price = 14340;
 

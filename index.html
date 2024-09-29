@@ -5,14 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Expense Sharing App</title>
     <link rel="stylesheet" href="assets/css/styles.css">
-
-    
-
 </head>
-<body>
-   <!--button to add a person.-->
-   <button id="add-user">
-    add user
+
+<div class="header-container">
+  <section class="header">
+    <button id="header">Home</button>
+    <button id="header">Groups</button>
+    <button id="header">Expenses</button>
+    <div id="welcome">
+      <img src="assets/img/anon.png">
+      <p>Hi, Cole!</p>
+    </div>
+  </section>
+
+  <section class="search">
+    <!--search -->
+  </section>
+
+  <div class="img-container">
+    <div id="icon">
+      <img src="assets/img/Split.png">
+    </div>
+  </div>
+</div>  
+
+<!-- button to add a person.-->
+<button id="add-user">
+  add user
 </button>
 
 <!--add user-form is the modal-->
@@ -42,6 +61,12 @@
 <section id="user-modifications">
   <div id="user-header"></div>
 </section> 
+
+<!-- Balances section -->
+<section class="balances">
+
+</section>
+
 <!-- Events section -->
     <section id="events">
       <h2>User Events</h2>
@@ -54,7 +79,7 @@
 
     <!--Box to display divided costs-->
     
-    <section class="expense-box ">
+    <section class="expense-box">
       <div id="expense-warning"></div>
       <input id="expenseName" type="text" placeholder="Expense Name" />
       <input id="expenseAmount" type="number" placeholder="Expense Amount" />

@@ -1,13 +1,15 @@
 // Add Event
-let events = [
-    {name: "Movie", eventID: 111},
-    {name: "Dinner Party",eventID: 222},
-    {name: "Ski Trip",eventID: 333},
-    {name: "Pool Party",eventID: 444},
-    {name: "Disney",eventID: 555},
-    {name: "Bowling",eventID: 666},
-    {name: "Football Game",eventID: 777},
-];
+// let events = [
+//     {name: "Movie", eventID: 111},
+//     {name: "Dinner Party",eventID: 222},
+//     {name: "Ski Trip",eventID: 333},
+//     {name: "Pool Party",eventID: 444},
+//     {name: "Disney",eventID: 555},
+//     {name: "Bowling",eventID: 666},
+//     {name: "Football Game",eventID: 777},
+// ];
+
+import { events } from "./arrays.js";
 
 document.addEventListener("DOMContentLoaded", function() {
     const addEvent = document.getElementById("addEvent");
@@ -80,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 renderEvents(); // Re-render the events list
                 renderEventDetails(editedEventName, index); // SHow the updated event details
             }
+        console.log(events);
         });
 
         eventModificationContainer.appendChild(editInput);
@@ -146,6 +149,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 renderEventDetails(newEvent.name, newIndex);
                 eventContainer.innerHTML = "";
             }
+            console.log(events);
         });
         return button;
     }

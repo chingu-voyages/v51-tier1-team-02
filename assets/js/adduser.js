@@ -2,19 +2,19 @@
 /***GENERAL/MODAL VARIABLES*********************************************************/
 
 const h1 = document.querySelector('#h1text');
-console.log(h1);
+// console.log(h1);
 
 const addUserButton = document.querySelector('#add-user');
-console.log(addUserButton);
+// console.log(addUserButton);
 
 const addUserForm = document.querySelector('#add-user-form');
-console.log(addUserForm);
+// console.log(addUserForm);
 
 const submitUserButton = document.querySelector('#submit-user');
-console.log(submitUserButton);
+// console.log(submitUserButton);
 
 const closeButton = document.querySelector('#form-close');
-console.log(closeButton);
+// console.log(closeButton);
 
 const submitNameButton = document.querySelector('#submit-name');
 
@@ -47,12 +47,14 @@ function closeUserForm () {
 closeUserForm();
 
 /***AUTO ID VARIABLES*********************************************************/
-let members = [
-  {name: "Natalie", memberID: 1111},
-  {name: "Molly", memberID: 2222},
-  {name: "Val", memberID: 3333},
-  {name: "Carina", memberID: 4444},
-];
+// let members = [
+//   {name: "John", memberID: 1111},
+//   {name: "Jane", memberID: 2222},
+//   {name: "Joe", memberID: 3333},
+//   {name: "Cole", memberID: 4444},
+// ];
+
+import { members } from "./arrays.js";
 
 const profilePic = document.querySelector('#profile-picture');
 const username = document.querySelector('#username');

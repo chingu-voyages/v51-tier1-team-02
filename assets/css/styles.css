@@ -99,12 +99,21 @@ section .search {
 
 .main-rows {
   background-color: limegreen;
+  border-color: rgb(6, 91, 227);
+  border-width: 2px;
+  border-style: dashed;
+  width: 75%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 
 /* Remove the bullet points on the list of events */
 #events {
   background-color: #4caf50;
+  width: 20%;
+  margin-right: 5%;
 }
 
 #events-list {
@@ -189,54 +198,7 @@ section .search {
   margin: 10px;
 }
 
-/******************* BALANCES CSS **********************/
 
-/***** Balances *****/
-
- .balances {
-  background-color: #d5a53f;
-  height: 60px;
-  
- }
-
-/******************* EXPENSE CSS **********************/
-
-/* Result div  */
-
-.hidden {
-  display: none;
-}
-.expense-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-section.expense-box {
-  background-color: #d43ed1;
-}
-
-.result {
-  border: 1px solid #ccc;
-  display: block;
-}
-
-.expense-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-/* remove arrows from input type number */
-    /* Chromium & Safari */
-input[type="number"]::-webkit-inner-spin-button {
- display: none;
-}
-     /* Firefox */
-/* input[type="number"] { */
- /* -moz-appearance: textfield; */
-/* } */
 
 /******************* ADD-USER CSS **********************/
 
@@ -284,7 +246,9 @@ input[type="number"]::-webkit-inner-spin-button {
 
 #user-list-section {
   background-color: purple;
+  height: 200px;
 }
+
 
 /*turn off this class for modal to close*/
 .hidden {
@@ -316,7 +280,64 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 
+/************************ Balances ********************/
 
+.balances {
+  background-color: #d5a53f;
+  height: 60px;
+  height: 200px;
+  
+ }
 
+/******************* EXPENSE CSS **********************/
 
+/* Result div  */
 
+.hidden {
+  display: none;
+}
+.expense-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expense-box {
+  background-color: #d43ed1;
+}
+
+.result {
+  border: 1px solid #ccc;
+  display: block;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* remove arrows from input type number */
+    /* Chromium & Safari */
+input[type="number"]::-webkit-inner-spin-button {
+ display: none;
+}
+     /* Firefox */
+/* input[type="number"] { */
+ /* -moz-appearance: textfield; */
+/* } */
+
+/*********************FOOTER***********************/
+.footer {
+  background-color: pink;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.footer p {
+  width: 100%;
+  text-align: center;
+}

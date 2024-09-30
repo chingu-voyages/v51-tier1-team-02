@@ -116,6 +116,7 @@ function startEditingExpense(id) {
 function clearInputs() {
   document.getElementById("expenseName").value = "";
   document.getElementById("expenseAmount").value = "";
+  // document.getElementById("numberOfPeople").value = "";
 }
 /**************************************************/
 

@@ -49,7 +49,7 @@ function addExpense() {
     render();
     updateTotal();
     clearInputs();
-    split();
+    split()
   } else {
     warning.innerHTML = `
       <h3>Please enter an event name and a valid number.</h3>
@@ -116,7 +116,6 @@ function startEditingExpense(id) {
 function clearInputs() {
   document.getElementById("expenseName").value = "";
   document.getElementById("expenseAmount").value = "";
-  // document.getElementById("numberOfPeople").value = "";
 }
 /**************************************************/
 

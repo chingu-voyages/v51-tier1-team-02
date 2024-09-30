@@ -9,7 +9,13 @@
 //     {name: "Football Game",eventID: 777},
 // ];
 
-import { events } from "./arrays.js";
+import { events, members } from "./arrays.js";
+
+let selectedEvent = null;
+
+export function getSelectedEvent() {
+    return selectedEvent;
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     const addEvent = document.getElementById("addEvent");
@@ -27,10 +33,31 @@ document.addEventListener("DOMContentLoaded", function() {
             row.appendChild(eventItem);
         });
     }
+
+    // To combine users with events
+    function createUsersEventArray() {
+        console.log(events);
+        console.log(members);
+        const selectedEvent = getSelectedEvent();
+    
+        if (selectedEvent) {
+    
+            console.log(`${selectedEvent.name} was selected`);
+          } else {
+            console.log("No event selected.");
+          }
+    
+    }
+
+  
+
     
     // The event details will render here.  Currently there is just an H2 with the event name
     function renderEventDetails(eventName, index) {
+        selectedEvent = events[index];
         eventModificationContainer.innerHTML = "";
+
+        createUsersEventArray();
 
         // Create a container to hold the event name and edit button
         const eventNameContainer = document.createElement("div");
@@ -75,7 +102,6 @@ document.addEventListener("DOMContentLoaded", function() {
         // Save the edited name when 'Done editing' is clicked
         doneButton.addEventListener("click", () => {
             const editedEventName = editInput.value.trim();
-            console.log(editedEventName);
 
             if (editedEventName) {
                 events[index].name = editedEventName; // Update the event name in the array

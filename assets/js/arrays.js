@@ -1,11 +1,11 @@
 export let events = [
-    {name: "Movie", eventID: 111},
-    {name: "Dinner Party",eventID: 222},
-    {name: "Ski Trip",eventID: 333},
-    {name: "Pool Party",eventID: 444},
-    {name: "Disney",eventID: 555},
-    {name: "Bowling",eventID: 666},
-    {name: "Football Game",eventID: 777},
+    {name: "Movie", eventID: 111, members: []},
+    {name: "Dinner Party",eventID: 222, members: []},
+    {name: "Ski Trip",eventID: 333, members: []},
+    {name: "Pool Party",eventID: 444, members: []},
+    {name: "Disney",eventID: 555, members: []},
+    {name: "Bowling",eventID: 666, members: []},
+    {name: "Football Game",eventID: 777, members: []},
 ];
 
 export let members = [

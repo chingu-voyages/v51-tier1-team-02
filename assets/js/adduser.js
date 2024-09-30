@@ -68,7 +68,10 @@ const templateusersList = document.getElementById('users-list');
 submitNameButton.addEventListener('click', () => {
   const inputValue = username.value;
   const usernameId = "id" + Math.random().toString(16).slice(2);
-  members.push({name:inputValue, memberID: usernameId});
+
+  const newMember = {name: inputValue, memberID: usernameId};
+
+  members.push(newMember);
   console.log(members);
   renderUsers();
 

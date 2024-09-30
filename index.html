@@ -95,20 +95,27 @@
 
     <!--PINK-->
     <!--Box to display divided costs-->
-    <section class="expense-box">
+    <section class="expense-box ">
       <div id="expense-warning"></div>
       <input id="expenseName" type="text" placeholder="Expense Name" />
       <input id="expenseAmount" type="number" placeholder="Expense Amount" />
-      <button onclick="addExpense()">Add Expense</button>
+      <input id="numberOfPeople" type="number" placeholder="people">
+      <button id="addExpenseButton" onclick="addExpense()">Add Expense</button>
 
       <div class="result" id="result">
         <ul id="expenseList"></ul>
-        <h3>
-          Total Amount:
-          <span id="totalAmount">$00.00</span>
-        </h3>
-        <h3>Split Amount (per person) <span id="splitAmount">0</span> </h3>
-        <input type="number" id="numPeople" placeholder="Number of People" oninput="split()">
+        <div class="amount-container" >
+          <h3>
+            Total Amount:
+            <span id="totalAmount">$00.00</span>
+          </h3>
+          <h3>
+            Split Amount:
+            <span id="splitAmount">$00.00</span>
+          </h3>
+
+        </div>
+        
       </div>
     </section>
   </div>

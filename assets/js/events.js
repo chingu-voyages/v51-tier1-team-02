@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const addEvent = document.getElementById("addEvent");
     const eventContainer = document.getElementById("eventContainer");
     const row = document.getElementById("events-list");
-    const eventModificationContainer = document.getElementById("event-modifications");
+    const eventModificationContainer = document.getElementById("event-modifications-header");
 
     let eventHeader, eventMembers, eventExpenses;
     
@@ -50,17 +50,9 @@ document.addEventListener("DOMContentLoaded", function() {
         eventNameContainer.appendChild(eventHeader);
         eventNameContainer.appendChild(editEventNameButton);
 
-        eventMembers = document.createElement("h3");
-        eventMembers.textContent = "Members";
-        
-        eventExpenses = document.createElement("h3");
-        eventExpenses.textContent = "Expenses";
         
         // Append everything to the main modification container
         eventModificationContainer.appendChild(eventNameContainer);
-        eventModificationContainer.appendChild(eventMembers);
-        eventModificationContainer.appendChild(eventExpenses);
-        
     }
     
     // a function to switch the event name to editing mode
@@ -150,7 +142,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 events.push(newEvent);
                 renderEvents();
                 // The new event will automatically render so you can add all member and expense information
-                renderEventDetails(newEvent.name);
+                const newIndex = events.length -1;
+                renderEventDetails(newEvent.name, newIndex);
                 eventContainer.innerHTML = "";
             }
         });

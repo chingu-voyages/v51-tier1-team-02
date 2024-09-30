@@ -1,39 +1,56 @@
-
 // Variables
 let expenses = []; /* events data */
-
+let editingExpenseId = null;
+let total = 0; 
 const expenseList = document.getElementById("expenseList");
 const totalAmount = document.getElementById("totalAmount");
 const splitAmount = document.getElementById("splitAmount");
-const numOfPeople = document.getElementById("numPeople");
+const numberOfPeople = document.getElementById("numberOfPeople");
 const warning = document.getElementById("expense-warning");
-const dollarBtn = document.getElementById("dollar-btn");
-const euroBtn = document.getElementById("euro-btn");
+const expenseNameInput = document.getElementById("expenseName")
+const expenseAmountInput = document.getElementById("expenseAmount")
+const addButton = document.getElementById("addExpenseButton")
+let UsDollar =  new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+});
 
 
 
 // Create a new obj of expense
 function addExpense() {
-  const name = document.getElementById("expenseName").value;        /****  values for names and amount *** */ 
-  const amount = parseFloat(document.getElementById("expenseAmount").value);
+  const name = expenseNameInput.value        /****  values for names and amount *** */ 
+  const amount = parseFloat(expenseAmountInput.value);
 
   if (name && !isNaN(amount) && amount > 0) {
     const date = new Date()
     const month = date.getMonth() + 1
     const day = date.getDate()
     const dDate = `${month}/${day}`
-    const expense = {
-      id: Date.now(),
-      name: name,
-      amount: amount,
-      date: dDate
-    };
-    expenses.push(expense);  /* Events data to Expense data */
+
+    if (editingExpenseId === null) {
+      const expense = {
+        id: Date.now(),
+        name: name,
+        amount: amount,
+        date: dDate
+      };
+      expenses.push(expense);  /* Events data to Expense data */
+    } else {
+      const expense = expenses.find((expense) => expense.id === editingExpenseId);
+      if(expense) {
+        expense.name = name;
+        expense.amount = amount;
+      } 
+      editingExpenseId = null;
+      addButton.innerText = "Add Expense"
+    }
+    
     render();
     updateTotal();
     clearInputs();
     split();
-  } else if (isNaN(amount)){
+  } else {
     warning.innerHTML = `
       <h3>Please enter an event name and a valid number.</h3>
       `;
@@ -45,16 +62,13 @@ function addExpense() {
 
 function render() {  
   expenseList.innerHTML = "";
-  expenses.forEach((expen, index) => {
+  expenses.forEach((expen) => {
     const li = document.createElement("li");
     li.classList.add("expense-item"); /* Todo */
-    // li.classList.add('hidden');
     li.innerHTML = `
-      <p>${expen.date}</p>
+       <p>${expen.date}</p>
       <p>${expen.name}: $${expen.amount.toFixed(2)}</p>
-      <input id="input-amount" type="number" inputmode="numeric" pattern="[0-9]+" value="${
-        expen.amount
-      }" oninput="editExpense(${expen.id}, this.value)" >
+      <button onclick="startEditingExpense(${expen.id})">Edit</button>  
       <button onclick="deleteExpense(${expen.id})">Delete</button>
     `;
     expenseList.appendChild(li);
@@ -62,24 +76,17 @@ function render() {
 }
 
 function updateTotal() {
-  const total = expenses.reduce((acc, expense) => acc + expense.amount, 0);
-  // Add Currency Format
-  let UsDollar =  new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-    });
-
+  total = expenses.reduce((acc, expense) => acc + expense.amount, 0);
   totalAmount.innerText = `${UsDollar.format(total)}`;
-  console.log(expenses);
 }
 
-function split() {     /*  TODO friday 28  */ 
-  const numPeople = parseInt(numOfPeople.value)
-  const total = parseFloat(totalAmount.textContent);
-
-  if (numOfPeople > 0) {
+function split() {     
+  const numPeople = parseInt(numberOfPeople.value)
+  total = parseFloat(totalAmount.textContent.replace(/[^0-9.-]+/g,""));
+  // Remove currency formatting
+  if (numPeople > 0) {
     const split = total / numPeople;
-    splitAmount.innerHTML = `<p>${split.toFixed(2)}</p>`;
+    splitAmount.innerText = `${UsDollar.format(split)}`;
   } else {
     splitAmount.textContent = "0";
   }
@@ -91,12 +98,18 @@ function deleteExpense(id) {
   updateTotal();
 }
 
-function editExpense(id, newAmount) {
-  const expense = expenses.find((exp) => exp.id === id);
-  if (expense) {
-    expense.amount = parseFloat(newAmount) || 0;
-    updateTotal();
-    split();
+function startEditingExpense(id) {
+  const expense = expenses.find(expense => expense.id === id)
+  if(expense) {
+    // Populate inputs fields with the current expense details
+    expenseNameInput.value = `Edit name:  ${expense.name}`;
+    expenseAmountInput.value = `Edit amount ${expense.amount}`;
+
+    // Update the editing expense id
+    editingExpenseId = id;
+
+    // Change the add expense button text to "Update Expense"
+    addButton.innerText = "Update Expense"
   }
 }
 
@@ -106,3 +119,17 @@ function clearInputs() {
 }
 /**************************************************/
 
+{/* <input id="input-amount" type="number" value="${expen.amount}" > */}
+
+
+
+// const price = 14340;
+
+// // Format the price above to USD using the locale, style, and currency.
+// let USDollar = new Intl.NumberFormat('en-US', {
+//     style: 'currency',
+//     currency: 'USD',
+// });
+
+// console.log(`The formated version of ${price} is ${USDollar.format(price)}`);
+// The formated version of 14340 is $14,340.00

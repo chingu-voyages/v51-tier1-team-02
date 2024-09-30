@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
             row.appendChild(eventItem);
         });
     }
-
+// ***********************NEW****************************
     // To combine users with events
     function createUsersEventArray() {
         console.log(events);
@@ -41,13 +41,86 @@ document.addEventListener("DOMContentLoaded", function() {
         const selectedEvent = getSelectedEvent();
     
         if (selectedEvent) {
+            addMembersToEvent();
+            
     
             console.log(`${selectedEvent.name} was selected`);
+            
           } else {
             console.log("No event selected.");
           }
     
     }
+
+    const memberDropdownContainer = document.getElementById("member-dropdown-container");
+    const listOfMembersInGroup = document.getElementById("list-of-members-in-group");
+
+    function addMembersToEvent() {
+        const selectMemberAddButton = document.createElement("button")
+        selectMemberAddButton.type = "button";
+        selectMemberAddButton.textContent = "+";
+    
+        const selectMembers = document.createElement("select");
+    
+        // Create a placeholder option
+        const placeholderOption = document.createElement("option");
+        placeholderOption.value = ""; 
+        placeholderOption.textContent = "Select a member"; 
+        placeholderOption.selected = true; 
+        selectMembers.appendChild(placeholderOption); 
+    
+        members.forEach((member, index) => {
+            const option = document.createElement("option");
+            option.value = member.memberID;
+            option.textContent = member.name;
+            selectMembers.appendChild(option);
+            
+        });
+
+        selectMemberAddButton.addEventListener("click", () => {
+            const selectedID = selectMembers.value;
+            //  member ID
+            console.log(`selected ID: ${selectedID}`);
+            // user name and member ID
+            const selectedMember = members.find(member => member.memberID === parseInt(selectedID));
+            console.log(selectedMember);
+    
+            if(selectedID && selectedEvent && !selectedEvent.members.some(eventMember => eventMember.memberID === selectedID)) {
+                selectedEvent.members.push({name: selectedMember.name, memberID: selectedID});
+                console.log(`member added: ${selectedMember.name}`);
+                
+                displayMembersInGroup();
+                selectMembers.value = "";
+            } else {
+                const warning = document.createElement("p");
+                warning.textContent = "Member already exists in the event";
+                memberDropdownContainer.appendChild(warning);
+            }
+            console.log(selectedEvent.members);
+            selectMembers.appendChild(placeholderOption);
+            
+        });
+        memberDropdownContainer.appendChild(selectMembers);
+        memberDropdownContainer.appendChild(selectMemberAddButton);
+        
+    }
+
+    function displayMembersInGroup () {
+        listOfMembersInGroup.innerHTML = "";
+        if(selectedEvent) {
+            selectedEvent.members.forEach((member, index) => {
+            const memberList = document.createElement("li");
+            memberList.textContent = member.name;
+            listOfMembersInGroup.appendChild(memberList);
+
+            }); 
+        }
+    }
+    
+    
+
+
+// *********************^^^^^^^^^^^^NEW^^^^^^^^^^^^^^****************
 
   
 
@@ -55,9 +128,10 @@ document.addEventListener("DOMContentLoaded", function() {
     // The event details will render here.  Currently there is just an H2 with the event name
     function renderEventDetails(eventName, index) {
         selectedEvent = events[index];
-        eventModificationContainer.innerHTML = "";
 
         createUsersEventArray();
+        console.log(selectedEvent.name);
+        eventModificationContainer.innerHTML = "";
 
         // Create a container to hold the event name and edit button
         const eventNameContainer = document.createElement("div");

@@ -10,6 +10,8 @@
 // ];
 
 import { events, members } from "./arrays.js";
+import { listofUsers, templateusersList } from "./adduser.js";
+
 
 let selectedEvent = null;
 
@@ -23,8 +25,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const row = document.getElementById("events-list");
     const eventModificationContainer = document.getElementById("event-modifications-header");
 
-    let eventHeader, eventMembers, eventExpenses;
-    
+    let eventHeader;
+
     // function will display array of events
     function renderEvents() {
         row.innerHTML = "";
@@ -52,11 +54,10 @@ document.addEventListener("DOMContentLoaded", function() {
     
     }
 
-    const memberDropdownContainer = document.getElementById("member-dropdown-container");
-    const listOfMembersInGroup = document.getElementById("list-of-members-in-group");
 
     function addMembersToEvent() {
-        memberDropdownContainer.innerHTML = "";
+        // memberDropdownContainer.innerHTML = "";
+        templateusersList.innerHTML = "";
         const selectMemberAddButton = document.createElement("button")
         selectMemberAddButton.type = "button";
         selectMemberAddButton.textContent = "+";
@@ -90,30 +91,32 @@ document.addEventListener("DOMContentLoaded", function() {
                 selectedEvent.members.push({name: selectedMember.name, memberID: selectedID});
                 console.log(`member added: ${selectedMember.name}`);
                 
-                displayMembersInGroup();
+                
                 selectMembers.value = "";
+                displayMembersInGroup();
             } else {
                 const warning = document.createElement("p");
                 warning.textContent = "Member already exists in the event";
-                memberDropdownContainer.appendChild(warning);
+                templateusersList.appendChild(warning);
             }
             console.log(events);
             console.log(selectedEvent.members);
             selectMembers.appendChild(placeholderOption);
             
         });
-        memberDropdownContainer.appendChild(selectMembers);
-        memberDropdownContainer.appendChild(selectMemberAddButton);
+        listofUsers.appendChild(selectMembers);
+        listofUsers.appendChild(selectMemberAddButton);
         
     }
 
     function displayMembersInGroup () {
-        listOfMembersInGroup.innerHTML = "";
+        // listOfMembersInGroup.innerHTML = "";
+        templateusersList.innerHTML = "";
         if(selectedEvent) {
             selectedEvent.members.forEach((member, index) => {
             const memberList = document.createElement("li");
             memberList.textContent = member.name;
-            listOfMembersInGroup.appendChild(memberList);
+            templateusersList.appendChild(memberList);
 
             }); 
         }

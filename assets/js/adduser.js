@@ -20,7 +20,7 @@ const submitNameButton = document.querySelector('#submit-name');
 
 const usernameContainer = document.querySelector('input #username');
 
-const listofUsers = document.querySelector("#list-of-users");
+export const listofUsers = document.querySelector("#list-of-users");
 
 /***MODAL FUNCTION*********************************************************/
 
@@ -60,7 +60,7 @@ const profilePic = document.querySelector('#profile-picture');
 const username = document.querySelector('#username');
 const usernameInput = username.value;
 
-const templateusersList = document.getElementById('users-list');
+export const templateusersList = document.getElementById("users-list");
 
 /***AUTO ID FUNCTION*********************************************************/
 

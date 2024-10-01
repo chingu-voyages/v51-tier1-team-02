@@ -9,8 +9,8 @@ export let events = [
 ];
 
 export let members = [
-    {name: "John", memberID: 1111},
-    {name: "Jane", memberID: 2222},
-    {name: "Joe", memberID: 3333},
-    {name: "Cole", memberID: 4444},
+    {name: "John", memberID: "id1111"},
+    {name: "Jane", memberID: "id2222"},
+    {name: "Joe", memberID: "id3333"},
+    {name: "Cole", memberID: "id4444"},
   ];

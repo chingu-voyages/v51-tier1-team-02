@@ -93,9 +93,10 @@ document.addEventListener("DOMContentLoaded", function() {
             const selectedID = selectMembers.value;
             //  member ID
             console.log(`selected ID: ${selectedID}`);
-            // user name and member ID
-            const selectedMember = members.find(member => member.memberID === parseInt(selectedID));
+            console.log(members);
             
+            // user name and member ID
+            const selectedMember = members.find(member => member.memberID === (selectedID));
     
             if(selectedID && selectedEvent && !selectedEvent.members.some(eventMember => eventMember.memberID === selectedID)) {
                 selectedEvent.members.push({name: selectedMember.name, memberID: selectedID, members:[]});
@@ -108,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const warning = document.createElement("p");
                 warning.textContent = "Member already exists in the event";
                 templateusersList.appendChild(warning);
+                selectMembers.value = "";
             }
             console.log(events);
             console.log(selectedEvent.members);
@@ -126,7 +128,18 @@ document.addEventListener("DOMContentLoaded", function() {
             selectedEvent.members.forEach((member, index) => {
             const memberList = document.createElement("li");
             memberList.textContent = member.name;
+
+            const memberListDeleteButton = document.createElement("button");
+            memberListDeleteButton.type = "button";
+            memberListDeleteButton.textContent = "X";
+
             templateusersList.appendChild(memberList);
+            templateusersList.appendChild(memberListDeleteButton);
+
+            memberListDeleteButton.addEventListener("click", () => {
+                selectedEvent.members.splice(index, 1);
+                displayMembersInGroup();
+            });
 
             }); 
         }

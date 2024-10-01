@@ -79,9 +79,10 @@ document.addEventListener("DOMContentLoaded", function() {
         placeholderOption.selected = true; 
         selectMembers.appendChild(placeholderOption);
          
-    
+        
         members.forEach((member, index) => {
             const option = document.createElement("option");
+            console.log(`current members: ${member.name}`);
             option.value = member.memberID;
             option.textContent = member.name;
             selectMembers.appendChild(option);
@@ -97,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
             
     
             if(selectedID && selectedEvent && !selectedEvent.members.some(eventMember => eventMember.memberID === selectedID)) {
-                selectedEvent.members.push({name: selectedMember.name, memberID: selectedID});
+                selectedEvent.members.push({name: selectedMember.name, memberID: selectedID, members:[]});
                 console.log(`member added: ${selectedMember.name}`);
                 
                 
@@ -258,7 +259,11 @@ document.addEventListener("DOMContentLoaded", function() {
         button.addEventListener("click", () => {
             const eventName = input.value.trim();
             if(eventName) {
-                const newEvent = {name: eventName, eventItem: Date.now()};
+                const newEvent = {
+                    name: eventName, 
+                    eventItem: Date.now(),
+                    members:[]
+                };
                 events.push(newEvent);
                 renderEvents();
                 // The new event will automatically render so you can add all member and expense information

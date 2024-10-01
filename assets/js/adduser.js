@@ -23,7 +23,7 @@ const usernameContainer = document.querySelector('input #username');
 export const listofUsers = document.querySelector("#list-of-users");
 
 /***MODAL FUNCTION*********************************************************/
-
+import { selectedEvent, getSelectedEvent } from "./events.js";
 
 addUserButton.classList.add("active");
 
@@ -41,6 +41,11 @@ function closeUserForm () {
     closeButton.onclick = function () {
         addUserForm.classList.remove('show-user-form');
         addUserForm.classList.add('hidden');
+        if(selectedEvent === null) {
+          renderUsers();
+        } else {
+          console.log("need to update dropdown list on events.js");
+        }
     }
 };
 

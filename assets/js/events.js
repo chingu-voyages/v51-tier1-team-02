@@ -13,7 +13,7 @@ import { events, members } from "./arrays.js";
 import { listofUsers, templateusersList } from "./adduser.js";
 
 
-let selectedEvent = null;
+export let selectedEvent = null;
 
 export function getSelectedEvent() {
     return selectedEvent;

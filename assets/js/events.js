@@ -51,13 +51,21 @@ document.addEventListener("DOMContentLoaded", function() {
           } else {
             console.log("No event selected.");
           }
-    
+
     }
 
-
     function addMembersToEvent() {
-        // memberDropdownContainer.innerHTML = "";
-        templateusersList.innerHTML = "";
+       
+
+        const existingDropdown = listofUsers.querySelector("select");
+        if (existingDropdown) {
+            console.log("dropdown already exists");
+            return;
+        }
+
+         // updates the list of users in events
+         templateusersList.innerHTML = "";
+
         const selectMemberAddButton = document.createElement("button")
         selectMemberAddButton.type = "button";
         selectMemberAddButton.textContent = "+";
@@ -69,7 +77,8 @@ document.addEventListener("DOMContentLoaded", function() {
         placeholderOption.value = ""; 
         placeholderOption.textContent = "Select a member"; 
         placeholderOption.selected = true; 
-        selectMembers.appendChild(placeholderOption); 
+        selectMembers.appendChild(placeholderOption);
+         
     
         members.forEach((member, index) => {
             const option = document.createElement("option");
@@ -110,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function displayMembersInGroup () {
-        // listOfMembersInGroup.innerHTML = "";
+
         templateusersList.innerHTML = "";
         if(selectedEvent) {
             selectedEvent.members.forEach((member, index) => {
@@ -120,6 +129,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             }); 
         }
+        
     }
     
     
@@ -137,6 +147,8 @@ document.addEventListener("DOMContentLoaded", function() {
         createUsersEventArray();
         console.log(selectedEvent.name);
         eventModificationContainer.innerHTML = "";
+        displayMembersInGroup();
+
 
         // Create a container to hold the event name and edit button
         const eventNameContainer = document.createElement("div");

@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const listOfMembersInGroup = document.getElementById("list-of-members-in-group");
 
     function addMembersToEvent() {
+        memberDropdownContainer.innerHTML = "";
         const selectMemberAddButton = document.createElement("button")
         selectMemberAddButton.type = "button";
         selectMemberAddButton.textContent = "+";
@@ -83,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log(`selected ID: ${selectedID}`);
             // user name and member ID
             const selectedMember = members.find(member => member.memberID === parseInt(selectedID));
-            console.log(selectedMember);
+            
     
             if(selectedID && selectedEvent && !selectedEvent.members.some(eventMember => eventMember.memberID === selectedID)) {
                 selectedEvent.members.push({name: selectedMember.name, memberID: selectedID});
@@ -96,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 warning.textContent = "Member already exists in the event";
                 memberDropdownContainer.appendChild(warning);
             }
+            console.log(events);
             console.log(selectedEvent.members);
             selectMembers.appendChild(placeholderOption);
             

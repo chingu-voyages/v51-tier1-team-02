@@ -1,4 +1,7 @@
 // Variables
+
+// import events from '.array.js'
+
 let expenses = []; /* events data */
 let editingExpenseId = null;
 let total = 0; 

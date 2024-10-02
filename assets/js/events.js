@@ -1,14 +1,3 @@
-// Add Event
-// let events = [
-//     {name: "Movie", eventID: 111},
-//     {name: "Dinner Party",eventID: 222},
-//     {name: "Ski Trip",eventID: 333},
-//     {name: "Pool Party",eventID: 444},
-//     {name: "Disney",eventID: 555},
-//     {name: "Bowling",eventID: 666},
-//     {name: "Football Game",eventID: 777},
-// ];
-
 import { events, members } from "./arrays.js";
 import { listofUsers, templateusersList } from "./adduser.js";
 
@@ -49,48 +38,44 @@ document.addEventListener("DOMContentLoaded", function() {
         if (selectedEvent) {
             addMembersToEvent();
             console.log(`${selectedEvent.name} was selected`);
-            
           } else {
             console.log("No event selected.");
           }
-
     }
 
     function addMembersToEvent() {
-       
-
+        // Only 1 dropdown is created at a time
         const existingDropdown = listofUsers.querySelector("select");
         if (existingDropdown) {
             console.log("dropdown already exists");
             return;
         }
-
-         // updates the list of users in events
+         // updates the list of users in events - No duplicates!
          templateusersList.innerHTML = "";
 
-        const selectMemberAddButton = document.createElement("button")
+        // Creates a + (add) button and a select field to add users to events
+         const selectMemberAddButton = document.createElement("button")
         selectMemberAddButton.type = "button";
         selectMemberAddButton.textContent = "+";
     
         const selectMembers = document.createElement("select");
     
-        // Create a placeholder option
+        // Populates the select field with a placeholder ("select a member") and list of members
+        // from the members array
         const placeholderOption = document.createElement("option");
         placeholderOption.value = ""; 
         placeholderOption.textContent = "Select a member"; 
         placeholderOption.selected = true; 
         selectMembers.appendChild(placeholderOption);
          
-        
         members.forEach((member) => {
             const option = document.createElement("option");
             console.log(`current members: ${member.name}`);
             option.value = member.memberID;
             option.textContent = member.name;
-            selectMembers.appendChild(option);
-            
+            selectMembers.appendChild(option);    
         });
-
+        // Removes any existing warning on the screen
         function clearWarning() {
             const existingWarning = document.getElementById("user-event-warning-message");
             if (existingWarning){
@@ -98,27 +83,47 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
 
-        selectMemberAddButton.addEventListener("click", () => {
+        // On Click of the select dropdown, the select fields are populated with a placeholder
+        // and a current list of members, even NEWLY added members
+        selectMembers.addEventListener("click", () => {
+            // Clears any warning
             clearWarning();
-// I NEED TO REFRESH THE DROPDOWN ON EACH CLICK
-            
+
+            selectMembers.innerHTML = "";
+            // Create a placeholder option
+            const placeholderOption = document.createElement("option");
+            placeholderOption.value = ""; 
+            placeholderOption.textContent = "Select a member"; 
+            placeholderOption.selected = true; 
+            selectMembers.appendChild(placeholderOption);
+         
+            members.forEach((member) => {
+                const option = document.createElement("option");
+                console.log(`current members: ${member.name}`);
+                option.value = member.memberID;
+                option.textContent = member.name;
+                selectMembers.appendChild(option);   
+            });
+        });
+
+        // On click (+) the user is added to the events array
+        selectMemberAddButton.addEventListener("click", () => {
             const selectedID = selectMembers.value;
             //  member ID
             console.log(`selected ID: ${selectedID}`);
-            console.log(members);
             
             // user name and member ID
             const selectedMember = members.find(member => member.memberID === (selectedID));
             
-
-
+            // if users is not already in the event, they arre added to the events array
+            // list of users is displayed
             if(selectedID && selectedEvent && !selectedEvent.members.some(eventMember => eventMember.memberID === selectedID)) {
                 selectedEvent.members.push({name: selectedMember.name, memberID: selectedID, members:[]});
                 console.log(`member added: ${selectedMember.name}`);
-                
                 selectMembers.value = "";
                 displayMembersInGroup();
             } else {
+            // else a warning is shown
                 const warning = document.createElement("p");
                 warning.id = "user-event-warning-message"
                 warning.textContent = "Member already exists in the event";
@@ -126,11 +131,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 selectMembers.value = "";
             }
             console.log(events);
-            console.log(selectedEvent.members);
-            selectMembers.appendChild(placeholderOption);
-            
+            selectMembers.appendChild(placeholderOption);  
         });
 
+        // If the dropdown is changed, the warning will go away
         selectMembers.addEventListener("change", () => {
             clearWarning();
         });
@@ -138,9 +142,7 @@ document.addEventListener("DOMContentLoaded", function() {
         listofUsers.appendChild(selectMemberAddButton);
         
     }
-
-
-
+    // This function will display all members in the event with an option to remove the member
     function displayMembersInGroup () {
 
         templateusersList.innerHTML = "";
@@ -162,18 +164,9 @@ document.addEventListener("DOMContentLoaded", function() {
             });
 
             }); 
-        }
-        
+        }   
     }
-    
-    
 
-
-// *********************^^^^^^^^^^^^NEW^^^^^^^^^^^^^^****************
-
-  
-
-    
     // The event details will render here.  Currently there is just an H2 with the event name
     function renderEventDetails(eventName, index) {
         selectedEvent = events[index];

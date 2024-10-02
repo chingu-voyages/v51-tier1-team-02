@@ -1,7 +1,8 @@
 /******************* TO DO LIST **********************/
 /*TO DO:
--have wireframe of all sections
--create colored divs
+-green #588b5f
+-yellow #fedb98
+-grey #d9d9d9
 
 */
 
@@ -11,6 +12,7 @@ html {
   background-color: white;
   display: flex;
   justify-content: center;
+  font-size: 16px;
 }
 
 body {
@@ -26,13 +28,34 @@ body {
 
 /******************* HEADER CSS **********************/
 
-.img-container {
-  background-color: yellow;
-  width: 25%;
+.pizza-container {
+  background-color: #588b5f;
+  width: 23%;
+  margin-right: 2%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+  border-color: black;
+  border-radius: 19px;
+}
+
+#icon {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center
+}
+
+#pizza {
+  height: 100%;
+  width: 72%;
+}
+
+h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .header-container {
@@ -40,7 +63,8 @@ body {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 200px;
+  height: 9em;
+  margin-bottom: 2%;
 }
 
 .header {
@@ -53,43 +77,75 @@ body {
   flex-direction: column;
 }
 
+.header-button {
+  background-color: #fedb98;
+  border-color: #fedb98;
+  box-shadow: none;
+  padding: 2.5px 15px;
+}
+
+#header-button-1 {
+  margin-right: 0px;
+  border-color: #fedb98;
+}
+
+#header-button-2 {
+  margin-left: 0px;
+  margin-right: 0px;
+  border-color: #fedb98;
+}
+
+#header-button-3 {
+  margin-left: 0px;
+}
+
 .nav {
   border-color: black;
-  border-width: 5px;
+  background-color: #588b5f;
+  border-width: 0px;
   border-style: dashed;
   display: flex;
   flex-direction: row;
+
+  height: 50%;
 }
 
 .nav-bar {
   width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 section .search {
   background-color: #d32f2f;
   width:100%;
-  height: 100%;
+  height: 50%;
 }
 
 
+.welcome-info {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 80px
 
+}
 
 #welcome {
   height: 40px;
-  width: auto;
+  width: 40px;
 }
 
-#pizza {
-  height: 60px;
-  width: auto;
-}
-
-#icon {
-  display: flex;
-  justify-content: center;
-}
 
 /******************* EVENTS CSS **********************/
+
+.color-block {
+  background-color: #588b5f;
+  color: white;
+}
 
 .group-expenses {
   background-color: gray;

@@ -10,7 +10,7 @@
 <!--grey-->
 <div class="header-container">
   <!--yellow-->
-  <div class="img-container">
+  <div class="pizza-container">
     <div id="icon">
       <img id="pizza" src="assets/img/Split.png">
       <h1>Sp|it</h1>
@@ -21,9 +21,9 @@
     <!--black-->
     <div class="nav">
       <div class="nav-bar">
-        <button id="header">Home</button>
-        <button id="header">Groups</button>
-        <button id="header">Expenses</button>
+        <button class="header-button" id="header-button-1">Home</button>
+        <button class="header-button" id="header-button-2">Groups</button>
+        <button class="header-button" id="header-button-3">Expenses</button>
       </div>
 
       <div class="welcome-info">
@@ -53,7 +53,9 @@
 <div class="group-expenses">
   <!--GREEN-->
   <section id="events">
-    <h2>User Events</h2>
+    <div class="color-block">
+      <h2>Colee's Events</h2>
+    </div>
     <div id="list_of_events">
       <ul id="events-list"></ul>
     </div>
@@ -87,7 +89,10 @@
     <!--This is where the list of people will be displayed-->  
     <!-- WHEN EVENT IS SELECTED, THIS SECTION SHOWS USERS IN EVENTS  -->
     <section id="user-list-section">
-      <h2>User List</h2>
+      <div class="color-block">
+        <h2>User List</h2>
+
+      </div>
         <div id="list-of-users">
           <ul id="users-list"></ul>
           <div id="user-container"></div>
@@ -97,12 +102,17 @@
     <!--ORANGE-->
     <!-- Balances section -->
     <section class="balances">
-    <p>balances section</p>
+      <div class="color-block">
+        <h2>Balances</h2>
+      </div>
     </section>
 
     <!--PINK-->
     <!--Box to display divided costs-->
     <section class="expense-box ">
+      <div class="color-block">
+        <h2>Expenses</h2>
+      </div>
       <div id="expense-warning"></div>
       <input id="expenseName" type="text" placeholder="Expense Name" />
       <input id="expenseAmount" type="number" placeholder="Expense Amount" />
@@ -129,7 +139,7 @@
 </div>
 
 <section class="footer">
-  <p>this is the footer</p>
+  <p>https://github.com/chingu-voyages/v51-tier1-team-02</p>
 </section>
 
     <script type="module" src="assets/js/arrays.js"></script>

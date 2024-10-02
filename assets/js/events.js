@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const newEvent = {
                     name: eventName, 
                     eventItem: Date.now(),
-                    members:[]
+                    members:[{name: "Cole", memberID: "id4444"}]
                 };
                 events.push(newEvent);
                 renderEvents();

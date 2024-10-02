@@ -1,10 +1,13 @@
+
+
+import { getSelectedEvent } from './events.js'
+console.log(getSelectedEvent);
+
 // Variables
-
-// import events from '.array.js'
-
-let expenses = []; /* events data */
+let expenses = []
 let editingExpenseId = null;
 let total = 0; 
+let id = null;
 const expenseList = document.getElementById("expenseList");
 const totalAmount = document.getElementById("totalAmount");
 const splitAmount = document.getElementById("splitAmount");
@@ -18,6 +21,10 @@ let UsDollar =  new Intl.NumberFormat('en-US', {
   currency: 'USD',
 });
 
+// event handlers
+addButton.addEventListener("click", addExpense);
+document.addEventListener("editButton", startEditingExpense)
+document.addEventListener("deleteButton", deleteExpense)
 
 
 // Create a new obj of expense
@@ -69,15 +76,16 @@ function render() {
     const li = document.createElement("li");
     li.classList.add("expense-item"); /* Todo */
     li.innerHTML = `
+    ${expen.id}
        <p>${expen.date}</p>
       <p>${expen.name}: $${expen.amount.toFixed(2)}</p>
-      <button onclick="startEditingExpense(${expen.id})">Edit</button>  
-      <button onclick="deleteExpense(${expen.id})">Delete</button>
+      <button id="editButton">Edit</button>     
+      <button id="deleteButton" onclick="deleteExpense(${expen.id})">Delete</button>
     `;
     expenseList.appendChild(li);
   });
 }
-
+// onclick="startEditingExpense(${expen.id}
 function updateTotal() {
   total = expenses.reduce((acc, expense) => acc + expense.amount, 0);
   totalAmount.innerText = `${UsDollar.format(total)}`;

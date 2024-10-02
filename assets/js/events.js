@@ -19,6 +19,10 @@ export function getSelectedEvent() {
     return selectedEvent;
 }
 
+export function addMembersToEventRefresh(){
+    return selectMembers;
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     const addEvent = document.getElementById("addEvent");
     const eventContainer = document.getElementById("eventContainer");
@@ -44,8 +48,6 @@ document.addEventListener("DOMContentLoaded", function() {
     
         if (selectedEvent) {
             addMembersToEvent();
-            
-    
             console.log(`${selectedEvent.name} was selected`);
             
           } else {
@@ -80,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
         selectMembers.appendChild(placeholderOption);
          
         
-        members.forEach((member, index) => {
+        members.forEach((member) => {
             const option = document.createElement("option");
             console.log(`current members: ${member.name}`);
             option.value = member.memberID;
@@ -89,7 +91,17 @@ document.addEventListener("DOMContentLoaded", function() {
             
         });
 
+        function clearWarning() {
+            const existingWarning = document.getElementById("user-event-warning-message");
+            if (existingWarning){
+                existingWarning.remove();
+            }
+        }
+
         selectMemberAddButton.addEventListener("click", () => {
+            clearWarning();
+// I NEED TO REFRESH THE DROPDOWN ON EACH CLICK
+            
             const selectedID = selectMembers.value;
             //  member ID
             console.log(`selected ID: ${selectedID}`);
@@ -97,16 +109,18 @@ document.addEventListener("DOMContentLoaded", function() {
             
             // user name and member ID
             const selectedMember = members.find(member => member.memberID === (selectedID));
-    
+            
+
+
             if(selectedID && selectedEvent && !selectedEvent.members.some(eventMember => eventMember.memberID === selectedID)) {
                 selectedEvent.members.push({name: selectedMember.name, memberID: selectedID, members:[]});
                 console.log(`member added: ${selectedMember.name}`);
-                
                 
                 selectMembers.value = "";
                 displayMembersInGroup();
             } else {
                 const warning = document.createElement("p");
+                warning.id = "user-event-warning-message"
                 warning.textContent = "Member already exists in the event";
                 templateusersList.appendChild(warning);
                 selectMembers.value = "";
@@ -116,10 +130,16 @@ document.addEventListener("DOMContentLoaded", function() {
             selectMembers.appendChild(placeholderOption);
             
         });
+
+        selectMembers.addEventListener("change", () => {
+            clearWarning();
+        });
         listofUsers.appendChild(selectMembers);
         listofUsers.appendChild(selectMemberAddButton);
         
     }
+
+
 
     function displayMembersInGroup () {
 

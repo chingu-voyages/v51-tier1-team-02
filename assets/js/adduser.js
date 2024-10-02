@@ -41,6 +41,7 @@ function closeUserForm () {
     closeButton.onclick = function () {
         addUserForm.classList.remove('show-user-form');
         addUserForm.classList.add('hidden');
+// *************NATALIE ADDED THIS ****************
         if(selectedEvent === null) {
           renderUsers();
         } else {
@@ -78,7 +79,12 @@ submitNameButton.addEventListener('click', () => {
 
   members.push(newMember);
   console.log(members);
-  renderUsers();
+  // *************NATALIE ADDED THIS ****************
+  if(selectedEvent === null) {
+    renderUsers();
+  } else {
+    console.log("need to update dropdown list on events.js");
+  }
 
   username.value = "";
 });

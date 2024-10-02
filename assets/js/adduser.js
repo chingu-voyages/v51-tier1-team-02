@@ -83,7 +83,7 @@ submitNameButton.addEventListener('click', () => {
   if(selectedEvent === null) {
     renderUsers();
   } else {
-    console.log("need to update dropdown list on events.js");
+    console.log("members array updated");
   }
 
   username.value = "";
@@ -106,7 +106,6 @@ function renderUsers () {
     templateusersList.appendChild(deleteButton);
 
     deleteButton.addEventListener('click', () => {
-      console.log("click");
       members.splice(index, 1);
       renderUsers();
     });

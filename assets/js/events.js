@@ -70,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function() {
          
         members.forEach((member) => {
             const option = document.createElement("option");
-            console.log(`current members: ${member.name}`);
             option.value = member.memberID;
             option.textContent = member.name;
             selectMembers.appendChild(option);    
@@ -99,7 +98,6 @@ document.addEventListener("DOMContentLoaded", function() {
          
             members.forEach((member) => {
                 const option = document.createElement("option");
-                console.log(`current members: ${member.name}`);
                 option.value = member.memberID;
                 option.textContent = member.name;
                 selectMembers.appendChild(option);   
@@ -109,9 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // On click (+) the user is added to the events array
         selectMemberAddButton.addEventListener("click", () => {
             const selectedID = selectMembers.value;
-            //  member ID
-            console.log(`selected ID: ${selectedID}`);
-            
+
             // user name and member ID
             const selectedMember = members.find(member => member.memberID === (selectedID));
             
@@ -172,7 +168,6 @@ document.addEventListener("DOMContentLoaded", function() {
         selectedEvent = events[index];
 
         createUsersEventArray();
-        console.log(selectedEvent.name);
         eventModificationContainer.innerHTML = "";
         displayMembersInGroup();
 

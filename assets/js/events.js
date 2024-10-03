@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
         if (selectedEvent) {
             addMembersToEvent();
+            addExpenseToEvent();
 
             console.log(`${selectedEvent.name} was selected`);
           } else {
@@ -383,3 +384,29 @@ document.addEventListener("DOMContentLoaded", function() {
     
     renderEvents();  
 });
+
+// *******************PRACTICE BRINGING OVER EXPENSES ****************
+
+
+
+function  addExpenseToEvent() {
+    if(!selectedEvent) {
+        console.log("No event selected");
+        return;
+    }
+    
+    const expenseName = "Popcorn";
+    const expenseAmount = 10;
+    
+    console.log(`${selectedEvent.name} was clicked in expenses`);
+    selectedEvent.expenses.push({
+        name: expenseName,
+        amount: expenseAmount
+    }
+       
+    );
+    console.log(selectedEvent.expenses);
+    console.log(events);
+}
+
+

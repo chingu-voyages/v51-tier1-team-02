@@ -292,7 +292,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 const newEvent = {
                     name: eventName, 
                     eventItem: Date.now(),
-                    members:[{name: "Cole", memberID: "id4444"}]
+                    members:[{name: "Cole", memberID: "id4444"}],
+                    expenses:[]
                 };
                 events.push(newEvent);
                 renderEvents();

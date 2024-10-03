@@ -37,9 +37,9 @@ document.addEventListener("DOMContentLoaded", function() {
     
         if (selectedEvent) {
             addMembersToEvent();
+
             console.log(`${selectedEvent.name} was selected`);
           } else {
-
             console.log("No event selected.");
           }
     }
@@ -107,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // On click (+) the user is added to the events array
         selectMemberAddButton.addEventListener("click", () => {
+            clearWarning();
             const selectedID = selectMembers.value;
 
             // user name and member ID
@@ -128,7 +129,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 selectMembers.value = "";
             }
             console.log(events);
-            selectMembers.appendChild(placeholderOption);  
+            selectMembers.appendChild(placeholderOption);
+            
+            function clearWarning() {
+                const existingWarning = document.getElementById("user-event-warning-message");
+                if (existingWarning){
+                    existingWarning.remove();
+                }
+            }
         });
 
         // If the dropdown is changed, the warning will go away

@@ -81,6 +81,7 @@ submitNameButton.addEventListener('click', () => {
   console.log(members);
   // *************NATALIE ADDED THIS ****************
   if(selectedEvent === null) {
+    console.log(selectedEvent);
     renderUsers();
   } else {
     console.log("members array updated");

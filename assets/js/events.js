@@ -342,9 +342,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     
             // Deletes the innerHTML if the selected event is also deleted
-            if(eventHeader.textContent === event.name){
-                eventModificationContainer.innerHTML = "";
+            if(selectedEvent){
+                if(eventHeader.textContent === event.name){
+                    eventModificationContainer.innerHTML = "";
+                }
             }
+            
             
         });
     

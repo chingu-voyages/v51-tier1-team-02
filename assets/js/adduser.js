@@ -91,7 +91,7 @@ submitNameButton.addEventListener('click', () => {
 
 
 /******ADD USERS TO LIST******************************************************/
-function renderUsers () {
+export function renderUsers () {
   //keeps list from repeating
   templateusersList.innerHTML = "";
   members.forEach((member, index) => {

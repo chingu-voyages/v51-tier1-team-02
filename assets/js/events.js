@@ -1,5 +1,5 @@
 import { events, members } from "./arrays.js";
-import { listofUsers, templateusersList } from "./adduser.js";
+import { listofUsers, templateusersList, renderUsers } from "./adduser.js";
 
 
 export let selectedEvent = null;
@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
             addMembersToEvent();
             console.log(`${selectedEvent.name} was selected`);
           } else {
+
             console.log("No event selected.");
           }
     }
@@ -346,6 +347,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 if(eventHeader.textContent === event.name){
                     eventModificationContainer.innerHTML = "";
                 }
+                // Renders the original user list
+                renderUsers();
             }
             
             

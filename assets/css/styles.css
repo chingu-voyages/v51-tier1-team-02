@@ -3,26 +3,54 @@
 -green #588b5f
 -yellow #fedb98
 -grey #d9d9d9
+-light green #6cb876 (footer)
 
 */
 
-/******************* BODY CSS **********************/
+/******************* GENERAL CSS **********************/
 
 html {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
   display: flex;
   width: 80%;
-  background-color: aquamarine;
+  background-color: white;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
+}
+
+button {
+  border-style: none;
+}
+
+.add-edit-button {
+  background-color: #fedb98;
+  border-color: #fedb98;
+  margin: 3px 5px 3px;
+  border-radius: 0.3em;
+  height: 30px;
+  width: 80px;
+} 
+
+#user-list-section h2, .balances h2, .expense-box h2 {
+  padding: 0.313em 0em 0.313em 1.88em;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 1.5em;
+}
+
+#cole-events h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 1.5em;
 }
 
 
@@ -30,15 +58,14 @@ body {
 
 .pizza-container {
   background-color: #588b5f;
-  width: 23%;
-  margin-right: 2%;
+  width: 25%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   border-color: black;
-  border-radius: 19px;
+  border-radius: 0.3em;
 }
 
 #icon {
@@ -59,19 +86,17 @@ h1 {
 }
 
 .header-container {
-  background-color: gray;
+  background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: row;
   width: 100%;
   height: 9em;
   margin-bottom: 2%;
+  justify-content: space-between;
 }
 
 .header {
-  border-color: rgb(6, 91, 227);
-  border-width: 2px;
-  border-style: dashed;
-  width: 75%;
+  width: 72%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -100,14 +125,12 @@ h1 {
 }
 
 .nav {
-  border-color: black;
   background-color: #588b5f;
-  border-width: 0px;
-  border-style: dashed;
   display: flex;
   flex-direction: row;
-
   height: 50%;
+  border-radius: 0.3em;
+
 }
 
 .nav-bar {
@@ -117,8 +140,8 @@ h1 {
   align-items: center;
 }
 
-section .search {
-  background-color: #d32f2f;
+.search {
+  background-color: white;
   width:100%;
   height: 50%;
 }
@@ -134,10 +157,21 @@ section .search {
 
 }
 
+.welcome-info p{
+  margin: 0;
+}
+
 #welcome {
   height: 40px;
   width: 40px;
 }
+
+#welcome img {
+  border-color: #fedb98;
+
+  border-radius: 50%;
+}
+
 
 
 /******************* EVENTS CSS **********************/
@@ -145,19 +179,19 @@ section .search {
 .color-block {
   background-color: #588b5f;
   color: white;
+  border-radius: 0.3em;
+  align-items: center;
 }
 
 .group-expenses {
-  background-color: gray;
+  background-color: white;
   width: 100%;
   display: flex;
 }
 
 .main-rows {
   background-color: limegreen;
-  border-color: rgb(6, 91, 227);
-  border-width: 2px;
-  border-style: dashed;
+
   width: 75%;
   height: 100%;
   display: flex;
@@ -167,13 +201,29 @@ section .search {
 
 /* Remove the bullet points on the list of events */
 #events {
-  background-color: #4caf50;
+  background-color: #d9d9d9;
   width: 20%;
   margin-right: 5%;
+  border-radius:0.3em 0.3em 0em 0em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#list_of_events {
+  width: 100%;
+}
+
+#cole-events {
+  display: flex;
+  justify-content: center;
+  height: 9%;
+  align-items: center;
 }
 
 #events-list {
   list-style-type: none;
+  padding: 0;
 }
 
 
@@ -186,9 +236,11 @@ section .search {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 300px; /* Adjust the width as needed */
-  padding: 5px;
-  border-bottom: 1px solid #ccc; /* Optional: adds a separator between events */
+  padding: 3px;
+  margin: 1em 0em 1em 0em;
+  border: 1px solid #000000; /* Optional: adds a separator between events */
+  border-radius: 0.3em;
+
 }
 
 /* Style for the event name */
@@ -211,9 +263,9 @@ section .search {
 
 /* Style for the event button */
 .event-button {
-  margin-left: 10px; /* Space between the event name and 'X' button */
+  margin-left: 0.3em; /* Space between the event name and 'X' button */
   border: none;
-  padding: 2px 5px;
+  padding: 0;
   cursor: pointer;
 }
 
@@ -235,11 +287,18 @@ section .search {
     width: 100%; Adjust width as needed */
 }
 
+#addEvent {
+  background-color: #fedb98;
+  border-color: #fedb98;
+  border-radius: 0.3em;
+}
+
 /* Event name edit button styling */
 .edit-event-name-button {
   margin-left: 10px; /* Space between the event name and the button */
   padding: 2px 5px;
   cursor: pointer;
+  background-color: #fedb98;
 }
 
 .edit-event-name-button:hover {
@@ -259,7 +318,10 @@ section .search {
 /******************* ADD-USER CSS **********************/
 
 .active {
-  background-color: purple;
+  /*background-color: #fedb98;
+  border-color: #fedb98;
+  margin: 3px 5px 3px;
+  border-radius: 0.3em;*/
 }
 
 /* to allow scrolling */
@@ -275,6 +337,10 @@ section .search {
 
 #users-list {
     list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    padding: 0;
 }
 
 /*turn on this class for modal to show up*/
@@ -301,8 +367,15 @@ section .search {
 }
 
 #user-list-section {
-  background-color: purple;
+  background-color: white;
   height: 200px;
+}
+
+#list-of-users {
+  display: flex;
+  justify-content: center;
+  align-items: center; /*this isn't applying*/
+  height: 75%;
 }
 
 
@@ -335,6 +408,11 @@ section .search {
 
 }
 
+#color-block-user {
+  display: flex;
+  justify-content: space-between;
+}
+
 
 /************************ Balances ********************/
 
@@ -352,6 +430,7 @@ section .search {
 .hidden {
   display: none;
 }
+
 .expense-container {
   display: flex;
   justify-content: center;
@@ -360,6 +439,11 @@ section .search {
 
 .expense-box {
   background-color: #d43ed1;
+}
+
+#color-block-expenses {
+  display: flex;
+  justify-content: space-between;
 }
 
 .result {
@@ -374,6 +458,12 @@ section .search {
   flex-wrap: wrap;
 }
 
+#addExpenseButton {
+  background-color: #fedb98;
+  border-color: #fedb98;
+  border-radius: 0.3em;
+}
+
 /* remove arrows from input type number */
     /* Chromium & Safari */
 input[type="number"]::-webkit-inner-spin-button {
@@ -386,7 +476,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /*********************FOOTER***********************/
 .footer {
-  background-color: pink;
+  background-color: #6cb876;
   width: 100%;
   height: 30px;
   display: flex;

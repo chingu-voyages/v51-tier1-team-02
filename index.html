@@ -36,11 +36,7 @@
       <!--search -->
       <!-- Natalie addition div - when event is clicked, event header here? -->
       <div id="event-modifications-header"></div>
-
-        <p>search bar goes here</p>
-      
-      
-      
+     
     </section>
     
   </section>
@@ -53,13 +49,13 @@
 <div class="group-expenses">
   <!--GREEN-->
   <section id="events">
-    <div class="color-block">
+    <div class="color-block" id="cole-events">
       <h2>Cole's Events</h2>
     </div>
     <div id="list_of_events">
       <ul id="events-list"></ul>
     </div>
-    <button id="addEvent">Add Event</button>
+    <button class="add-edit-button" id="addEvent">Add/Edit</button>
     <div id="eventContainer"></div>
   </section>
 
@@ -67,9 +63,7 @@
   <div class="main-rows">
     <!--PURPLE-->
     <!-- button to add a person.-->
-    <button id="add-user">
-      add user
-    </button>
+    
 
     <!--add user-form is the modal-->
     <div id="add-user-form" class="hidden">
@@ -89,9 +83,11 @@
     <!--This is where the list of people will be displayed-->  
     <!-- WHEN EVENT IS SELECTED, THIS SECTION SHOWS USERS IN EVENTS  -->
     <section id="user-list-section">
-      <div class="color-block">
-        <h2>User List</h2>
-
+      <div class="color-block" id="color-block-user">
+        <h2>People</h2><!--changed User List to People-->
+        <button class="add-edit-button" id="add-user">
+          Add/Edit
+        </button>
       </div>
         <div id="list-of-users">
           <ul id="users-list"></ul>
@@ -112,14 +108,15 @@
     <!--PINK-->
     <!--Box to display divided costs-->
     <section class="expense-box ">
-      <div class="color-block">
+      <div class="color-block" id="color-block-expenses">
         <h2>Expenses</h2>
+        <button class="add-edit-button" id="addExpenseButton">Add/Edit</button>
       </div>
       <div id="expense-warning"></div>
       <input id="expenseName" type="text" placeholder="Expense Name" />
       <input id="expenseAmount" type="number" placeholder="Expense Amount" />
-      <input id="numberOfPeople" type="number" placeholder="people">
-      <button id="addExpenseButton">Add Expense</button>
+      <input id="numberOfPeople" type="number" placeholder="payer"/><!--changed "people" to "payer"-->
+      <!--button was here-->
 
       <div class="result" id="result">
         <ul id="expenseList"></ul>

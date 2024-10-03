@@ -77,8 +77,7 @@ function render() {
     const li = document.createElement("li");
     li.classList.add("expense-item"); /* Todo */
     li.innerHTML = `
-    ${expen.id}
-       <p>${expen.date}</p>
+      <p>${expen.date}</p>
       <p>${expen.name}: $${expen.amount.toFixed(2)}</p>
       <button class="edit-btn" data-id="${expen.id}" >Edit</button>     
       <button class="delete-btn" data-id="${expen.id}">Delete</button>
@@ -122,6 +121,7 @@ function deleteExpense(id) {
   render();
   updateTotal();
   split();
+  numberOfPeople.value = "";
 }
 
 function updateTotal() {

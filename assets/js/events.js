@@ -387,24 +387,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // *******************PRACTICE BRINGING OVER EXPENSES ****************
 
-
-
 function  addExpenseToEvent() {
     if(!selectedEvent) {
         console.log("No event selected");
         return;
     }
-    
-    const expenseName = "Popcorn";
-    const expenseAmount = 10;
-    
-    console.log(`${selectedEvent.name} was clicked in expenses`);
-    selectedEvent.expenses.push({
-        name: expenseName,
-        amount: expenseAmount
+    const expense = {
+        expenseName: "popcorn",
+        expenseAmount: 10
     }
-       
-    );
+
+    console.log(`${selectedEvent.name} was clicked in expenses`);
+    selectedEvent.expenses.push(expense);
+
     console.log(selectedEvent.expenses);
     console.log(events);
 }

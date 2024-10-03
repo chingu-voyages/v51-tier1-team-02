@@ -313,6 +313,21 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // this function asks user whether they want to delete or not
     function confirmDelete(event, index) {
+        // if there is an existing warning with buttons, run these if statements
+        const existingwarning = row.querySelector(".warning-text");
+        const existingYesButton = row.querySelector(".confirm-yes");
+        const existingNoButton = row.querySelector(".confirm-no");
+
+        if (existingwarning) {
+            existingwarning.remove();
+        }
+        if (existingYesButton) {
+            existingYesButton.remove();
+        }
+        if (existingNoButton) {
+            existingNoButton.remove();
+        }
+
         const warning = document.createElement("p");
         warning.classList.add("warning-text");
         warning.textContent = `Are you sure you want to delete ${event.name}?`;
@@ -320,9 +335,11 @@ document.addEventListener("DOMContentLoaded", function() {
         // When clicking the yes button, the event will be removed from the events array
         const yesButton = document.createElement("button");
         yesButton.textContent = "Yes";
+        yesButton.classList.add("confirm-yes");
         yesButton.addEventListener("click", () => {
             events.splice(index, 1);
             renderEvents();
+
     
             // Deletes the innerHTML if the selected event is also deleted
             if(eventHeader.textContent === event.name){
@@ -335,6 +352,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // yes/no buttons will go away
         const noButton = document.createElement("button");
         noButton.textContent = "No";
+        noButton.classList.add("confirm-no");
         noButton.addEventListener("click", () => {
             warning.remove();
             yesButton.remove();

@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
         if (selectedEvent) {
             addMembersToEvent();
+            populatePayerDropdown();
             addExpenseToEvent();
 
             console.log(`${selectedEvent.name} was selected`);
@@ -398,7 +399,7 @@ const expenseNameInput = document.getElementById("expenseName");
 const expenseAmountInput = document.getElementById("expenseAmount");
 const addButton = document.getElementById("addExpenseButton");
 const payer = document.getElementById("payer");
-let total = 0;
+
 
 function populatePayerDropdown() {
     if(!selectedEvent) {
@@ -454,6 +455,7 @@ function addExpense() {
 
 addButton.addEventListener("click", () => {
     addExpense();
+
 });
 
 
@@ -462,24 +464,7 @@ function  addExpenseToEvent() {
         console.log("No event selected");
         return;
     }
-    // Generates date for the expense log
-    
-
     const payer = document.getElementById("payer");
-
-    
-    const placeholderOption = document.createElement("option");
-    placeholderOption.value = ""; 
-    placeholderOption.textContent = "Select a member"; 
-    placeholderOption.selected = true; 
-    payer.appendChild(placeholderOption);
-        
-    selectedEvent.members.forEach((member, index) => {
-        const option = document.createElement("option");
-        option.textContent = member.name;
-        payer.appendChild(option);    
-    });
-
     console.log(`${selectedEvent.name} was clicked in expenses`);
     
 }
@@ -491,6 +476,8 @@ function expenseRender() {
     const rows = expenseList.querySelectorAll("tr:not(:first-child)");
     rows.forEach(row => row.remove());
 
+    let total = 0;
+
     // Create a table for the expenses to live
     selectedEvent.expenses.forEach((expense, index) => {
         const tr = document.createElement("tr");
@@ -500,6 +487,7 @@ function expenseRender() {
         const expenseOwner = document.createElement("td");
         const expenseTotal = document.createElement("td");
         const expenseOwe = document.createElement("td");
+        
 
         const editButton = document.createElement("button");
         editButton.type = "button";
@@ -535,38 +523,33 @@ function expenseRender() {
         // expenseOwner.appendChild(selectMembers);
         tr.appendChild(expenseOwner);
 
-        expenseTotal.textContent = expense.amount;
+        
+        const totalFormattedAmount = expense.amount.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD'
+        });
+        expenseTotal.textContent = totalFormattedAmount;
         expenseTotal.classList.add("expense-total");
         tr.appendChild(expenseTotal);
+        
+        total = total + expense.amount;
 
-        expenseOwe.textContent = (expense.amount)/selectedEvent.members.length;
+        const individualFormattedAmount = ((expense.amount)/selectedEvent.members.length).toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD'
+        });
+        expenseOwe.textContent = individualFormattedAmount;
         expenseOwe.classList.add("expense-owe");
         tr.appendChild(expenseOwe);
 
         expenseList.appendChild(tr);
 
-        total = total + expense.amount;
-        totalAmount.textContent = total;
-        console.log(total);
-
     });
-
-
-    
- 
-    // Bind click events
-    // document.querySelectorAll(".edit-btn").forEach((btn) => {
-    //     btn.addEventListener("click", (e) => {
-    //     startEditingExpense(parseInt(e.target.dataset.id)); //Get expense ID
-    //     });
-    // });
-
-    // document.querySelectorAll(".delete-btn").forEach((btn) => {
-    //     btn.addEventListener("click", (e) => {
-    //     deleteExpense(parseInt(e.target.dataset.id));
-    //     });
-    // });    
+    const formattedAmount = total.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    });
+    totalAmount.textContent = formattedAmount;
 }
 
-// Move over Edit, Delete, Split, ... 
 

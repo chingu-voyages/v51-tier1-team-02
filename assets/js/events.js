@@ -428,7 +428,7 @@ function expenseRender() {
     rows.forEach(row => row.remove());
 
     // Create a table for the expenses to live
-    selectedEvent.expenses.forEach(expense => {
+    selectedEvent.expenses.forEach((expense, index) => {
         const tr = document.createElement("tr");
         const expenseEdit = document.createElement("td");
         const expenseDate = document.createElement("td");
@@ -437,9 +437,25 @@ function expenseRender() {
         const expenseTotal = document.createElement("td");
         const expenseOwe = document.createElement("td");
 
-        expenseEdit.textContent = "Edit";
+        const editButton = document.createElement("button");
+        editButton.type = "button";
+        editButton.textContent = "Edit";
+        const deleteButton = document.createElement("button");
+        deleteButton.type = "button";
+        deleteButton.textContent = "X";
+        expenseEdit.appendChild(editButton);
+        expenseEdit.appendChild(deleteButton);
         expenseEdit.classList.add("expense-edit");
         tr.appendChild(expenseEdit);
+
+        editButton.addEventListener("click", () =>{
+            console.log("edit button clicked");
+        });
+    
+        deleteButton.addEventListener("click", () =>{
+            selectedEvent.expenses.splice(index, 1);
+            expenseRender();
+        });
 
         expenseDate.textContent = expense.date;
         expenseDate.classList.add("expense-date");
@@ -457,39 +473,28 @@ function expenseRender() {
         expenseTotal.classList.add("expense-total");
         tr.appendChild(expenseTotal);
 
-        expenseOwe.textContent = (expense.amount)/4;
+        expenseOwe.textContent = (expense.amount)/selectedEvent.members.length;
         expenseOwe.classList.add("expense-owe");
         tr.appendChild(expenseOwe);
 
         expenseList.appendChild(tr);
 
     });
+
+    
  
-
-
-    // selectedEvent.expenses.forEach((expen) => {
-    //   const li = document.createElement("li");
-    //   li.classList.add("expense-item"); /* Todo */
-    //   li.innerHTML = `
-    //     <p>${expen.date}</p>
-    //     <p>${expen.name}: $${expen.amount.toFixed(2)}</p>
-    //     <button class="edit-btn" data-id="${expen.id}" >Edit</button>     
-    //     <button class="delete-btn" data-id="${expen.id}">Delete</button>
-    //   `;
-    //   expenseList.appendChild(li);
-    // });
     // Bind click events
-    document.querySelectorAll(".edit-btn").forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-        startEditingExpense(parseInt(e.target.dataset.id)); //Get expense ID
-        });
-    });
+    // document.querySelectorAll(".edit-btn").forEach((btn) => {
+    //     btn.addEventListener("click", (e) => {
+    //     startEditingExpense(parseInt(e.target.dataset.id)); //Get expense ID
+    //     });
+    // });
 
-    document.querySelectorAll(".delete-btn").forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-        deleteExpense(parseInt(e.target.dataset.id));
-        });
-    });    
+    // document.querySelectorAll(".delete-btn").forEach((btn) => {
+    //     btn.addEventListener("click", (e) => {
+    //     deleteExpense(parseInt(e.target.dataset.id));
+    //     });
+    // });    
 }
 
 // Move over Edit, Delete, Split, ... 

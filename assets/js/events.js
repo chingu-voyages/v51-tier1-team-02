@@ -153,6 +153,9 @@ document.addEventListener("DOMContentLoaded", function() {
         templateusersList.innerHTML = "";
         if(selectedEvent) {
             selectedEvent.members.forEach((member, index) => {
+            const memberInGroupList = document.createElement("div")
+            memberInGroupList.classList.add("member-in-group-list");
+
             const memberList = document.createElement("li");
             memberList.textContent = member.name;
 
@@ -160,6 +163,7 @@ document.addEventListener("DOMContentLoaded", function() {
             memberListDeleteButton.type = "button";
             memberListDeleteButton.textContent = "X";
 
+            templateusersList.appendChild(memberInGroupList);
             templateusersList.appendChild(memberList);
             templateusersList.appendChild(memberListDeleteButton);
 
@@ -394,6 +398,7 @@ const expenseNameInput = document.getElementById("expenseName");
 const expenseAmountInput = document.getElementById("expenseAmount");
 const addButton = document.getElementById("addExpenseButton");
 const payer = document.getElementById("payer");
+let total = 0;
 
 function populatePayerDropdown() {
     if(!selectedEvent) {
@@ -475,10 +480,7 @@ function  addExpenseToEvent() {
         payer.appendChild(option);    
     });
 
-
-
     console.log(`${selectedEvent.name} was clicked in expenses`);
-    clearInputs();
     
 }
 
@@ -543,12 +545,12 @@ function expenseRender() {
 
         expenseList.appendChild(tr);
 
+        total = total + expense.amount;
+        totalAmount.textContent = total;
+        console.log(total);
+
     });
 
-    function clearInputs() {
-        expenseNameInput.value = "";
-        document.getElementById("expenseAmount").value = "";
-      }
 
     
  

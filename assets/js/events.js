@@ -392,9 +392,22 @@ function  addExpenseToEvent() {
         console.log("No event selected");
         return;
     }
+    const date = new Date();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const dDate = `${month}/${day}`;
+
+    // owner needs to be someone in the group.  the Select options will be
+    // if member is included in the group and a placeholder option
+
+    // addExpense function will go here to populate the const expense
+    
     const expense = {
-        expenseName: "popcorn",
-        expenseAmount: 10
+        id: Date.now(),
+        name: "popcorn",
+        amount: 10,
+        owner: "Cole",
+        date: dDate
     }
 
     console.log(`${selectedEvent.name} was clicked in expenses`);

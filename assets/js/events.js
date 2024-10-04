@@ -419,6 +419,7 @@ function  addExpenseToEvent() {
     expenseRender();
 }
 
+// Need to move this to the BALANCE section
 function expenseRender() {
     const expenseList = document.getElementById("expenseList");
     expenseList.innerHTML = "";
@@ -433,6 +434,19 @@ function expenseRender() {
       `;
       expenseList.appendChild(li);
     });
+    // Bind click events
+    document.querySelectorAll(".edit-btn").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+        startEditingExpense(parseInt(e.target.dataset.id)); //Get expense ID
+        });
+    });
+
+    document.querySelectorAll(".delete-btn").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+        deleteExpense(parseInt(e.target.dataset.id));
+        });
+    });    
 }
 
+// Move over Edit, Delete, Split, ... 
 

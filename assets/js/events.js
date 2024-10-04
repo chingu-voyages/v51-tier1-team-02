@@ -392,6 +392,7 @@ function  addExpenseToEvent() {
         console.log("No event selected");
         return;
     }
+    // Generates date for the expense log
     const date = new Date();
     const month = date.getMonth() + 1;
     const day = date.getDate();
@@ -408,7 +409,7 @@ function  addExpenseToEvent() {
         amount: 10,
         owner: "Cole",
         date: dDate
-    }
+    };
 
     console.log(`${selectedEvent.name} was clicked in expenses`);
     selectedEvent.expenses.push(expense);
@@ -421,19 +422,62 @@ function  addExpenseToEvent() {
 
 // Need to move this to the BALANCE section
 function expenseRender() {
-    const expenseList = document.getElementById("expenseList");
-    expenseList.innerHTML = "";
-    selectedEvent.expenses.forEach((expen) => {
-      const li = document.createElement("li");
-      li.classList.add("expense-item"); /* Todo */
-      li.innerHTML = `
-        <p>${expen.date}</p>
-        <p>${expen.name}: $${expen.amount.toFixed(2)}</p>
-        <button class="edit-btn" data-id="${expen.id}" >Edit</button>     
-        <button class="delete-btn" data-id="${expen.id}">Delete</button>
-      `;
-      expenseList.appendChild(li);
+    const expenseList = document.getElementById("expense-table");
+
+    const rows = expenseList.querySelectorAll("tr:not(:first-child)");
+    rows.forEach(row => row.remove());
+
+    // Create a table for the expenses to live
+    selectedEvent.expenses.forEach(expense => {
+        const tr = document.createElement("tr");
+        const expenseEdit = document.createElement("td");
+        const expenseDate = document.createElement("td");
+        const expenseExpense = document.createElement("td");
+        const expenseOwner = document.createElement("td");
+        const expenseTotal = document.createElement("td");
+        const expenseOwe = document.createElement("td");
+
+        expenseEdit.textContent = "Edit";
+        expenseEdit.classList.add("expense-edit");
+        tr.appendChild(expenseEdit);
+
+        expenseDate.textContent = expense.date;
+        expenseDate.classList.add("expense-date");
+        tr.appendChild(expenseDate);
+
+        expenseExpense.textContent = expense.name;
+        expenseExpense.classList.add("expense-expense");
+        tr.appendChild(expenseExpense);
+        
+        expenseOwner.textContent = expense.owner;
+        expenseOwner.classList.add("expense-owner");
+        tr.appendChild(expenseOwner);
+
+        expenseTotal.textContent = expense.amount;
+        expenseTotal.classList.add("expense-total");
+        tr.appendChild(expenseTotal);
+
+        expenseOwe.textContent = (expense.amount)/4;
+        expenseOwe.classList.add("expense-owe");
+        tr.appendChild(expenseOwe);
+
+        expenseList.appendChild(tr);
+
     });
+ 
+
+
+    // selectedEvent.expenses.forEach((expen) => {
+    //   const li = document.createElement("li");
+    //   li.classList.add("expense-item"); /* Todo */
+    //   li.innerHTML = `
+    //     <p>${expen.date}</p>
+    //     <p>${expen.name}: $${expen.amount.toFixed(2)}</p>
+    //     <button class="edit-btn" data-id="${expen.id}" >Edit</button>     
+    //     <button class="delete-btn" data-id="${expen.id}">Delete</button>
+    //   `;
+    //   expenseList.appendChild(li);
+    // });
     // Bind click events
     document.querySelectorAll(".edit-btn").forEach((btn) => {
         btn.addEventListener("click", (e) => {

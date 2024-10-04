@@ -1,11 +1,11 @@
 export let events = [
-    {name: "Movie", eventID: 111, members: [{name: "Cole", memberID: "id4444"}]},
-    {name: "Dinner Party",eventID: 222, members: [{name: "Cole", memberID: "id4444"}]},
-    {name: "Ski Trip",eventID: 333, members: [{name: "Cole", memberID: "id4444"}]},
-    {name: "Pool Party",eventID: 444, members: [{name: "Cole", memberID: "id4444"}]},
-    {name: "Disney",eventID: 555, members: [{name: "Cole", memberID: "id4444"}]},
-    {name: "Bowling",eventID: 666, members: [{name: "Cole", memberID: "id4444"}]},
-    {name: "Football Game",eventID: 777, members: [{name: "Cole", memberID: "id4444"}]},
+    {name: "Movie", eventID: 111, members: [{name: "Cole", memberID: "id4444"}], expenses:[]},
+    {name: "Dinner Party",eventID: 222, members: [{name: "Cole", memberID: "id4444"}], expenses:[]},
+    {name: "Ski Trip",eventID: 333, members: [{name: "Cole", memberID: "id4444"}], expenses:[]},
+    {name: "Pool Party",eventID: 444, members: [{name: "Cole", memberID: "id4444"}], expenses:[]},
+    {name: "Disney",eventID: 555, members: [{name: "Cole", memberID: "id4444"}], expenses:[]},
+    {name: "Bowling",eventID: 666, members: [{name: "Cole", memberID: "id4444"}], expenses:[]},
+    {name: "Football Game",eventID: 777, members: [{name: "Cole", memberID: "id4444"}], expenses:[]},
 ];
 
 export let members = [

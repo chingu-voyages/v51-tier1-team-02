@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Expense Sharing App</title>
     <link rel="stylesheet" href="assets/css/styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 
 <!--grey-->
@@ -90,7 +94,11 @@
         </button>
       </div>
         <div id="list-of-users">
-          <ul id="users-list"></ul>
+
+          <ul id="users-list">
+            <div class="memberDiv"></div>
+            <div class="nameimgDiv"></div>
+          </ul>
           <div id="user-container"></div>
         </div>
     </section>
@@ -100,6 +108,8 @@
     <section class="balances">
       <div class="color-block">
         <h2>Balances</h2>
+      </div>
+      <div class="balances-text">
         <p>*placeholder*</p>
         <p>Edit - Expense Name - Owner - Total $ - Cole Owes</p>
       </div>

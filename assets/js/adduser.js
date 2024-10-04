@@ -96,15 +96,38 @@ export function renderUsers () {
   //keeps list from repeating
   templateusersList.innerHTML = "";
   members.forEach((member, index) => {
+
+    const memberImg = document.createElement("img");
+    memberImg.classList.add("profile-style");
+    memberImg.src = "assets/img/anon.png";
+    memberImg.alt = "profile";
+
+
     const memberItem = document.createElement("li");
     memberItem.textContent = member.name;
+    
 
     const deleteButton = document.createElement("button");
     deleteButton.type = "button";
+    deleteButton.classList.add("delete-users-button");
     deleteButton.textContent = "X";
-
+    
+    templateusersList.appendChild(memberImg);
     templateusersList.appendChild(memberItem);
     templateusersList.appendChild(deleteButton);
+
+/*
+//TRIAL CODE
+    const memberDiv = document.querySelector('.memberDiv');
+    memberDiv.appendChild(memberImg);
+
+    //change this
+    const nameimgDiv = document.querySelector('.nameimgDiv');
+    nameimgDiv.appendChild(memberItem);
+    nameimgDiv.appendChild(deleteButton);
+
+//TRIAL CODE ENDS HERE
+*/
 
     deleteButton.addEventListener('click', () => {
       members.splice(index, 1);

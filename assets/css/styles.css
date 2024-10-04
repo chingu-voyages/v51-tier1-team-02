@@ -25,7 +25,12 @@ body {
   align-items: center;
   flex-direction: column;
 
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
+
 
 button {
   border-style: none;
@@ -45,12 +50,22 @@ button {
   margin-top: 0px;
   margin-bottom: 0px;
   font-size: 1.5em;
+
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 #cole-events h2 {
   margin-top: 0px;
   margin-bottom: 0px;
   font-size: 1.5em;
+
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 
@@ -72,7 +87,7 @@ button {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center
+  align-items: center;
 }
 
 #pizza {
@@ -83,6 +98,11 @@ button {
 h1 {
   margin-top: 0px;
   margin-bottom: 0px;
+
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .header-container {
@@ -164,12 +184,13 @@ h1 {
 #welcome {
   height: 40px;
   width: 40px;
+  border-color: #fedb98;
+  border-width: 0.2em;
+  border-radius: 50%;
 }
 
 #welcome img {
-  border-color: #fedb98;
 
-  border-radius: 50%;
 }
 
 
@@ -219,6 +240,7 @@ h1 {
   justify-content: center;
   height: 9%;
   align-items: center;
+  width: 100%;
 }
 
 #events-list {
@@ -338,9 +360,29 @@ h1 {
 #users-list {
     list-style-type: none;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     overflow: auto;
     padding: 0;
+    align-items: center;
+    height: 79px;
+    overflow: unset;
+    flex-wrap: inherit;
+
+}
+
+.profile-style {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/*trial styling
+.memberDiv {
+  width: 10px;
+}*/
+
+.delete-users-button {
+  margin: 0px 40px;
 }
 
 /*turn on this class for modal to show up*/
@@ -376,6 +418,8 @@ h1 {
   justify-content: center;
   align-items: center; /*this isn't applying*/
   height: 75%;
+  flex-wrap: wrap;
+  overflow: scroll;
 }
 
 
@@ -417,7 +461,7 @@ h1 {
 /************************ Balances ********************/
 
 .balances {
-  background-color: #d5a53f;
+  background-color:white;
   height: 60px;
   height: 200px;
   
@@ -438,7 +482,7 @@ h1 {
 }
 
 .expense-box {
-  background-color: #d43ed1;
+  background-color:white;
 }
 
 #color-block-expenses {

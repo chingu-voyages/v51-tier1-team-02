@@ -402,7 +402,6 @@ function  addExpenseToEvent() {
     // if member is included in the group and a placeholder option
 
     // addExpense function will go here to populate the const expense
-
     const expense = {
         id: Date.now(),
         name: "popcorn",
@@ -465,8 +464,20 @@ function expenseRender() {
         expenseExpense.classList.add("expense-expense");
         tr.appendChild(expenseExpense);
         
-        expenseOwner.textContent = expense.owner;
+        const selectMembers = document.createElement("select");
+        const placeholderOption = document.createElement("option");
+        placeholderOption.value = ""; 
+        placeholderOption.textContent = "Select a member"; 
+        placeholderOption.selected = true; 
+        selectMembers.appendChild(placeholderOption);
+         
+        selectedEvent.members.forEach((member, index) => {
+            const option = document.createElement("option");
+            option.textContent = member.name;
+            selectMembers.appendChild(option);    
+        });
         expenseOwner.classList.add("expense-owner");
+        expenseOwner.appendChild(selectMembers);
         tr.appendChild(expenseOwner);
 
         expenseTotal.textContent = expense.amount;

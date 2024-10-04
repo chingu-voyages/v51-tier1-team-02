@@ -386,6 +386,71 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // *******************PRACTICE BRINGING OVER EXPENSES ****************
+const totalAmount = document.getElementById("totalAmount");
+
+const warning = document.getElementById("expense-warning");
+
+const expenseNameInput = document.getElementById("expenseName");
+const expenseAmountInput = document.getElementById("expenseAmount");
+const addButton = document.getElementById("addExpenseButton");
+const payer = document.getElementById("payer");
+
+function populatePayerDropdown() {
+    if(!selectedEvent) {
+        console.log("No event selected");
+        return;
+    }
+    payer.innerHTML = "";
+
+    const placeholderOption = document.createElement("option");
+    placeholderOption.value = ""; 
+    placeholderOption.textContent = "Select a member"; 
+    placeholderOption.selected = true; 
+    payer.appendChild(placeholderOption);
+        
+    selectedEvent.members.forEach((member, index) => {
+        const option = document.createElement("option");
+        option.textContent = member.name;
+        option.value = member.name;
+        payer.appendChild(option);    
+    });
+}
+
+populatePayerDropdown();
+
+function addExpense() {
+    const name = expenseNameInput.value; 
+    const amount = parseFloat(expenseAmountInput.value);
+    
+
+    const selectedPayer = payer.value;
+
+    const date = new Date();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const dDate = `${month}/${day}`;
+
+    const expense = {
+        id: Date.now(),
+        name: name,
+        amount: amount,
+        owner: selectedPayer,
+        date: dDate
+    };
+
+    selectedEvent.expenses.push(expense);
+
+    console.log(selectedEvent.expenses);
+    console.log(events);
+    console.log(`There are ${selectedEvent.members.length} members in this event`);
+    expenseRender();
+
+}
+
+addButton.addEventListener("click", () => {
+    addExpense();
+});
+
 
 function  addExpenseToEvent() {
     if(!selectedEvent) {
@@ -393,30 +458,28 @@ function  addExpenseToEvent() {
         return;
     }
     // Generates date for the expense log
-    const date = new Date();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    const dDate = `${month}/${day}`;
+    
 
-    // owner needs to be someone in the group.  the Select options will be
-    // if member is included in the group and a placeholder option
+    const payer = document.getElementById("payer");
 
-    // addExpense function will go here to populate the const expense
-    const expense = {
-        id: Date.now(),
-        name: "popcorn",
-        amount: 10,
-        owner: "Cole",
-        date: dDate
-    };
+    
+    const placeholderOption = document.createElement("option");
+    placeholderOption.value = ""; 
+    placeholderOption.textContent = "Select a member"; 
+    placeholderOption.selected = true; 
+    payer.appendChild(placeholderOption);
+        
+    selectedEvent.members.forEach((member, index) => {
+        const option = document.createElement("option");
+        option.textContent = member.name;
+        payer.appendChild(option);    
+    });
+
+
 
     console.log(`${selectedEvent.name} was clicked in expenses`);
-    selectedEvent.expenses.push(expense);
-
-    console.log(selectedEvent.expenses);
-    console.log(events);
-    console.log(`There are ${selectedEvent.members.length} members in this event`);
-    expenseRender();
+    clearInputs();
+    
 }
 
 // Need to move this to the BALANCE section
@@ -464,20 +527,10 @@ function expenseRender() {
         expenseExpense.classList.add("expense-expense");
         tr.appendChild(expenseExpense);
         
-        const selectMembers = document.createElement("select");
-        const placeholderOption = document.createElement("option");
-        placeholderOption.value = ""; 
-        placeholderOption.textContent = "Select a member"; 
-        placeholderOption.selected = true; 
-        selectMembers.appendChild(placeholderOption);
-         
-        selectedEvent.members.forEach((member, index) => {
-            const option = document.createElement("option");
-            option.textContent = member.name;
-            selectMembers.appendChild(option);    
-        });
+        
+        expenseOwner.textContent = expense.owner;
         expenseOwner.classList.add("expense-owner");
-        expenseOwner.appendChild(selectMembers);
+        // expenseOwner.appendChild(selectMembers);
         tr.appendChild(expenseOwner);
 
         expenseTotal.textContent = expense.amount;
@@ -491,6 +544,11 @@ function expenseRender() {
         expenseList.appendChild(tr);
 
     });
+
+    function clearInputs() {
+        expenseNameInput.value = "";
+        document.getElementById("expenseAmount").value = "";
+      }
 
     
  

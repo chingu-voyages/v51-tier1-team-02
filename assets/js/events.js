@@ -401,7 +401,7 @@ function  addExpenseToEvent() {
     // if member is included in the group and a placeholder option
 
     // addExpense function will go here to populate the const expense
-    
+
     const expense = {
         id: Date.now(),
         name: "popcorn",
@@ -416,6 +416,23 @@ function  addExpenseToEvent() {
     console.log(selectedEvent.expenses);
     console.log(events);
     console.log(`There are ${selectedEvent.members.length} members in this event`);
+    expenseRender();
+}
+
+function expenseRender() {
+    const expenseList = document.getElementById("expenseList");
+    expenseList.innerHTML = "";
+    selectedEvent.expenses.forEach((expen) => {
+      const li = document.createElement("li");
+      li.classList.add("expense-item"); /* Todo */
+      li.innerHTML = `
+        <p>${expen.date}</p>
+        <p>${expen.name}: $${expen.amount.toFixed(2)}</p>
+        <button class="edit-btn" data-id="${expen.id}" >Edit</button>     
+        <button class="delete-btn" data-id="${expen.id}">Delete</button>
+      `;
+      expenseList.appendChild(li);
+    });
 }
 
 

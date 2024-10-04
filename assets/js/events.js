@@ -150,7 +150,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     // This function will display all members in the event with an option to remove the member
     function displayMembersInGroup () {
-
         templateusersList.innerHTML = "";
         if(selectedEvent) {
             selectedEvent.members.forEach((member, index) => {
@@ -180,6 +179,7 @@ document.addEventListener("DOMContentLoaded", function() {
         createUsersEventArray();
         eventModificationContainer.innerHTML = "";
         displayMembersInGroup();
+
 
 
         // Create a container to hold the event name and edit button
@@ -402,6 +402,7 @@ function  addExpenseToEvent() {
 
     console.log(selectedEvent.expenses);
     console.log(events);
+    console.log(`There are ${selectedEvent.members.length} members in this event`);
 }
 
 

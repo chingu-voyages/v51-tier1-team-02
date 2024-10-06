@@ -129,15 +129,19 @@
 
     <!--PINK-->
     <!--Box to display divided costs-->
-    <section class="expense-box ">
+    <section class="expense-box">
       <div class="color-block" id="color-block-expenses">
         <h2>Expenses</h2>
         <button class="add-edit-button" id="addExpenseButton">Add/Edit</button>
       </div>
-      <div id="expense-warning"></div>
-      <input id="expenseName" type="text" placeholder="Expense Name" />
-      <span class="currencyinput">$<input id="expenseAmount" type="number" placeholder="0.00" type="text" name="currency"></span>
-      <select id="payer"></select>
+      
+      <div id="expense-input-container">
+        <input id="expenseName" type="text" placeholder="Expense Name" />
+        <span class="currencyinput">$<input id="expenseAmount" type="number" placeholder="0.00" type="text" name="currency"></span>
+        <select id="payer"></select>
+        <p id="expense-warning"></p>
+        
+      </div>
       
       <!--button was here-->
 

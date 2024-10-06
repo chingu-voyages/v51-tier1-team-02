@@ -182,7 +182,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // The event details will render here.  Currently there is just an H2 with the event name
     function renderEventDetails(eventName, index) {
         selectedEvent = events[index];
-
         createUsersEventArray();
         eventModificationContainer.innerHTML = "";
         displayMembersInGroup();
@@ -431,18 +430,17 @@ function populatePayerDropdown() {
 populatePayerDropdown();
 
 function addExpense() {
-    const warning = document.getElementById("expense-warning");
+    const expenseWarning = document.getElementById("expense-warning");
     const expenseInputContainer = document.getElementById("expense-input-container");
 
     const name = expenseNameInput.value; 
     const amount = parseFloat(expenseAmountInput.value);
     const selectedPayer = payer.value;
 
-
-    warning.textContent = "";
+    expenseWarning.textContent = "";
 
     if (name === "" || isNaN(amount) || selectedPayer === "") {
-        warning.textContent = "Please enter a valid expense name, amount, and payer.";
+        expenseWarning.textContent = "Please enter a valid expense name, amount, and payer.";
         return; // Stop the function if inputs are not valid
     }
 

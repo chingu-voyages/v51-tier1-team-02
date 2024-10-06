@@ -77,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
             option.textContent = member.name;
             selectMembers.appendChild(option);    
         });
+        
         // Removes any existing warning on the screen
         function clearWarning() {
             const existingWarning = document.getElementById("user-event-warning-message");
@@ -110,6 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // On click (+) the user is added to the events array
         selectMemberAddButton.addEventListener("click", () => {
             clearWarning();
+            
             const selectedID = selectMembers.value;
 
             // user name and member ID
@@ -122,6 +124,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.log(`member added: ${selectedMember.name}`);
                 selectMembers.value = "";
                 displayMembersInGroup();
+                populatePayerDropdown();
             } else {
             // else a warning is shown
                 const warning = document.createElement("p");
@@ -146,8 +149,7 @@ document.addEventListener("DOMContentLoaded", function() {
             clearWarning();
         });
         listofUsers.appendChild(selectMembers);
-        listofUsers.appendChild(selectMemberAddButton);
-        
+        listofUsers.appendChild(selectMemberAddButton);        
     }
     // This function will display all members in the event with an option to remove the member
     function displayMembersInGroup () {
@@ -455,6 +457,7 @@ function addExpense() {
 
 addButton.addEventListener("click", () => {
     addExpense();
+    populatePayerDropdown();
 
 });
 

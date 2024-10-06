@@ -398,7 +398,7 @@ document.addEventListener("DOMContentLoaded", function() {
 const totalAmount = document.getElementById("totalAmount");
 const totalIndividualAmount = document.getElementById("total-individual-amount");
 
-const warning = document.getElementById("expense-warning");
+
 
 const expenseNameInput = document.getElementById("expenseName");
 const expenseAmountInput = document.getElementById("expenseAmount");
@@ -431,10 +431,20 @@ function populatePayerDropdown() {
 populatePayerDropdown();
 
 function addExpense() {
+    const warning = document.getElementById("expense-warning");
+    const expenseInputContainer = document.getElementById("expense-input-container");
+
     const name = expenseNameInput.value; 
     const amount = parseFloat(expenseAmountInput.value);
-
     const selectedPayer = payer.value;
+
+
+    warning.textContent = "";
+
+    if (name === "" || isNaN(amount) || selectedPayer === "") {
+        warning.textContent = "Please enter a valid expense name, amount, and payer.";
+        return; // Stop the function if inputs are not valid
+    }
 
     const date = new Date();
     const month = date.getMonth() + 1;
@@ -462,6 +472,9 @@ function addExpense() {
 addButton.addEventListener("click", () => {
     addExpense();
     populatePayerDropdown();
+
+    
+
     expenseNameInput.value = "";
     expenseAmountInput.value = "";
 
@@ -583,5 +596,7 @@ function expenseRender() {
     totalIndividualAmount.textContent = formattedIndividualAmount;
     
 }
+
+
 
 

@@ -90,6 +90,23 @@ submitNameButton.addEventListener('click', () => {
   username.value = "";
 });
 
+/** TRIAL CODE FOR ID FUNCTION
+ *submitNameButton.addEventListener('click', () => {
+  //const inputValue = username.value;
+  const required = function(e) { 
+    const inputValue = username.value;
+      if(inputValue === "") {
+        e.preventDefault();
+        alert("Enter in a name.");
+        //go here
+      } else {
+        username.value
+      }
+    }
+  }
+  
+**/
+
 
 /******ADD USERS TO LIST******************************************************/
 export function renderUsers () {

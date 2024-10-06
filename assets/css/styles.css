@@ -233,7 +233,7 @@ h1 {
 }
 
 .main-rows {
-  background-color: limegreen;
+  background-color: white;
 
   width: 75%;
   height: 100%;
@@ -413,24 +413,40 @@ h1 {
 /*turn on this class for modal to show up*/
 .show-user-form {
   display: flex;
-  background: #72bdeb;
   color: black;
-  border-radius: 20px;
+  border-radius: 0.3em;
   box-sizing: border-box;
-  max-height: 600px;
-  max-width: 600px;
-  height: 80%;
+  height: 10%;
   padding: 20px;
+  margin-bottom: 15px;
   position: relative;
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 10px lightgray;
-  font-size: 1.5em;
-  font-weight: 500;
-  /*transitions modal*/
-  animation: popUPAnimation 1.5s forwards; 
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+}
+
+#form-close {
+  margin-right: 10px;
+}
+
+#get-information label {
+  font-size: 1em;
+}
+
+#submit-name {
+  background-color: #fedb98;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  margin: 3px 5px 3px;
+  margin-left: 20px;
+  border-radius: 0.3em;
+  height: 30px;
+  width: 80px;
 }
 
 #user-list-section {
@@ -445,6 +461,7 @@ h1 {
   height: 75%;
   flex-wrap: wrap;
   overflow: scroll;
+  overflow-y: hidden;
 }
 
 
@@ -507,6 +524,10 @@ h1 {
 
 .expense-box {
   background-color:white;
+}
+
+#expenseName {
+  margin-top: 15px;
 }
 
 #color-block-expenses {

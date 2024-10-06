@@ -459,6 +459,8 @@ function addExpense() {
 addButton.addEventListener("click", () => {
     addExpense();
     populatePayerDropdown();
+    expenseNameInput.value = "";
+    expenseAmountInput.value = "";
 
 });
 

@@ -433,7 +433,6 @@ populatePayerDropdown();
 function addExpense() {
     const name = expenseNameInput.value; 
     const amount = parseFloat(expenseAmountInput.value);
-    
 
     const selectedPayer = payer.value;
 

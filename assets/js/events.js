@@ -212,6 +212,8 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Append everything to the main modification container
         eventModificationContainer.appendChild(eventNameContainer);
+
+        expenseRender();
     }
     
     // a function to switch the event name to editing mode
@@ -404,6 +406,7 @@ const addButton = document.getElementById("addExpenseButton");
 const payer = document.getElementById("payer");
 
 
+
 function populatePayerDropdown() {
     if(!selectedEvent) {
         console.log("No event selected");
@@ -444,7 +447,8 @@ function addExpense() {
         name: name,
         amount: amount,
         owner: selectedPayer,
-        date: dDate
+        date: dDate,
+
     };
 
     selectedEvent.expenses.push(expense);

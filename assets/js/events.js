@@ -394,6 +394,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // *******************PRACTICE BRINGING OVER EXPENSES ****************
 const totalAmount = document.getElementById("totalAmount");
+const totalIndividualAmount = document.getElementById("total-individual-amount");
 
 const warning = document.getElementById("expense-warning");
 
@@ -480,6 +481,7 @@ function expenseRender() {
     rows.forEach(row => row.remove());
 
     let total = 0;
+    let totalIndividual = 0;
 
     // Create a table for the expenses to live
     selectedEvent.expenses.forEach((expense, index) => {
@@ -537,10 +539,26 @@ function expenseRender() {
         
         total = total + expense.amount;
 
-        const individualFormattedAmount = ((expense.amount)/selectedEvent.members.length).toLocaleString('en-US', {
-            style: 'currency',
-            currency: 'USD'
-        });
+
+        
+        let individualFormattedAmount = null;
+        if(expense.owner === "Cole"){
+            individualFormattedAmount = ((0)/selectedEvent.members.length).toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            });
+            totalIndividual = totalIndividual + 0;
+        } else {
+            individualFormattedAmount = ((expense.amount)/selectedEvent.members.length).toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            });
+            totalIndividual = totalIndividual + ((expense.amount)/selectedEvent.members.length);
+        }
+
+        
+        console.log(totalIndividual);
+        
         expenseOwe.textContent = individualFormattedAmount;
         expenseOwe.classList.add("expense-owe");
         tr.appendChild(expenseOwe);
@@ -552,7 +570,13 @@ function expenseRender() {
         style: 'currency',
         currency: 'USD'
     });
+    const formattedIndividualAmount = totalIndividual.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    });
     totalAmount.textContent = formattedAmount;
+    totalIndividualAmount.textContent = formattedIndividualAmount;
+    
 }
 
 

@@ -14,7 +14,7 @@ html {
   display: flex;
   justify-content: center;
   font-size: 16px;
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif;*/ 
 }
 
 body {
@@ -38,7 +38,9 @@ button {
 
 .add-edit-button {
   background-color: #fedb98;
-  border-color: #fedb98;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
   margin: 3px 5px 3px;
   border-radius: 0.3em;
   height: 30px;
@@ -126,31 +128,53 @@ h1 {
   background-color: #fedb98;
   border-color: #fedb98;
   box-shadow: none;
-  padding: 2.5px 15px;
+  /*padding: 2.5px 15px;*/
+  /* padding: 3px 30px; */
+  padding: 0.14em 1.3em;
+  font-size: 1.9vw;
+  width:30%;
+
 }
 
 #header-button-1 {
   margin-right: 0px;
-  border-color: #fedb98;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-top-left-radius: 0.3em;
+  border-bottom-left-radius: 0.3em;
+  width: 100%;
+
 }
 
 #header-button-2 {
   margin-left: 0px;
   margin-right: 0px;
-  border-color: #fedb98;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #000000;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  width: 100%;
 }
 
 #header-button-3 {
   margin-left: 0px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-top-right-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
+  width: 100%;
 }
 
 .nav {
   background-color: #588b5f;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   height: 50%;
   border-radius: 0.3em;
-
 }
 
 .nav-bar {
@@ -173,8 +197,6 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 80px
-
 }
 
 .welcome-info p{
@@ -313,6 +335,9 @@ h1 {
   background-color: #fedb98;
   border-color: #fedb98;
   border-radius: 0.3em;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
 }
 
 /* Event name edit button styling */
@@ -464,7 +489,6 @@ h1 {
   background-color:white;
   height: 60px;
   height: 200px;
-  
  }
 
 /******************* EXPENSE CSS **********************/
@@ -506,6 +530,9 @@ h1 {
   background-color: #fedb98;
   border-color: #fedb98;
   border-radius: 0.3em;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
 }
 
 /* remove arrows from input type number */

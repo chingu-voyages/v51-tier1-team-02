@@ -23,11 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // function will display array of events
     function renderEvents() {
         row.innerHTML = "";
-        const expenseWarning = document.getElementById("expense-warning");
-        if(expenseWarning){
-            expenseWarning.remove();
-        }
-
+        
         events.forEach((event, index) => {
             const eventItem = createEventItem(event, index);
             row.appendChild(eventItem);

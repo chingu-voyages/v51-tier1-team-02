@@ -1,11 +1,5 @@
-/******************* TO DO LIST **********************/
-/*TO DO:
--green #588b5f
--yellow #fedb98
--grey #d9d9d9
--light green #6cb876 (footer)
+/******************* MOBILE LAYOUT **********************/
 
-*/
 
 /******************* GENERAL CSS **********************/
 
@@ -36,6 +30,11 @@ button {
   border-style: none;
 }
 
+.plus {
+  padding-right: 3px;
+  padding-bottom: 2px;
+}
+
 .add-edit-button {
   background-color: #fedb98;
   border-width: 1px;
@@ -45,6 +44,9 @@ button {
   border-radius: 0.3em;
   height: 30px;
   width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 } 
 
 #user-list-section h2, .balances h2, .expense-box h2 {
@@ -75,14 +77,15 @@ button {
 
 .pizza-container {
   background-color: #588b5f;
-  width: 25%;
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   border-color: black;
-  border-radius: 0.3em;
+  border-radius:  0.3em 0.3em 0em 0em ;
+
 }
 
 #icon {
@@ -110,15 +113,13 @@ h1 {
 .header-container {
   background-color: rgb(255, 255, 255);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
-  height: 9em;
   margin-bottom: 2%;
-  justify-content: space-between;
 }
 
 .header {
-  width: 72%;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -229,13 +230,11 @@ h1 {
 .group-expenses {
   background-color: white;
   width: 100%;
-  display: flex;
 }
 
 .main-rows {
   background-color: white;
-
-  width: 75%;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -245,7 +244,7 @@ h1 {
 /* Remove the bullet points on the list of events */
 #events {
   background-color: #d9d9d9;
-  width: 20%;
+  width: 100%;
   margin-right: 5%;
   border-radius:0.3em 0.3em 0em 0em;
   display: flex;
@@ -522,6 +521,13 @@ h1 {
   align-items: center;
 }
 
+#expense-input-container {
+      display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+}
+
 .expense-box {
   background-color:white;
 }
@@ -566,6 +572,10 @@ input[type="number"]::-webkit-inner-spin-button {
  /* -moz-appearance: textfield; */
 /* } */
 
+#payer {
+  width: 200px;
+}
+
 /*********************FOOTER***********************/
 .footer {
   background-color: #6cb876;
@@ -579,3 +589,46 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 100%;
   text-align: center;
 }
+
+@media only screen and (min-width: 768px) {
+
+/*Desktop styles*/
+
+/*Header CSS*/
+/* .header {
+    width: 72%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  } */
+
+  .header-container {
+    flex-direction: row;
+    height: 9em;
+    justify-content: space-between;
+  }
+
+  .header {
+    width: 72%;
+  }
+
+  .pizza-container {
+    width: 25%;
+    border-radius: 0.3em;
+  }
+
+  .group-expenses {
+    display: flex;
+  }
+
+  /*Events*/
+  #events {
+    width: 20%;
+  }
+
+  .main-rows {
+    width: 75%;
+  }
+
+  
+}  

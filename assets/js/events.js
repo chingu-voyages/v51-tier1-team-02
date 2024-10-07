@@ -12,13 +12,16 @@ export function addMembersToEventRefresh(){
     return selectMembers;
 }
 
+
 document.addEventListener("DOMContentLoaded", function() {
     const addEvent = document.getElementById("addEvent");
     const eventContainer = document.getElementById("eventContainer");
     const row = document.getElementById("events-list");
     const eventModificationContainer = document.getElementById("event-modifications-header");
-
+    const expenseWarningContainer = document.getElementById("expense-warning-container");
     let eventHeader;
+
+    
 
     // function will display array of events
     function renderEvents() {
@@ -182,6 +185,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // The event details will render here.  Currently there is just an H2 with the event name
     function renderEventDetails(eventName, index) {
+        expenseWarningContainer.innerHTML = "";
+
         selectedEvent = events[index];
         createUsersEventArray();
         eventModificationContainer.innerHTML = "";
@@ -431,17 +436,28 @@ function populatePayerDropdown() {
 populatePayerDropdown();
 
 function addExpense() {
-    const expenseWarning = document.getElementById("expense-warning");
-    const expenseInputContainer = document.getElementById("expense-input-container");
+    // const expenseWarning = document.getElementById("expense-warning");
+    // const expenseInputContainer = document.getElementById("expense-input-container");
 
     const name = expenseNameInput.value; 
     const amount = parseFloat(expenseAmountInput.value);
     const selectedPayer = payer.value;
+    const expenseWarning = document.createElement("div");
+    const expenseWarningContainer = document.getElementById("expense-warning-container");
 
-    expenseWarning.textContent = "";
+
+    expenseWarningContainer.innerHTML = "";
+
+    // if (expenseWarning) {
+    //     expenseWarning.textContent = "";
+    // } else {
+    //     console.error("expenseWarning element not found.");
+    // }
 
     if (name === "" || isNaN(amount) || selectedPayer === "") {
+        
         expenseWarning.textContent = "Please enter a valid expense name, amount, and payer.";
+        expenseWarningContainer.appendChild(expenseWarning);
         return; // Stop the function if inputs are not valid
     }
 

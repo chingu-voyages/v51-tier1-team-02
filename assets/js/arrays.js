@@ -1,11 +1,47 @@
 export let events = [
-    {name: "Movie", eventID: 111, members: [{name: "Cole", memberID: "id4444"}], expenses:[]},
-    {name: "Dinner Party",eventID: 222, members: [{name: "Cole", memberID: "id4444"}], expenses:[]},
-    {name: "Ski Trip",eventID: 333, members: [{name: "Cole", memberID: "id4444"}], expenses:[]},
-    {name: "Pool Party",eventID: 444, members: [{name: "Cole", memberID: "id4444"}], expenses:[]},
-    {name: "Disney",eventID: 555, members: [{name: "Cole", memberID: "id4444"}], expenses:[]},
-    {name: "Bowling",eventID: 666, members: [{name: "Cole", memberID: "id4444"}], expenses:[]},
-    {name: "Football Game",eventID: 777, members: [{name: "Cole", memberID: "id4444"}], expenses:[]},
+    {name: "Movie", eventID: 111, 
+    members: [
+        {name: "Cole", memberID: "id4444"},
+        {name: "Jane", memberID: "id2222"}], 
+    expenses:[
+        {id: 1111, name: 'popcorn', amount: 20, owner: 'Cole', date: '10/7'},
+        {id: 2222, name: 'Soda', amount: 10, owner: 'Jane', date: '10/7'}]},
+    {name: "Dinner Party",eventID: 222, 
+    members: [
+        {name: "Cole", memberID: "id4444"},
+        {name: "Joe", memberID: "id3333"}], 
+    expenses:[
+        {id: 3333, name: 'Plates', amount: 55, owner: 'Cole', date: '10/1'},
+        {id: 4444, name: 'Steaks', amount: 150, owner: 'Joe', date: '10/1'}
+    ]},
+    {name: "Ski Trip",eventID: 333, 
+    members: [
+        {name: "Cole", memberID: "id4444"},
+        {name: "John", memberID: "id1111"},
+        {name: "Jane", memberID: "id2222"},
+        {name: "Joe", memberID: "id3333"}], 
+    expenses:[
+        {id: 5555, name: 'Lift Tickets', amount: 600, owner: 'Jane', date: '10/1'},
+        {id: 6666, name: 'Rentals', amount: 500, owner: 'Joe', date: '10/1'}
+    ]},
+    {name: "Bowling",eventID: 666, 
+    members: [
+        {name: "Cole", memberID: "id4444"},
+        {name: "Jane", memberID: "id2222"},
+        {name: "Joe", memberID: "id3333"}], 
+    expenses:[
+        {id: 7777, name: 'Shoes', amount: 15, owner: 'Jane', date: '10/1'},
+        {id: 8888, name: 'Lane Rental', amount: 45, owner: 'Joe', date: '10/1'}
+    ]},
+    {name: "Football Game",eventID: 777, 
+    members: [
+        {name: "Cole", memberID: "id4444"},
+        {name: "John", memberID: "id1111"},
+        {name: "Jane", memberID: "id2222"}], 
+    expenses:[
+        {id: 9999, name: 'Tickets', amount: 300, owner: 'Cole', date: '10/1'},
+        {id: 1000, name: 'Beer', amount: 45, owner: 'Jane', date: '10/1'}
+    ]},
 ];
 
 export let members = [

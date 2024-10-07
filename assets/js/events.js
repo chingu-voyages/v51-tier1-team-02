@@ -540,6 +540,63 @@ function expenseRender() {
 
         editButton.addEventListener("click", () =>{
             console.log("edit button clicked");
+            // Create input fields for editing the expense name, amount, and payer
+            const editExpenseName = document.createElement("input");
+            editExpenseName.type = "text";
+            editExpenseName.value = expense.name;
+            editExpenseName.classList.add("edit-expense-name");
+
+            const editExpenseAmount = document.createElement("input");
+            editExpenseAmount.type = "number";
+            editExpenseAmount.value = expense.amount;
+            editExpenseAmount.classList.add("edit-expense-amount");
+
+            const editPayerSelect = document.createElement("select");
+            selectedEvent.members.forEach(member => {
+                const option = document.createElement("option");
+                option.value = member.name;
+                option.textContent = member.name;
+                if (member.name === expense.owner) {
+                    option.selected = true;
+                }
+                editPayerSelect.appendChild(option);
+            });
+            editPayerSelect.classList.add("edit-expense-payer");
+
+            // Replace the current table data with input fields for editing
+            expenseExpense.innerHTML = ""; 
+            expenseExpense.appendChild(editExpenseName);
+
+            expenseTotal.innerHTML = ""; 
+            expenseTotal.appendChild(editExpenseAmount);
+
+            expenseOwner.innerHTML = "";
+            expenseOwner.appendChild(editPayerSelect);
+
+            // Add a "Save" button to confirm the changes
+            const saveButton = document.createElement("button");
+            saveButton.textContent = "Save";
+            expenseEdit.appendChild(saveButton);
+
+            // Handle saving the edited values
+            saveButton.addEventListener("click", () => {
+                const newExpenseName = editExpenseName.value;
+                const newExpenseAmount = parseFloat(editExpenseAmount.value);
+                const newPayer = editPayerSelect.value;
+
+                if (newExpenseName === "" || isNaN(newExpenseAmount) || newPayer === "") {
+                    alert("Please fill out all fields");
+                    return;
+                }
+
+                // Update the expense object with new values
+                expense.name = newExpenseName;
+                expense.amount = newExpenseAmount;
+                expense.owner = newPayer;
+
+                // Re-render the expense table to show the updated data
+                expenseRender();
+            });
         });
     
         deleteButton.addEventListener("click", () =>{

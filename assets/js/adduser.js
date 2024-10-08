@@ -157,6 +157,27 @@ export function renderUsers () {
 
 renderUsers();
 
+/**********Hamburger Menu**********/
 
 
+
+const mediaQuery = window.matchMedia('(max-width: 768px)');
+
+if (mediaQuery.matches) {
+
+const burgerBar = document.querySelector('.burger-bar');
+
+const offScreenMenu = document.querySelector('.off-screen-menu');
+
+burgerBar.addEventListener('click', () => {
+  burgerBar.classList.toggle('active');
+  offScreenMenu.classList.toggle('active');
+})
+
+  // Code to execute if the media query matches (viewport width is 768px or greater)
+  console.log('Media query matches!');
+} else {
+  // Code to execute if the media query does not match
+  console.log('Media query does not match.');
+}
 

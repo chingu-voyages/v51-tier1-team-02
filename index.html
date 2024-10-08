@@ -9,10 +9,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/805760b91e.js" crossorigin="anonymous"></script>
 </head>
 
 <!--grey-->
 <div class="header-container">
+  <!--hamburger menu-->
+  <div class="burger-bar">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+
   <!--yellow-->
   <div class="pizza-container">
     <div id="icon">
@@ -20,26 +29,37 @@
       <h1>Sp|it</h1>
     </div>
   </div>
+
+  
   <!--black and red-->
   <section class="header">
     <!--black-->
-    <div class="nav">
-      <div class="nav-bar">
-        <button class="header-button" id="header-button-1">Home</button>
-        <button class="header-button" id="header-button-2">Groups</button>
-        <button class="header-button" id="header-button-3">Expenses</button>
-      </div>
 
-      <div class="hamburger-button">
-        <i class="fa-solid fa-bars"></i>
+    <!--mobile menu-->
+    <div class="off-screen-menu">
+      <ul>
+        <li>Home</li>
+        <li>Groups</li>
+        <li>Expenses</li>
+      </ul>
+    </div>
+    
+    <div class="nav" class="hidden">
+      <!--desktop menu-->
+      <div class="nav-bar">
+        <a href="#search"><button class="header-button" id="header-button-1">Home</button></a>
+        <a href="#events"><button class="header-button" id="header-button-2">Groups</button></a>
+        <a href="#expense-input-container"><button class="header-button" id="header-button-3">Expenses</button></a>
+
       </div>
+      
       <div class="welcome-info">
         <img id="welcome" src="assets/img/anon.png">
         <p>Hi, Cole!</p>
       </div>
     </div>  
     <!--red-->
-    <section class="search">
+    <section class="search" id="search">
       <!--search -->
       <!-- Natalie addition div - when event is clicked, event header here? -->
       <div id="event-modifications-header"></div>

@@ -30,6 +30,11 @@ button {
   border-style: none;
 }
 
+a {
+margin: 0%;
+padding: 0%;
+}
+
 .plus {
   padding-right: 3px;
   padding-bottom: 2px;
@@ -74,6 +79,78 @@ button {
 
 
 /******************* HEADER CSS **********************/
+
+.off-screen-menu {
+  background-color: black;
+  height: 100vh;
+  width: 100%;
+  max-width: 450px;
+  position: fixed;
+  top: 0;
+  right: -450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 3rem;
+  transition: .3s ease;
+}
+
+.off-screen-menu.active {
+  right: 0;
+}
+
+.burger-bar {
+  height: 100px;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  background-color: #3eb0d4;
+}
+
+
+.burger-bar span {
+  height: 5px;
+  width: 8%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s ease;
+}
+
+.burger-bar span:nth-child(1) {
+  top: 25%;
+  z-index: 1;
+}
+
+.burger-bar span:nth-child(3) {
+  top: 75%;
+  z-index: 1;
+}
+
+.burger-bar.active span:nth-child(1) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.burger-bar.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-bar.active span:nth-child(3) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.dropdown {
+  height: 50%;
+  width: 50%;
+  color: rgb(0, 213, 255);
+}
 
 .pizza-container {
   background-color: #588b5f;
@@ -169,21 +246,32 @@ h1 {
   width: 100%;
 }
 
-.nav {
-  background-color: #588b5f;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  height: 50%;
-  border-radius: 0.3em;
+
+
+
+/*changed to burger-bar*/
+
+.nav{
+  display: none;
 }
 
 .nav-bar {
-  width: 70%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: none;
 }
+
+.welcome-info {
+  display: flex;
+}
+
+.welcome-info p{
+  display: flex;
+}
+
+#welcome {
+display: flex;
+}
+
+
 
 .search {
   background-color: white;
@@ -192,29 +280,7 @@ h1 {
 }
 
 
-.welcome-info {
-  display: flex;
-  color: white;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
-.welcome-info p{
-  margin: 0;
-}
-
-#welcome {
-  height: 40px;
-  width: 40px;
-  border-color: #fedb98;
-  border-width: 0.2em;
-  border-radius: 50%;
-}
-
-#welcome img {
-
-}
 
 
 
@@ -362,13 +428,6 @@ h1 {
 
 
 /******************* ADD-USER CSS **********************/
-
-.active {
-  /*background-color: #fedb98;
-  border-color: #fedb98;
-  margin: 3px 5px 3px;
-  border-radius: 0.3em;*/
-}
 
 /* to allow scrolling */
 .allow-scroll {
@@ -592,7 +651,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 @media only screen and (min-width: 768px) {
 
-/*Desktop styles*/
+/*******************Desktop styles********************************/
 
 /*Header CSS*/
 /* .header {
@@ -601,7 +660,7 @@ input[type="number"]::-webkit-inner-spin-button {
     display: flex;
     flex-direction: column;
   } */
-
+   
   .header-container {
     flex-direction: row;
     height: 9em;
@@ -615,6 +674,86 @@ input[type="number"]::-webkit-inner-spin-button {
   .pizza-container {
     width: 25%;
     border-radius: 0.3em;
+  }
+
+  .nav {
+    background-color: #588b5f;
+    display: flex;
+    height: 50%;
+    border-radius: 0.3em;
+    justify-content: space-around;
+  }
+
+  .nav-bar {
+    width: 70%;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+  }
+
+  .welcome-info {
+    display: flex;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .welcome-info p{
+    margin: 0;
+  }
+  
+  #welcome {
+    height: 40px;
+    width: 40px;
+    border-color: #fedb98;
+    border-width: 0.2em;
+    border-radius: 50%;
+  }
+
+
+  .off-screen-menu {
+    display: none;
+
+  }
+  
+  .off-screen-menu.active {
+    display: none;
+
+  }
+  
+  .burger-bar {
+    display: none;
+
+  }
+  
+  
+  .burger-bar span {
+    display: none;
+
+  }
+  
+  .burger-bar span:nth-child(1) {
+    display: none;
+
+  }
+  
+  .burger-bar span:nth-child(3) {
+    display: none;
+
+  }
+  
+  .burger-bar.active span:nth-child(1) {
+    display: none;
+
+  }
+  
+  .burger-bar.active span:nth-child(2) {
+    display: none;
+  }
+  
+  .burger-bar.active span:nth-child(3) {
+    display: none;
   }
 
   .group-expenses {

@@ -116,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function() {
         selectMemberAddButton.addEventListener("click", () => {
             clearWarning();
             
+            console.log(events);
             const selectedID = selectMembers.value;
 
             // user name and member ID
@@ -124,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // if users is not already in the event, they arre added to the events array
             // list of users is displayed
             if(selectedID && selectedEvent && !selectedEvent.members.some(eventMember => eventMember.memberID === selectedID)) {
-                selectedEvent.members.push({name: selectedMember.name, memberID: selectedID, members:[]});
+                selectedEvent.members.push({name: selectedMember.name, memberID: selectedID});
                 console.log(`member added: ${selectedMember.name}`);
                 selectMembers.value = "";
                 displayMembersInGroup();
@@ -146,6 +147,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     existingWarning.remove();
                 }
             }
+            expenseRender();
         });
 
         // If the dropdown is changed, the warning will go away
@@ -447,12 +449,6 @@ function addExpense() {
 
 
     expenseWarningContainer.innerHTML = "";
-
-    // if (expenseWarning) {
-    //     expenseWarning.textContent = "";
-    // } else {
-    //     console.error("expenseWarning element not found.");
-    // }
 
     if (name === "" || isNaN(amount) || selectedPayer === "") {
         

@@ -553,6 +553,9 @@ function expenseRender() {
 
             const editPayerSelect = document.createElement("select");
             selectedEvent.members.forEach(member => {
+                expenseEdit.innerHTML = "";
+                expenseEdit.appendChild(deleteButton);
+
                 const option = document.createElement("option");
                 option.value = member.name;
                 option.textContent = member.name;

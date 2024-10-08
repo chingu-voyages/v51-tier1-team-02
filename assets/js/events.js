@@ -163,16 +163,25 @@ document.addEventListener("DOMContentLoaded", function() {
         if(selectedEvent) {
             selectedEvent.members.forEach((member, index) => {
             const memberInGroupList = document.createElement("div")
-            memberInGroupList.classList.add("member-in-group-list");
+            memberInGroupList.id = "users-list";
+            memberInGroupList.classList.add("allow-scroll", "no-scroll");
+
+            const memberImg = document.createElement("img");
+            memberImg.classList.add("profile-style");
+            memberImg.src = "assets/img/anon.png";
+            memberImg.alt = "profile";
 
             const memberList = document.createElement("li");
+            memberList.id = "users-list";
             memberList.textContent = member.name;
 
             const memberListDeleteButton = document.createElement("button");
             memberListDeleteButton.type = "button";
+            memberListDeleteButton.classList.add("delete-users-button");
             memberListDeleteButton.textContent = "X";
 
             templateusersList.appendChild(memberInGroupList);
+            templateusersList.appendChild(memberImg);
             templateusersList.appendChild(memberList);
             templateusersList.appendChild(memberListDeleteButton);
 

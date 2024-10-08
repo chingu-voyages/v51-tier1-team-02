@@ -177,8 +177,26 @@ document.addEventListener("DOMContentLoaded", function() {
             templateusersList.appendChild(memberListDeleteButton);
 
             memberListDeleteButton.addEventListener("click", () => {
-                selectedEvent.members.splice(index, 1);
-                displayMembersInGroup();
+
+                // if a member has purchased something they can not be deleted
+                const isMemberInExpense = selectedEvent.expenses.some(expense => expense.owner === member.name);
+                if(isMemberInExpense){
+                    console.log("There!");
+                    const warning = document.createElement("p");
+                    warning.id = "user-event-warning-message"
+                    warning.textContent = "Member can not be deleted";
+                    templateusersList.appendChild(warning);
+                    setTimeout(() => {
+                        warning.remove();
+                      }, 1500);
+                    return;
+                } else {
+                    console.log("not there!");
+                    selectedEvent.members.splice(index, 1);
+                    displayMembersInGroup();
+                }
+                
+                expenseRender();
             });
 
             }); 
@@ -283,6 +301,13 @@ document.addEventListener("DOMContentLoaded", function() {
             const eventInputButton = createAddButton(eventInputBox);
             eventContainer.appendChild(eventInputBox);
             eventContainer.appendChild(eventInputButton);
+
+            setTimeout(() => {
+                eventInputBox.remove();
+                eventInputButton.remove();
+              }, 2500);
+
+            
         }
     }
     

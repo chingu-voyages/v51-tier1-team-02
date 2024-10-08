@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const eventModificationContainer = document.getElementById("event-modifications-header");
     const expenseWarningContainer = document.getElementById("expense-warning-container");
     let eventHeader;
+    const userContainer = document.getElementById("user-container");
 
     
 
@@ -155,7 +156,8 @@ document.addEventListener("DOMContentLoaded", function() {
             clearWarning();
         });
         listofUsers.appendChild(selectMembers);
-        listofUsers.appendChild(selectMemberAddButton);        
+        listofUsers.appendChild(selectMemberAddButton);  
+    
     }
     // This function will display all members in the event with an option to remove the member
     function displayMembersInGroup () {
@@ -180,12 +182,12 @@ document.addEventListener("DOMContentLoaded", function() {
             memberListDeleteButton.classList.add("delete-users-button");
             memberListDeleteButton.textContent = "X";
 
+            templateusersList.appendChild(memberInGroupList);
 
             memberInGroupList.appendChild(memberImg);
             memberInGroupList.appendChild(memberList);
             memberInGroupList.appendChild(memberListDeleteButton);
 
-            templateusersList.appendChild(memberInGroupList);
 
             memberListDeleteButton.addEventListener("click", () => {
 

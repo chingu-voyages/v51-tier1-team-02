@@ -180,10 +180,12 @@ document.addEventListener("DOMContentLoaded", function() {
             memberListDeleteButton.classList.add("delete-users-button");
             memberListDeleteButton.textContent = "X";
 
+
+            memberInGroupList.appendChild(memberImg);
+            memberInGroupList.appendChild(memberList);
+            memberInGroupList.appendChild(memberListDeleteButton);
+
             templateusersList.appendChild(memberInGroupList);
-            templateusersList.appendChild(memberImg);
-            templateusersList.appendChild(memberList);
-            templateusersList.appendChild(memberListDeleteButton);
 
             memberListDeleteButton.addEventListener("click", () => {
 

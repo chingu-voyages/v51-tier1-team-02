@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function() {
             memberImg.alt = "profile";
 
             const memberList = document.createElement("li");
-            memberList.id = "users-list";
+            // memberList.id = "users-list";
             memberList.textContent = member.name;
 
             const memberListDeleteButton = document.createElement("button");

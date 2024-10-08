@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
          // updates the list of users in events - No duplicates!
          templateusersList.innerHTML = "";
+         userContainer.innerHTML = "";
 
         // Creates a + (add) button and a select field to add users to events
          const selectMemberAddButton = document.createElement("button")
@@ -155,8 +156,9 @@ document.addEventListener("DOMContentLoaded", function() {
         selectMembers.addEventListener("change", () => {
             clearWarning();
         });
-        listofUsers.appendChild(selectMembers);
-        listofUsers.appendChild(selectMemberAddButton);  
+        userContainer.appendChild(selectMembers);
+        userContainer.appendChild(selectMemberAddButton);  
+        listofUsers.appendChild(userContainer);
     
     }
     // This function will display all members in the event with an option to remove the member
@@ -174,7 +176,6 @@ document.addEventListener("DOMContentLoaded", function() {
             memberImg.alt = "profile";
 
             const memberList = document.createElement("li");
-            memberList.id = "users-list";
             memberList.textContent = member.name;
 
             const memberListDeleteButton = document.createElement("button");

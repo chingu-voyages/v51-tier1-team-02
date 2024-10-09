@@ -342,6 +342,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function createInputElement() {
         const input = document.createElement("input");
         input.type = "text";
+        input.classList.add("event-name");
         input.placeholder = "Enter event name";
         return input;
     }
@@ -357,6 +358,7 @@ document.addEventListener("DOMContentLoaded", function() {
         button.classList.add("button");
         button.addEventListener("click", () => {
             const eventName = input.value.trim();
+            
             if(eventName) {
                 const newEvent = {
                     name: eventName, 

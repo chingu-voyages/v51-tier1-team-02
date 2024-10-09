@@ -633,6 +633,21 @@ tr:nth-child(odd) {
 }
 
 .expense-rows tr {
+  
+}
+
+.expense-lines {
+  background-color: white;
+  text-align: center;
+}
+
+.button {
+  background-color: #fedb98;
+  border-color: #fedb98;
+  border-radius: 0.3em;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
 }
 
 /*tr .expense-rows {

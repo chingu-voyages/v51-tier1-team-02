@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
          const selectMemberAddButton = document.createElement("button")
         selectMemberAddButton.type = "button";
         selectMemberAddButton.textContent = "+";
+        // selectMemberAddButton.classList.add("button");
     
         const selectMembers = document.createElement("select");
     
@@ -351,6 +352,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const button = document.createElement("button");
         button.type = "button";
         button.textContent = "Add";
+        button.classList.add("button");
         button.addEventListener("click", () => {
             const eventName = input.value.trim();
             if(eventName) {
@@ -410,6 +412,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // When clicking the yes button, the event will be removed from the events array
         const yesButton = document.createElement("button");
         yesButton.textContent = "Yes";
+        yesButton.classList.add("button");
         yesButton.classList.add("confirm-yes");
         yesButton.addEventListener("click", () => {
             events.splice(index, 1);
@@ -433,6 +436,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const noButton = document.createElement("button");
         noButton.textContent = "No";
         noButton.classList.add("confirm-no");
+        noButton.classList.add("button");
         noButton.addEventListener("click", () => {
             warning.remove();
             yesButton.remove();
@@ -566,19 +570,30 @@ function expenseRender() {
     // Create a table for the expenses to live
     selectedEvent.expenses.forEach((expense, index) => {
         const tr = document.createElement("tr");
+        
         const expenseEdit = document.createElement("td");
         const expenseDate = document.createElement("td");
         const expenseExpense = document.createElement("td");
         const expenseOwner = document.createElement("td");
         const expenseTotal = document.createElement("td");
         const expenseOwe = document.createElement("td");
+
+        tr.classList.add("expense-lines");
+        expenseEdit.classList.add("expense-lines");
+        expenseDate.classList.add("expense-lines");
+        expenseExpense.classList.add("expense-lines");
+        expenseOwner.classList.add("expense-lines");
+        expenseTotal.classList.add("expense-lines");
+        expenseOwe.classList.add("expense-lines");
         
 
         const editButton = document.createElement("button");
         editButton.type = "button";
+        editButton.classList.add("button");
         editButton.textContent = "Edit";
         const deleteButton = document.createElement("button");
         deleteButton.type = "button";
+        deleteButton.classList.add("button");
         deleteButton.textContent = "X";
         expenseEdit.appendChild(editButton);
         expenseEdit.appendChild(deleteButton);

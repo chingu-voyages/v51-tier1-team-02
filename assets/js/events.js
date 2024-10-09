@@ -24,7 +24,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const memberWarning = document.getElementById("user-event-warning-message");
     const selectMemberDropdown = document.getElementById("select-member-dropdown");
 
-    
+    eventHeader = document.createElement("h2");
+    eventHeader.textContent = `Select an Event`;
+    eventHeader.id = "select-event-header";
+    eventModificationContainer.appendChild(eventHeader);
 
     // function will display array of events
     function renderEvents() {
@@ -50,6 +53,8 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log(`${selectedEvent.name} was selected`);
           } else {
             console.log("No event selected.");
+            
+
           }
     }
 

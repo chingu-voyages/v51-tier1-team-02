@@ -717,31 +717,47 @@ tr:nth-child(odd) {
   flex-direction:row
 }
 
-#expenseName {
-  margin: 15px;
-}
 
+
+.edit-expense-name {
+  color: red;
+}
 .edit-expense-name:hover {
   cursor: pointer;
 }
-
+.edit-expense-amount {
+  color: red;
+}
 .edit-expense-amount:hover {
   cursor: pointer;
 }
-
+.edit-payer-select {
+  color: red;
+}
 .edit-payer-select {
   cursor: pointer;
 }
 
+#expenseName {
+  margin: 15px;
+}
+#expenseName:hover {
+  cursor: pointer;
+}
 #expenseAmount {
   margin: 15px;
+}
+#expenseAmount:hover {
+  cursor: pointer;
 }
 
 #payer {
   margin: 15px;
   width: 200px;
 }
-
+#payer:hover {
+  cursor: pointer;
+}
 .expense-box {
   background-color:white;
 }

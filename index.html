@@ -138,12 +138,12 @@
         <div id="list-of-expenses">
           <table id="expense-table">
             <tr class="expense-rows">
-              <th class="expense-edit">Edit</th>
+              <th class="expense-edit">Edit/Delete</th>
               <th class="expense-date">Date</th>
               <th class="expense-expense">Expense</th>
-              <th class="expense-owner">Owner</th>
-              <th class="expense-total">$</th>
-              <th class="expense-owe">I owe</th>
+              <th class="expense-owner">Original Payer</th>
+              <th class="expense-total">Total Amount</th>
+              <th class="expense-owe">Amount I owe</th>
             </tr>
             
           </table>
@@ -164,29 +164,23 @@
       <div id="expense-input-container">
         <input id="expenseName" type="text" placeholder="Expense Name" />
         <span class="currencyinput">$<input id="expenseAmount" type="number" placeholder="0.00" type="text" name="currency"></span>
-        <select id="payer"></select>
-        <div id="expense-warning-container">
-          
-        </div>
-        
-        
+        <select id="payer"><option>Select a Member</option></select>
+        <div id="expense-warning-container"></div> 
       </div>
       
       <!--button was here-->
 
       <div class="result" id="result">
         <ul id="expenseList"></ul>
-        <div class="amount-container" >
-          <h3>
+        <div class="amount-container">
+          <h3 id="total-amount">
             Total Amount:
             <span id="totalAmount">$0.00</span>
           </h3>
-          <h3>
-            Total Individual Amount:
+          <h3 id="individual-amount">
+            Total Amount Cole Owes:
             <span id="total-individual-amount">$0.00</span>
           </h3>
-
-
         </div>
         
       </div>

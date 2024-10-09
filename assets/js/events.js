@@ -491,7 +491,7 @@ populatePayerDropdown();
 
 function addExpense() {
     // const expenseWarning = document.getElementById("expense-warning");
-    // const expenseInputContainer = document.getElementById("expense-input-container");
+    const expenseInputContainer = document.getElementById("expense-input-container");
 
     const name = expenseNameInput.value; 
     const amount = parseFloat(expenseAmountInput.value);

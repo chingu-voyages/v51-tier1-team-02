@@ -694,19 +694,44 @@ tr:nth-child(odd) {
 }
 
 #expense-input-container {
-      display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:row
+}
+
+#expenseName {
+  margin: 15px;
+}
+
+#expenseAmount {
+  margin: 15px;
+}
+
+#payer {
+  margin: 15px;
+  width: 200px;
 }
 
 .expense-box {
   background-color:white;
 }
 
-#expenseName {
-  margin-top: 15px;
+.amount-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:row;
 }
+
+#total-amount {
+  margin: 15px;
+}
+
+#individual-amount {
+  margin: 15px;
+}
+
 
 #color-block-expenses {
   display: flex;
@@ -744,9 +769,7 @@ input[type="number"]::-webkit-inner-spin-button {
  /* -moz-appearance: textfield; */
 /* } */
 
-#payer {
-  width: 200px;
-}
+
 
 /*********************FOOTER***********************/
 .footer {

@@ -57,6 +57,11 @@ padding: 0%;
   justify-content: center;
 } 
 
+.add-edit-button:hover{
+  font-weight: bold;
+  cursor: pointer;
+}
+
 #user-list-section h2, .balances h2, .expense-box h2 {
   padding: 0.313em 0em 0.313em 1.88em;
   margin-top: 0px;
@@ -369,6 +374,10 @@ display: flex;
   list-style: none; /* Remove default list styling */
 }
 
+.event-name:hover {
+  cursor: pointer;
+}
+
 
 .event-name-container h2 {
   color: #294633;
@@ -439,8 +448,8 @@ display: flex;
 }
 
 .edit-event-name-button:hover {
-  background-color: #4caf50; /* Green background on hover */
-  color: white;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .edit-event-name-input {
@@ -523,9 +532,15 @@ display: flex;
   border-style: solid;
   border-color: black;
 }
-
+#username {
+  cursor: pointer;
+}
 #form-close {
   margin-right: 10px;
+}
+#form-close:hover {
+  font-weight: bold;
+  cursor: pointer;
 }
 
 #get-information label {
@@ -542,6 +557,10 @@ display: flex;
   border-radius: 0.3em;
   height: 30px;
   width: 80px;
+}
+#submit-name:hover{
+  font-weight: bold;
+  cursor: pointer;
 }
 
 #user-list-section {

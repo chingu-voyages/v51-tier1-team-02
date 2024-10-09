@@ -98,6 +98,8 @@ padding: 0%;
   text-align: center;
   font-size: 3rem;
   transition: .3s ease;
+  color: #ccc;
+
 }
 
 .off-screen-menu.active {

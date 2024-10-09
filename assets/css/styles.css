@@ -522,11 +522,7 @@ display: flex;
   flex-wrap: wrap;
   overflow: scroll;
   overflow-y: hidden;
-  /* flex-direction: column; */
-}
-
-#user-container {
-
+  flex-direction: column; /*added this to get the people section lined up*/
 }
 
 
@@ -541,6 +537,7 @@ display: flex;
 }
 
 .user-container {
+  
   border: 5px solid #3eb0d4;
   height: 200px;
   width: 500px;
@@ -563,6 +560,21 @@ display: flex;
   display: flex;
   justify-content: space-between;
 }
+
+/* Natalie Added this section */
+#user-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /*this isn't applying*/
+  height: 10%;
+  flex-direction: column;
+}
+
+#user-event-warning-message {
+  font-size: small;
+  color: red;
+}
+/* Natalie added above */
 
 
 /************************ Balances ********************/

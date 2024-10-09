@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const expenseWarningContainer = document.getElementById("expense-warning-container");
     let eventHeader;
     const userContainer = document.getElementById("user-container");
+    const memberWarning = document.getElementById("user-event-warning-message");
+    const selectMemberDropdown = document.getElementById("select-member-dropdown");
 
     
 
@@ -95,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // and a current list of members, even NEWLY added members
         selectMembers.addEventListener("click", () => {
             // Clears any warning
-            clearWarning();
+            // clearWarning();
 
             selectMembers.innerHTML = "";
             // Create a placeholder option
@@ -115,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // On click (+) the user is added to the events array
         selectMemberAddButton.addEventListener("click", () => {
-            clearWarning();
+            // clearWarning();
             
             console.log(events);
             const selectedID = selectMembers.value;
@@ -133,30 +135,33 @@ document.addEventListener("DOMContentLoaded", function() {
                 populatePayerDropdown();
             } else {
             // else a warning is shown
-                const warning = document.createElement("p");
-                warning.id = "user-event-warning-message"
-                warning.textContent = "Member already exists in the event";
-                templateusersList.appendChild(warning);
+                // const warning = document.createElement("p");
+                // warning.id = "user-event-warning-message"
+                memberWarning.textContent = "Member already exists in the event";
+                userContainer.appendChild(memberWarning);
+                setTimeout(() => {
+                    memberWarning.remove();
+                  }, 1500);
                 selectMembers.value = "";
             }
             console.log(events);
             selectMembers.appendChild(placeholderOption);
             
-            function clearWarning() {
-                const existingWarning = document.getElementById("user-event-warning-message");
-                if (existingWarning){
-                    existingWarning.remove();
-                }
-            }
+            // function clearWarning() {
+            //     const existingWarning = document.getElementById("user-event-warning-message");
+            //     if (existingWarning){
+            //         existingWarning.remove();
+            //     }
+            // }
             expenseRender();
         });
 
         // If the dropdown is changed, the warning will go away
         selectMembers.addEventListener("change", () => {
-            clearWarning();
+            // clearWarning();
         });
-        listofUsers.appendChild(selectMembers);
-        listofUsers.appendChild(selectMemberAddButton);  
+        selectMemberDropdown.appendChild(selectMembers);
+        selectMemberDropdown.appendChild(selectMemberAddButton);  
     
     }
     // This function will display all members in the event with an option to remove the member
@@ -195,12 +200,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 const isMemberInExpense = selectedEvent.expenses.some(expense => expense.owner === member.name);
                 if(isMemberInExpense){
                     console.log("There!");
-                    const warning = document.createElement("p");
-                    warning.id = "user-event-warning-message"
-                    warning.textContent = "Member can not be deleted";
-                    templateusersList.appendChild(warning);
+                    // const warning = document.createElement("p");
+                    // warning.id = "user-event-warning-message"
+                    memberWarning.textContent = "Member can not be deleted";
+                    userContainer.appendChild(memberWarning);
                     setTimeout(() => {
-                        warning.remove();
+                        memberWarning.remove();
                       }, 1500);
                     return;
                 } else {
@@ -489,9 +494,12 @@ function addExpense() {
     expenseWarningContainer.innerHTML = "";
 
     if (name === "" || isNaN(amount) || selectedPayer === "") {
-        
+        expenseWarning.id = "user-event-warning-message";
         expenseWarning.textContent = "Please enter a valid expense name, amount, and payer.";
         expenseWarningContainer.appendChild(expenseWarning);
+        setTimeout(() => {
+            expenseWarning.remove();
+          }, 1500);
         return; // Stop the function if inputs are not valid
     }
 

@@ -383,7 +383,7 @@ display: flex;
 }
 
 .delete-button:hover {
-  background-color: #d32f2f; /* Darker red on hover */
+  font-weight: bold; /* Darker red on hover */
 }
 
 /* Style for the event button */
@@ -491,6 +491,18 @@ display: flex;
 
 .delete-users-button {
   margin: 0px 40px;
+}
+.delete-users-button:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+.select-member-add-button:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.select-members-dropdown:hover {
+  cursor: pointer;
 }
 
 /*turn on this class for modal to show up*/
@@ -648,6 +660,11 @@ tr:nth-child(odd) {
   border-width: 1px;
   border-style: solid;
   border-color: black;
+}
+
+.button:hover {
+  font-weight: bold;
+  cursor: pointer;
 }
 
 /*tr .expense-rows {

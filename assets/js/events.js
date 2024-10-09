@@ -71,10 +71,12 @@ document.addEventListener("DOMContentLoaded", function() {
         // Creates a + (add) button and a select field to add users to events
          const selectMemberAddButton = document.createElement("button")
         selectMemberAddButton.type = "button";
+        selectMemberAddButton.classList.add("select-member-add-button");
         selectMemberAddButton.textContent = "+";
         // selectMemberAddButton.classList.add("button");
     
         const selectMembers = document.createElement("select");
+        selectMembers.classList.add("select-members-dropdown");
     
         // Populates the select field with a placeholder ("select a member") and list of members
         // from the members array
@@ -248,7 +250,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Create the 'Edit Event Name' button
         const editEventNameButton = document.createElement("button");
-        editEventNameButton.textContent = "Edit Event Name";
+        editEventNameButton.textContent = "Edit";
         editEventNameButton.classList.add("edit-event-name-button");
 
         // When clicking the 'Edit' button, switch the event name to a text box using a function
@@ -641,6 +643,7 @@ function expenseRender() {
             // Add a "Save" button to confirm the changes
             const saveButton = document.createElement("button");
             saveButton.textContent = "Save";
+            saveButton.classList.add("button");
             expenseEdit.appendChild(saveButton);
 
             // Handle saving the edited values

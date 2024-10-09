@@ -323,7 +323,7 @@ document.addEventListener("DOMContentLoaded", function() {
             setTimeout(() => {
                 eventInputBox.remove();
                 eventInputButton.remove();
-              }, 2500);
+              }, 10000);
 
             
         }

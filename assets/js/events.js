@@ -1,35 +1,35 @@
+// *******************************IMPORTS*****************************************
 import { events, members } from "./arrays.js";
 import { listofUsers, templateusersList, renderUsers } from "./adduser.js";
 
-
+// *******************************EXPORTS*****************************************
 export let selectedEvent = null;
-
 export function getSelectedEvent() {
     return selectedEvent;
 }
-
 export function addMembersToEventRefresh(){
     return selectMembers;
 }
 
-
+// *******************************DOM CONTENT*****************************************
 document.addEventListener("DOMContentLoaded", function() {
+// *******************************EVENTS*****************************************
     const addEvent = document.getElementById("addEvent");
     const eventContainer = document.getElementById("eventContainer");
     const row = document.getElementById("events-list");
     const eventModificationContainer = document.getElementById("event-modifications-header");
     const expenseWarningContainer = document.getElementById("expense-warning-container");
-    let eventHeader;
     const userContainer = document.getElementById("user-container");
     const memberWarning = document.getElementById("user-event-warning-message");
     const selectMemberDropdown = document.getElementById("select-member-dropdown");
-
+// *******************************HEADER*****************************************   
+    let eventHeader;
     eventHeader = document.createElement("h2");
     eventHeader.textContent = `Select an Event`;
     eventHeader.id = "select-event-header";
     eventModificationContainer.appendChild(eventHeader);
 
-    // function will display array of events
+// *******************************RENDER EVENTS***************************************** 
     function renderEvents() {
         row.innerHTML = "";
         
@@ -38,8 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
             row.appendChild(eventItem);
         });
     }
-// ***********************NEW****************************
-    // To combine users with events
+// *******************************COMBINE USERS WITH EVENTS***************************************** 
     function createUsersEventArray() {
         console.log(events);
         console.log(members);
@@ -48,13 +47,10 @@ document.addEventListener("DOMContentLoaded", function() {
         if (selectedEvent) {
             addMembersToEvent();
             populatePayerDropdown();
-            addExpenseToEvent();
 
             console.log(`${selectedEvent.name} was selected`);
           } else {
             console.log("No event selected.");
-            
-
           }
     }
 
@@ -73,13 +69,11 @@ document.addEventListener("DOMContentLoaded", function() {
         selectMemberAddButton.type = "button";
         selectMemberAddButton.classList.add("select-member-add-button");
         selectMemberAddButton.textContent = "+";
-        // selectMemberAddButton.classList.add("button");
     
         const selectMembers = document.createElement("select");
         selectMembers.classList.add("select-members-dropdown");
     
-        // Populates the select field with a placeholder ("select a member") and list of members
-        // from the members array
+        // Populates the select field with a placeholder ("select a member") and list of members from the members array
         const placeholderOption = document.createElement("option");
         placeholderOption.value = ""; 
         placeholderOption.textContent = "Select a member"; 
@@ -92,21 +86,9 @@ document.addEventListener("DOMContentLoaded", function() {
             option.textContent = member.name;
             selectMembers.appendChild(option);    
         });
-        
-        // Removes any existing warning on the screen
-        function clearWarning() {
-            const existingWarning = document.getElementById("user-event-warning-message");
-            if (existingWarning){
-                existingWarning.remove();
-            }
-        }
 
-        // On Click of the select dropdown, the select fields are populated with a placeholder
-        // and a current list of members, even NEWLY added members
+        // On Click of the select dropdown, the select fields are populated with a placeholder and a current list of members, even NEWLY added members
         selectMembers.addEventListener("click", () => {
-            // Clears any warning
-            // clearWarning();
-
             selectMembers.innerHTML = "";
             // Create a placeholder option
             const placeholderOption = document.createElement("option");
@@ -125,16 +107,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // On click (+) the user is added to the events array
         selectMemberAddButton.addEventListener("click", () => {
-            // clearWarning();
-            
             console.log(events);
             const selectedID = selectMembers.value;
 
             // user name and member ID
             const selectedMember = members.find(member => member.memberID === (selectedID));
             
-            // if users is not already in the event, they arre added to the events array
-            // list of users is displayed
+            // if users is not already in the event, they arre added to the events array list of users is displayed
             if(selectedID && selectedEvent && !selectedEvent.members.some(eventMember => eventMember.memberID === selectedID)) {
                 selectedEvent.members.push({name: selectedMember.name, memberID: selectedID});
                 console.log(`member added: ${selectedMember.name}`);
@@ -143,8 +122,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 populatePayerDropdown();
             } else {
             // else a warning is shown
-                // const warning = document.createElement("p");
-                // warning.id = "user-event-warning-message"
                 memberWarning.textContent = "Member already exists in the event";
                 userContainer.appendChild(memberWarning);
                 setTimeout(() => {
@@ -154,23 +131,13 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             console.log(events);
             selectMembers.appendChild(placeholderOption);
-            
-            // function clearWarning() {
-            //     const existingWarning = document.getElementById("user-event-warning-message");
-            //     if (existingWarning){
-            //         existingWarning.remove();
-            //     }
-            // }
+
             expenseRender();
         });
 
         // If the dropdown is changed, the warning will go away
-        selectMembers.addEventListener("change", () => {
-            // clearWarning();
-        });
         selectMemberDropdown.appendChild(selectMembers);
         selectMemberDropdown.appendChild(selectMemberAddButton);  
-    
     }
     // This function will display all members in the event with an option to remove the member
     function displayMembersInGroup () {
@@ -187,7 +154,6 @@ document.addEventListener("DOMContentLoaded", function() {
             memberImg.alt = "profile";
 
             const memberList = document.createElement("li");
-            // memberList.id = "users-list";
             memberList.textContent = member.name;
 
             const memberListDeleteButton = document.createElement("button");
@@ -201,15 +167,11 @@ document.addEventListener("DOMContentLoaded", function() {
             memberInGroupList.appendChild(memberList);
             memberInGroupList.appendChild(memberListDeleteButton);
 
-
             memberListDeleteButton.addEventListener("click", () => {
 
                 // if a member has purchased something they can not be deleted
                 const isMemberInExpense = selectedEvent.expenses.some(expense => expense.owner === member.name);
                 if(isMemberInExpense){
-                    console.log("There!");
-                    // const warning = document.createElement("p");
-                    // warning.id = "user-event-warning-message"
                     memberWarning.textContent = "Member can not be deleted";
                     userContainer.appendChild(memberWarning);
                     setTimeout(() => {
@@ -217,7 +179,6 @@ document.addEventListener("DOMContentLoaded", function() {
                       }, 1500);
                     return;
                 } else {
-                    console.log("not there!");
                     selectedEvent.members.splice(index, 1);
                     displayMembersInGroup();
                 }
@@ -238,8 +199,6 @@ document.addEventListener("DOMContentLoaded", function() {
         eventModificationContainer.innerHTML = "";
         displayMembersInGroup();
 
-
-
         // Create a container to hold the event name and edit button
         const eventNameContainer = document.createElement("div");
         eventNameContainer.classList.add("event-name-container");
@@ -259,8 +218,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Append the event name and edit button to the container
         eventNameContainer.appendChild(eventHeader);
         eventNameContainer.appendChild(editEventNameButton);
-
-        
+ 
         // Append everything to the main modification container
         eventModificationContainer.appendChild(eventNameContainer);
 
@@ -296,7 +254,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         eventModificationContainer.appendChild(editInput);
         eventModificationContainer.append(doneButton);
-
     }
 
     // Creates an individual event list item and a delete buttton
@@ -331,9 +288,7 @@ document.addEventListener("DOMContentLoaded", function() {
             setTimeout(() => {
                 eventInputBox.remove();
                 eventInputButton.remove();
-              }, 10000);
-
-            
+              }, 10000);   
         }
     }
     
@@ -346,11 +301,7 @@ document.addEventListener("DOMContentLoaded", function() {
         input.placeholder = "Enter event name";
         return input;
     }
-    
-    // This function adds an "Add" button. 
-    // When the "Add" button is clicked, the input value is added to 
-    // a new object "newEvent" which is pushed to the "events" array.
-    // Finally the field is cleared.
+
     function createAddButton(input) {
         const button = document.createElement("button");
         button.type = "button";
@@ -422,7 +373,6 @@ document.addEventListener("DOMContentLoaded", function() {
             events.splice(index, 1);
             renderEvents();
 
-    
             // Deletes the innerHTML if the selected event is also deleted
             if(selectedEvent){
                 if(eventHeader.textContent === event.name){
@@ -430,9 +380,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
                 // Renders the original user list
                 renderUsers();
-            }
-            
-            
+            }    
         });
     
         // When clicking the no button, the event will not be removed and the warning and 
@@ -457,18 +405,14 @@ document.addEventListener("DOMContentLoaded", function() {
     renderEvents();  
 });
 
-// *******************PRACTICE BRINGING OVER EXPENSES ****************
+// *******************EXPENSES ****************
 const totalAmount = document.getElementById("totalAmount");
 const totalIndividualAmount = document.getElementById("total-individual-amount");
-
-
 
 const expenseNameInput = document.getElementById("expenseName");
 const expenseAmountInput = document.getElementById("expenseAmount");
 const addButton = document.getElementById("addExpenseButton");
 const payer = document.getElementById("payer");
-
-
 
 function populatePayerDropdown() {
     if(!selectedEvent) {
@@ -494,15 +438,11 @@ function populatePayerDropdown() {
 populatePayerDropdown();
 
 function addExpense() {
-    // const expenseWarning = document.getElementById("expense-warning");
-    const expenseInputContainer = document.getElementById("expense-input-container");
-
     const name = expenseNameInput.value; 
     const amount = parseFloat(expenseAmountInput.value);
     const selectedPayer = payer.value;
     const expenseWarning = document.createElement("div");
     const expenseWarningContainer = document.getElementById("expense-warning-container");
-
 
     expenseWarningContainer.innerHTML = "";
 
@@ -527,7 +467,6 @@ function addExpense() {
         amount: amount,
         owner: selectedPayer,
         date: dDate,
-
     };
 
     selectedEvent.expenses.push(expense);
@@ -535,31 +474,17 @@ function addExpense() {
     console.log(selectedEvent.expenses);
     console.log(events);
     console.log(`There are ${selectedEvent.members.length} members in this event`);
+    
     expenseRender();
-
 }
 
 addButton.addEventListener("click", () => {
     addExpense();
     populatePayerDropdown();
 
-    
-
     expenseNameInput.value = "";
     expenseAmountInput.value = "";
-
 });
-
-
-function  addExpenseToEvent() {
-    if(!selectedEvent) {
-        console.log("No event selected");
-        return;
-    }
-    const payer = document.getElementById("payer");
-    console.log(`${selectedEvent.name} was clicked in expenses`);
-    
-}
 
 // Need to move this to the BALANCE section
 function expenseRender() {
@@ -590,7 +515,6 @@ function expenseRender() {
         expenseTotal.classList.add("expense-lines");
         expenseOwe.classList.add("expense-lines");
         
-
         const editButton = document.createElement("button");
         editButton.type = "button";
         editButton.classList.add("button");
@@ -683,13 +607,10 @@ function expenseRender() {
         expenseExpense.classList.add("expense-expense");
         tr.appendChild(expenseExpense);
         
-        
         expenseOwner.textContent = expense.owner;
         expenseOwner.classList.add("expense-owner");
-        // expenseOwner.appendChild(selectMembers);
         tr.appendChild(expenseOwner);
 
-        
         const totalFormattedAmount = expense.amount.toLocaleString('en-US', {
             style: 'currency',
             currency: 'USD'
@@ -700,8 +621,6 @@ function expenseRender() {
         
         total = total + expense.amount;
 
-
-        
         let individualFormattedAmount = null;
         if(expense.owner === "Cole"){
             individualFormattedAmount = ((0)/selectedEvent.members.length).toLocaleString('en-US', {
@@ -717,7 +636,6 @@ function expenseRender() {
             totalIndividual = totalIndividual + ((expense.amount)/selectedEvent.members.length);
         }
 
-        
         console.log(totalIndividual);
         
         expenseOwe.textContent = individualFormattedAmount;
@@ -737,9 +655,4 @@ function expenseRender() {
     });
     totalAmount.textContent = formattedAmount;
     totalIndividualAmount.textContent = formattedIndividualAmount;
-    
 }
-
-
-
-

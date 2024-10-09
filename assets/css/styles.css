@@ -3,6 +3,7 @@
 
 /******************* GENERAL CSS **********************/
 
+
 html {
   background-color: rgb(255, 255, 255);
   display: flex;
@@ -12,6 +13,8 @@ html {
 }
 
 body {
+  margin: 0;
+  padding: 0;
   display: flex;
   width: 80%;
   background-color: white;
@@ -128,11 +131,17 @@ padding: 0%;
 .burger-bar span:nth-child(1) {
   top: 25%;
   z-index: 1;
+  margin-top: 10px;
+}
+
+.burger-bar span:nth-child(2) {
+  margin-top: 10px;
 }
 
 .burger-bar span:nth-child(3) {
   top: 75%;
   z-index: 1;
+  margin-top: 10px;
 }
 
 .burger-bar.active span:nth-child(1) {
@@ -211,7 +220,7 @@ h1 {
   /*padding: 2.5px 15px;*/
   /* padding: 3px 30px; */
   padding: 0.14em 1.3em;
-  font-size: 1.9vw;
+  font-size: 1.7vw;
   width:30%;
 
 }
@@ -360,6 +369,11 @@ display: flex;
   list-style: none; /* Remove default list styling */
 }
 
+
+.event-name-container h2 {
+  color: #294633;
+}
+
 /* Style for the delete button */
 .delete-button {
   margin-left: 10px; /* Space between the event name and 'X' button */
@@ -391,7 +405,8 @@ display: flex;
   justify-content: space-between;
   width: 300px; /* Adjust the width as needed */
   padding: 5px;
-  border-bottom: 1px solid #ccc; /* Optional: adds a separator between events */
+  width: 100%;
+  /* border-bottom: 1px solid #ccc;  Optional: adds a separator between events */
   /* display: flex;
     align-items: center;
     justify-content: space-between;
@@ -409,10 +424,18 @@ display: flex;
 
 /* Event name edit button styling */
 .edit-event-name-button {
-  margin-left: 10px; /* Space between the event name and the button */
-  padding: 2px 5px;
+  /*padding: 2px 5px;*/
   cursor: pointer;
   background-color: #fedb98;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  margin: 3px 5px 3px 10px;
+  border-radius: 0.3em;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .edit-event-name-button:hover {
@@ -581,9 +604,65 @@ display: flex;
 
 .balances {
   background-color:white;
-  height: 60px;
   height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
  }
+
+ .balances .color-block {
+  width: 100%;
+ }
+ 
+ .balances-text {
+  width: 100%;
+ }
+
+#expense-table {
+  background-color: #d9d9d9;
+  width: 100%;
+}
+
+tr:nth-child(odd) {
+  background-color: #d9d9d9;
+}
+
+.expense-rows td {
+  text-align: center;
+}
+
+.expense-rows tr {
+}
+
+/*tr .expense-rows {
+  border-bottom: 5px solid purple;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /******************* EXPENSE CSS **********************/
 
@@ -806,5 +885,8 @@ input[type="number"]::-webkit-inner-spin-button {
     width: 75%;
   }
 
+  .event-name-container {
+    width: 300px;
+  }
   
 }  

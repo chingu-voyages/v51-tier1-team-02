@@ -172,6 +172,7 @@ const offScreenMenu = document.querySelector('.off-screen-menu');
 burgerBar.addEventListener('click', () => {
   burgerBar.classList.toggle('active');
   offScreenMenu.classList.toggle('active');
+  document.body.classList.toggle('stop-underlay-scroll');
 })
 
   // Code to execute if the media query matches (viewport width is 768px or greater)
@@ -180,4 +181,41 @@ burgerBar.addEventListener('click', () => {
   // Code to execute if the media query does not match
   console.log('Media query does not match.');
 }
+
+/*****EXIT HAMBURGER MENU***********************************/
+
+const burgerLinks = document.querySelectorAll('.burger-link');
+const burgerLink = document.querySelector('.burger-link');
+const hiddenMenu = document.getElementById('hidden-menu');
+const offScreenMenu = document.querySelector('.off-screen-menu');
+const burgerBar = document.querySelector('.burger-bar');
+
+
+console.log(hiddenMenu);
+
+burgerLinks.forEach(function(burgerLink) {
+  burgerLink.addEventListener('click', function() {
+  burgerBar.classList.toggle('active');
+  offScreenMenu.classList.toggle('active');
+  console.log(':))))');
+});
+});
+
+/*burgerLink.addEventListener('click', () => {
+
+  console.log('burger is working!');
+
+});*/
+
+/*
+const breakdownButton = document.querySelectorAll('.breakdown');
+breakdownButton.forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    console.log();
+  });
+});
+
+
+
+*/
 

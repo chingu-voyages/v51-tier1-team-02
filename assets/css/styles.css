@@ -29,13 +29,14 @@ body {
 }
 
 
+
 button {
   border-style: none;
 }
 
 a {
-margin: 0%;
-padding: 0%;
+  margin: 0%;
+  padding: 0%;
 }
 
 .plus {
@@ -87,7 +88,7 @@ padding: 0%;
 
 
 /******************* HEADER CSS **********************/
-
+/***Burger styling code was supported by https: //www.youtube.com/watch?v=aNDqzlAKmZc***/
 .off-screen-menu {
   background-color: black;
   height: 100vh;
@@ -106,8 +107,19 @@ padding: 0%;
   color: #ccc;
 }
 
+a {
+  text-decoration: none;
+  list-style-type: none;
+}
+
 .off-screen-menu.active {
   right: 0;
+
+}
+
+.off-screen-menu.active ul {
+  list-style-type: none;
+  padding: 0%;
 }
 
 .burger-bar {
@@ -131,7 +143,6 @@ padding: 0%;
   transform: translate(-50%, -50%);
   transition: 0.3s ease;
   margin-left: 42%;
-
 }
 
 .burger-bar span:nth-child(1) {
@@ -162,6 +173,11 @@ padding: 0%;
 .burger-bar.active span:nth-child(3) {
   top: 50%;
   transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.burger-link {
+  color: white;
+  font-size: 0.8em;
 }
 
 .dropdown {
@@ -228,7 +244,6 @@ h1 {
   padding: 0.14em 1.3em;
   font-size: 1.7vw;
   width:30%;
-
 }
 
 #header-button-1 {
@@ -485,7 +500,6 @@ display: flex;
     height: 79px;
     overflow: unset;
     flex-wrap: inherit;
-
 }
 
 .profile-style {

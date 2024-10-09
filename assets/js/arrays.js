@@ -49,4 +49,12 @@ export let members = [
     {name: "Jane", memberID: "id2222"},
     {name: "Joe", memberID: "id3333"},
     {name: "Cole", memberID: "id4444"},
+    {name: "Sarah", memberID: "id55555"},
+    {name: "Hudson", memberID: "id66666"},
+    {name: "Parker", memberID: "id77777"},
+    {name: "Beth", memberID: "id88888"},
+    {name: "Brian", memberID: "id99999"},
+    {name: "Sam", memberID: "id12121"},
+    {name: "Shana", memberID: "id13131"},
+    {name: "Victor", memberID: "id14141"},
   ];

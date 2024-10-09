@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const expenseWarningContainer = document.getElementById("expense-warning-container");
     let eventHeader;
     const userContainer = document.getElementById("user-container");
+    const memberWarning = document.getElementById("user-event-warning-message");
+    const selectMemberDropdown = document.getElementById("select-member-dropdown");
 
     
 
@@ -60,7 +62,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
          // updates the list of users in events - No duplicates!
          templateusersList.innerHTML = "";
-         userContainer.innerHTML = "";
 
         // Creates a + (add) button and a select field to add users to events
          const selectMemberAddButton = document.createElement("button")
@@ -134,10 +135,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 populatePayerDropdown();
             } else {
             // else a warning is shown
-                const warning = document.createElement("p");
-                warning.id = "user-event-warning-message"
-                warning.textContent = "Member already exists in the event";
-                templateusersList.appendChild(warning);
+                // const warning = document.createElement("p");
+                // warning.id = "user-event-warning-message"
+                memberWarning.textContent = "Member already exists in the event";
+                userContainer.appendChild(memberWarning);
+                setTimeout(() => {
+                    memberWarning.remove();
+                  }, 1500);
                 selectMembers.value = "";
             }
             console.log(events);
@@ -156,9 +160,8 @@ document.addEventListener("DOMContentLoaded", function() {
         selectMembers.addEventListener("change", () => {
             clearWarning();
         });
-        userContainer.appendChild(selectMembers);
-        userContainer.appendChild(selectMemberAddButton);  
-        listofUsers.appendChild(userContainer);
+        selectMemberDropdown.appendChild(selectMembers);
+        selectMemberDropdown.appendChild(selectMemberAddButton);  
     
     }
     // This function will display all members in the event with an option to remove the member
@@ -176,6 +179,7 @@ document.addEventListener("DOMContentLoaded", function() {
             memberImg.alt = "profile";
 
             const memberList = document.createElement("li");
+            // memberList.id = "users-list";
             memberList.textContent = member.name;
 
             const memberListDeleteButton = document.createElement("button");
@@ -196,12 +200,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 const isMemberInExpense = selectedEvent.expenses.some(expense => expense.owner === member.name);
                 if(isMemberInExpense){
                     console.log("There!");
-                    const warning = document.createElement("p");
-                    warning.id = "user-event-warning-message"
-                    warning.textContent = "Member can not be deleted";
-                    templateusersList.appendChild(warning);
+                    // const warning = document.createElement("p");
+                    // warning.id = "user-event-warning-message"
+                    memberWarning.textContent = "Member can not be deleted";
+                    userContainer.appendChild(memberWarning);
                     setTimeout(() => {
-                        warning.remove();
+                        memberWarning.remove();
                       }, 1500);
                     return;
                 } else {

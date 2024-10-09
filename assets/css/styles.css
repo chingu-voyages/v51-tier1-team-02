@@ -721,6 +721,18 @@ tr:nth-child(odd) {
   margin: 15px;
 }
 
+.edit-expense-name:hover {
+  cursor: pointer;
+}
+
+.edit-expense-amount:hover {
+  cursor: pointer;
+}
+
+.edit-payer-select {
+  cursor: pointer;
+}
+
 #expenseAmount {
   margin: 15px;
 }

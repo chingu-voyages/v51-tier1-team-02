@@ -616,6 +616,7 @@ function expenseRender() {
             editExpenseAmount.classList.add("edit-expense-amount");
 
             const editPayerSelect = document.createElement("select");
+            editPayerSelect.classList.add("edit-payer-select");
             selectedEvent.members.forEach(member => {
                 expenseEdit.innerHTML = "";
                 expenseEdit.appendChild(deleteButton);

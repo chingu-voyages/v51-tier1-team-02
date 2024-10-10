@@ -5,7 +5,14 @@ export let events = [
         {name: "Jane", memberID: "id2222"}], 
     expenses:[
         {id: 1111, name: 'popcorn', amount: 20, owner: 'Cole', date: '10/7'},
-        {id: 2222, name: 'Soda', amount: 10, owner: 'Jane', date: '10/7'}]},
+        {id: 2222, name: 'Soda', amount: 10, owner: 'Jane', date: '10/7'},
+        {id: 333, name: 'popcorn', amount: 20, owner: 'Cole', date: '10/7'},
+        {id: 444, name: 'Soda', amount: 10, owner: 'Jane', date: '10/7'},
+        {id: 1155511, name: 'popcorn', amount: 20, owner: 'Cole', date: '10/7'},
+        {id: 666, name: 'Soda', amount: 10, owner: 'Jane', date: '10/7'},
+        {id: 777, name: 'popcorn', amount: 20, owner: 'Cole', date: '10/7'},
+        {id: 888, name: 'Soda', amount: 10, owner: 'Jane', date: '10/7'}
+    ]},
     {name: "Dinner Party",eventID: 222, 
     members: [
         {name: "Cole", memberID: "id4444"},

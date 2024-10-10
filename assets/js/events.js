@@ -661,12 +661,20 @@ function expenseRender() {
     exportToExcel.addEventListener("click", () => {
         const expenseList = document.getElementById("expense-table");
         const rows = expenseList.querySelectorAll("tr");
-        const data = [];
+        let data = [];
+        let totalAmount = 0;
+        let totalOwed = 0;
 
-        rows.forEach((row) => {
+        rows.forEach((row, rowIndex) => {
             const rowData = [];
-            row.querySelectorAll("td, th").forEach((cell) => {
+            row.querySelectorAll("td:not(:first-child), th:not(:first-child)").forEach((cell, cellIndex) => {
                 rowData.push(cell.innerText);
+                if (rowIndex > 0 && cellIndex === 3) { 
+                    totalAmount += parseFloat(cell.innerText.replace(/[$,]/g, "")); 
+                }
+                if (rowIndex > 0 && cellIndex === 4) { 
+                    totalOwed += parseFloat(cell.innerText.replace(/[$,]/g, "")); 
+                }
             });
             data.push(rowData);
         });
@@ -676,13 +684,15 @@ function expenseRender() {
         const doc = new jsPDF();
 
         // Add a title to the PDF
-        doc.text("Expense Report", 14, 10);
+        doc.text(`${selectedEvent.name} Expense Report for Cole`, 14, 10);
 
         doc.autoTable({
             head: [data[0]], 
             body: data.slice(1), 
             startY: 20, 
         });
+        doc.text(`Total Amount: $${totalAmount.toFixed(2)}`, 14, doc.autoTable.previous.finalY + 10);
+        doc.text(`Total Amount Owed: $${totalOwed.toFixed(2)}`, 14, doc.autoTable.previous.finalY + 16);
 
         doc.save("expenses.pdf");
 });

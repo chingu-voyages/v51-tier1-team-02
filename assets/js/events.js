@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // *******************************RENDER EVENTS***************************************** 
     function renderEvents() {
         row.innerHTML = "";
-        
+
         events.forEach((event, index) => {
             const eventItem = createEventItem(event, index);
             row.appendChild(eventItem);
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(events);
         console.log(members);
         const selectedEvent = getSelectedEvent();
-    
+
         if (selectedEvent) {
             addMembersToEvent();
             populatePayerDropdown();
@@ -69,29 +69,36 @@ document.addEventListener("DOMContentLoaded", function() {
         selectMemberAddButton.type = "button";
         selectMemberAddButton.classList.add("select-member-add-button");
         selectMemberAddButton.textContent = "+";
-    
+
         const selectMembers = document.createElement("select");
         selectMembers.classList.add("select-members-dropdown");
-    
+
         // Populates the select field with a placeholder ("select a member") and list of members from the members array
         const placeholderOption = document.createElement("option");
         placeholderOption.value = ""; 
         placeholderOption.textContent = "Select a member"; 
         placeholderOption.selected = true; 
         selectMembers.appendChild(placeholderOption);
-         
+
+        members.forEach((member) => {
+            const option = document.createElement("option");
+            option.value = member.memberID;
+            option.textContent = member.name;
+            selectMembers.appendChild(option);    
+        });
+
+    
         // On Click of the select dropdown, the select fields are populated with a placeholder and a current list of members, even NEWLY added members
         selectMembers.addEventListener("change", () => {
-            //selectMembers.innerHTML = "";
             const selectedID = selectMembers.value;
-
-            // Create a placeholder option
-            /*const placeholderOption = document.createElement("option");
+           // selectMembers.innerHTML = "";
+            /* / Create a placeholder option
+            const placeholderOption = document.createElement("option");
             placeholderOption.value = ""; 
             placeholderOption.textContent = "Select a member"; 
             placeholderOption.selected = true; 
             selectMembers.appendChild(placeholderOption);
-         
+
             members.forEach((member) => {
                 const option = document.createElement("option");
                 option.value = member.memberID;
@@ -107,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // user name and member ID
             const selectedMember = members.find(member => member.memberID === (selectedID));
-            
+
             // if users is not already in the event, they arre added to the events array list of users is displayed
             if(selectedID && selectedEvent && !selectedEvent.members.some(eventMember => eventMember.memberID === selectedID)) {
                 selectedEvent.members.push({name: selectedMember.name, memberID: selectedID});
@@ -177,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     selectedEvent.members.splice(index, 1);
                     displayMembersInGroup();
                 }
-                
+
                 expenseRender();
             });
 
@@ -201,7 +208,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Create an H2 for the event name
         eventHeader = document.createElement("h2");
         eventHeader.textContent = `${eventName}`;
-        
+
         // Create the 'Edit Event Name' button
         const editEventNameButton = document.createElement("button");
         editEventNameButton.textContent = "Edit";
@@ -213,13 +220,13 @@ document.addEventListener("DOMContentLoaded", function() {
         // Append the event name and edit button to the container
         eventNameContainer.appendChild(eventHeader);
         eventNameContainer.appendChild(editEventNameButton);
- 
+
         // Append everything to the main modification container
         eventModificationContainer.appendChild(eventNameContainer);
 
         expenseRender();
     }
-    
+
     // a function to switch the event name to editing mode
     function startEditingEventName(eventName, index) {
         eventModificationContainer.innerHTML = ""; // Clear existing content
@@ -257,21 +264,21 @@ document.addEventListener("DOMContentLoaded", function() {
         eventItem.textContent = event.name;
         eventItem.classList.add("event-item");
         eventItem.classList.add("event-button");
-    
+
         // Create a container for each event and its delete button
         const eventContainerItem = document.createElement("div");
         eventContainerItem.classList.add("event-container"); 
-    
+
         const deleteEventButton = createDeleteButton(event, index);
         eventItem.addEventListener("click", () => renderEventDetails(event.name, index));
-    
+
         // const listItem = document.createElement("div");
         eventContainerItem.appendChild(eventItem);
         eventContainerItem.appendChild(deleteEventButton);
-    
+
         return eventContainerItem;
     }
-    
+
     // This function adds the input field so the user can type a new event
     function addNewEvent() {
         if(!eventContainer.querySelector("input")) {
@@ -286,7 +293,7 @@ document.addEventListener("DOMContentLoaded", function() {
               }, 10000);   
         }
     }
-    
+
     // This function creates the input field and returns the input to be used in the event array
     // the input value is used in the createAddButton function
     function createInputElement() {
@@ -304,7 +311,7 @@ document.addEventListener("DOMContentLoaded", function() {
         button.classList.add("button");
         button.addEventListener("click", () => {
             const eventName = input.value.trim();
-            
+
             if(eventName) {
                 const newEvent = {
                     name: eventName, 
@@ -323,7 +330,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         return button;
     }
-    
+
     // this function creates a delete button and listens for the confirm delete event
     function createDeleteButton(event, index) {
         const deleteEventButton = document.createElement("button");
@@ -333,11 +340,11 @@ document.addEventListener("DOMContentLoaded", function() {
         deleteEventButton.type = "button";
         deleteEventButton.textContent = "X";
         deleteEventButton.classList.add("delete-button");
-        
+
         deleteEventButton.addEventListener("click", () => confirmDelete(event, index));
         return deleteEventButton;
     }
-    
+
     // this function asks user whether they want to delete or not
     function confirmDelete(event, index) {
         // if there is an existing warning with buttons, run these if statements
@@ -358,7 +365,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const warning = document.createElement("p");
         warning.classList.add("warning-text");
         warning.textContent = `Are you sure you want to delete ${event.name}?`;
-    
+
         // When clicking the yes button, the event will be removed from the events array
         const yesButton = document.createElement("button");
         yesButton.textContent = "Yes";
@@ -377,7 +384,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 renderUsers();
             }    
         });
-    
+
         // When clicking the no button, the event will not be removed and the warning and 
         // yes/no buttons will go away
         const noButton = document.createElement("button");
@@ -389,14 +396,14 @@ document.addEventListener("DOMContentLoaded", function() {
             yesButton.remove();
             noButton.remove();
         });
-    
+
         row.appendChild(warning);
         row.appendChild(yesButton);
         row.appendChild(noButton);
     }
-    
+
     addEvent.addEventListener("click", addNewEvent);
-    
+
     renderEvents();  
 });
 
@@ -421,7 +428,7 @@ function populatePayerDropdown() {
     placeholderOption.textContent = "Select a member"; 
     placeholderOption.selected = true; 
     payer.appendChild(placeholderOption);
-        
+
     selectedEvent.members.forEach((member, index) => {
         const option = document.createElement("option");
         option.textContent = member.name;
@@ -469,7 +476,7 @@ function addExpense() {
     console.log(selectedEvent.expenses);
     console.log(events);
     console.log(`There are ${selectedEvent.members.length} members in this event`);
-    
+
     expenseRender();
 }
 
@@ -494,7 +501,7 @@ function expenseRender() {
     // Create a table for the expenses to live
     selectedEvent.expenses.forEach((expense, index) => {
         const tr = document.createElement("tr");
-        
+
         const expenseEdit = document.createElement("td");
         const expenseDate = document.createElement("td");
         const expenseExpense = document.createElement("td");
@@ -509,7 +516,7 @@ function expenseRender() {
         expenseOwner.classList.add("expense-lines");
         expenseTotal.classList.add("expense-lines");
         expenseOwe.classList.add("expense-lines");
-        
+
         const editButton = document.createElement("button");
         editButton.type = "button";
         editButton.classList.add("button");
@@ -588,7 +595,7 @@ function expenseRender() {
                 expenseRender();
             });
         });
-    
+
         deleteButton.addEventListener("click", () =>{
             selectedEvent.expenses.splice(index, 1);
             expenseRender();
@@ -601,7 +608,7 @@ function expenseRender() {
         expenseExpense.textContent = expense.name;
         expenseExpense.classList.add("expense-expense");
         tr.appendChild(expenseExpense);
-        
+
         expenseOwner.textContent = expense.owner;
         expenseOwner.classList.add("expense-owner");
         tr.appendChild(expenseOwner);
@@ -613,7 +620,7 @@ function expenseRender() {
         expenseTotal.textContent = totalFormattedAmount;
         expenseTotal.classList.add("expense-total");
         tr.appendChild(expenseTotal);
-        
+
         total = total + expense.amount;
 
         let individualFormattedAmount = null;
@@ -632,7 +639,7 @@ function expenseRender() {
         }
 
         console.log(totalIndividual);
-        
+
         expenseOwe.textContent = individualFormattedAmount;
         expenseOwe.classList.add("expense-owe");
         tr.appendChild(expenseOwe);
@@ -691,8 +698,6 @@ function expenseRender() {
 
         doc.save("expenses.pdf");
 });
-        
+
 
 }
-
-

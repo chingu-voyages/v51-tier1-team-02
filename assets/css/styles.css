@@ -659,32 +659,35 @@ display: flex;
 
  .balances .color-block {
   width: 100%;
- }
+ } 
  
- .balances-text {
+.balances-text {
   width: 100%;
- }
+ } 
+/* ***************** */
+.table-container {
+  width: 100%;           
+  max-height: 150px;      
+  overflow-y: auto;       
+  overflow-x: auto;       
+  border: 1px solid #ddd; 
+}
 
 #expense-table {
-  background-color: #d9d9d9;
   width: 100%;
+  border-collapse: collapse;
 }
 
-tr:nth-child(odd) {
-  background-color: #d9d9d9;
+#expense-table th, #expense-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
 }
 
-.expense-rows td {
-  text-align: center;
-}
-
-.expense-rows tr {
-  
-}
-
-.expense-lines {
-  background-color: white;
-  text-align: center;
+#expense-table th {
+  background-color: #f2f2f2;
+  position: sticky;
+  top: 0;
 }
 
 .button {
@@ -700,35 +703,6 @@ tr:nth-child(odd) {
   font-weight: bold;
   cursor: pointer;
 }
-
-/*tr .expense-rows {
-  border-bottom: 5px solid purple;
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /******************* EXPENSE CSS **********************/
 

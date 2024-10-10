@@ -656,3 +656,5 @@ function expenseRender() {
     totalAmount.textContent = formattedAmount;
     totalIndividualAmount.textContent = formattedIndividualAmount;
 }
+
+// ****************************EXPORT TO EXCEL**********************************

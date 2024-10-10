@@ -655,6 +655,39 @@ function expenseRender() {
     });
     totalAmount.textContent = formattedAmount;
     totalIndividualAmount.textContent = formattedIndividualAmount;
-}
 
 // ****************************EXPORT TO EXCEL**********************************
+    const exportToExcel = document.getElementById("export-to-excel");
+    exportToExcel.addEventListener("click", () => {
+        const expenseList = document.getElementById("expense-table");
+        const rows = expenseList.querySelectorAll("tr");
+        const data = [];
+
+        rows.forEach((row) => {
+            const rowData = [];
+            row.querySelectorAll("td, th").forEach((cell) => {
+                rowData.push(cell.innerText);
+            });
+            data.push(rowData);
+        });
+
+        // Convert data to PDF
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        // Add a title to the PDF
+        doc.text("Expense Report", 14, 10);
+
+        doc.autoTable({
+            head: [data[0]], 
+            body: data.slice(1), 
+            startY: 20, 
+        });
+
+        doc.save("expenses.pdf");
+});
+        
+
+}
+
+

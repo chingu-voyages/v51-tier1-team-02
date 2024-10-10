@@ -80,15 +80,6 @@ document.addEventListener("DOMContentLoaded", function() {
         placeholderOption.selected = true; 
         selectMembers.appendChild(placeholderOption);
          
-        members.forEach((member) => {
-            const option = document.createElement("option");
-            option.value = member.memberID;
-            option.textContent = member.name;
-            selectMembers.appendChild(option);    
-        });
-
-    
-
         // On Click of the select dropdown, the select fields are populated with a placeholder and a current list of members, even NEWLY added members
         selectMembers.addEventListener("change", () => {
             //selectMembers.innerHTML = "";

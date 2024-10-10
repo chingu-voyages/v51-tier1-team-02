@@ -87,6 +87,8 @@ document.addEventListener("DOMContentLoaded", function() {
             selectMembers.appendChild(option);    
         });
 
+    
+
         // On Click of the select dropdown, the select fields are populated with a placeholder and a current list of members, even NEWLY added members
         selectMembers.addEventListener("click", () => {
             selectMembers.innerHTML = "";

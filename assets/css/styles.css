@@ -16,7 +16,7 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  width: 80%;
+  width: 90%;
   background-color: white;
   justify-content: center;
   align-items: center;
@@ -38,6 +38,10 @@ a {
   margin: 0%;
   padding: 0%;
 }
+
+a:link {
+  color: #000000;
+} /*not sure if thisll work*/
 
 a:visited {
   text-decoration: none;
@@ -115,6 +119,7 @@ a:visited {
 a {
   text-decoration: none;
   list-style-type: none;
+  color: #000000;
 }
 
 .off-screen-menu.active {
@@ -316,7 +321,9 @@ display: flex;
   /* height: 100px; */
 }
 
-
+#select-event-header {
+  color: #294633;
+}
 
 
 
@@ -787,6 +794,7 @@ button {
   justify-content: center;
   align-items: center;
   flex-direction:row;
+  color: #294633;
 }
 
 #total-amount {
@@ -852,6 +860,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 
 
+
 @media only screen and (min-width: 768px) {
 
 /*******************Desktop styles********************************/
@@ -864,6 +873,10 @@ input[type="number"]::-webkit-inner-spin-button {
     flex-direction: column;
   } */
    
+  body {
+    width: 80%;
+  }
+
   .header-container {
     flex-direction: row;
     height: 9em;

@@ -72,6 +72,8 @@ document.addEventListener("DOMContentLoaded", function() {
     
         const selectMembers = document.createElement("select");
         selectMembers.classList.add("select-members-dropdown");
+
+        // selectMembers.innerHTML = "";
     
         // Populates the select field with a placeholder ("select a member") and list of members from the members array
         const placeholderOption = document.createElement("option");
@@ -80,12 +82,12 @@ document.addEventListener("DOMContentLoaded", function() {
         placeholderOption.selected = true; 
         selectMembers.appendChild(placeholderOption);
          
-        members.forEach((member) => {
-            const option = document.createElement("option");
-            option.value = member.memberID;
-            option.textContent = member.name;
-            selectMembers.appendChild(option);    
-        });
+        // members.forEach((member) => {
+        //     const option = document.createElement("option");
+        //     option.value = member.memberID;
+        //     option.textContent = member.name;
+        //     selectMembers.appendChild(option);    
+        // });
 
     
 

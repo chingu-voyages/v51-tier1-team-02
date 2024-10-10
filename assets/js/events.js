@@ -90,10 +90,12 @@ document.addEventListener("DOMContentLoaded", function() {
     
 
         // On Click of the select dropdown, the select fields are populated with a placeholder and a current list of members, even NEWLY added members
-        selectMembers.addEventListener("click", () => {
-            selectMembers.innerHTML = "";
+        selectMembers.addEventListener("change", () => {
+            //selectMembers.innerHTML = "";
+            const selectedID = selectMembers.value;
+
             // Create a placeholder option
-            const placeholderOption = document.createElement("option");
+            /*const placeholderOption = document.createElement("option");
             placeholderOption.value = ""; 
             placeholderOption.textContent = "Select a member"; 
             placeholderOption.selected = true; 
@@ -104,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 option.value = member.memberID;
                 option.textContent = member.name;
                 selectMembers.appendChild(option);   
-            });
+            }); */
         });
 
         // On click (+) the user is added to the events array

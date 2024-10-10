@@ -172,7 +172,6 @@ const offScreenMenu = document.querySelector('.off-screen-menu');
 burgerBar.addEventListener('click', () => {
   burgerBar.classList.toggle('active');
   offScreenMenu.classList.toggle('active');
-  document.body.classList.toggle('stop-underlay-scroll');
 })
 
   // Code to execute if the media query matches (viewport width is 768px or greater)

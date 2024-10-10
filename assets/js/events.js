@@ -80,19 +80,20 @@ document.addEventListener("DOMContentLoaded", function() {
         placeholderOption.selected = true; 
         selectMembers.appendChild(placeholderOption);
 
-        members.forEach((member) => {
+        /*members.forEach((member) => {
             const option = document.createElement("option");
             option.value = member.memberID;
             option.textContent = member.name;
-            selectMembers.appendChild(option);    
-        });
+            selectMembers.appendChild(option);   
+        }); */
 
     
         // On Click of the select dropdown, the select fields are populated with a placeholder and a current list of members, even NEWLY added members
-        selectMembers.addEventListener("change", () => {
+        selectMembers.addEventListener("focus", () => {
             const selectedID = selectMembers.value;
-           // selectMembers.innerHTML = "";
-            /* / Create a placeholder option
+            console.log('click');
+            selectMembers.innerHTML = "";
+             // Create a placeholder option
             const placeholderOption = document.createElement("option");
             placeholderOption.value = ""; 
             placeholderOption.textContent = "Select a member"; 
@@ -104,14 +105,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 option.value = member.memberID;
                 option.textContent = member.name;
                 selectMembers.appendChild(option);   
-            }); */
+            }); 
         });
 
         // On click (+) the user is added to the events array
         selectMemberAddButton.addEventListener("click", () => {
-            console.log(events);
+            console.log('wow');
             const selectedID = selectMembers.value;
-
+            console.log(selectedID);
             // user name and member ID
             const selectedMember = members.find(member => member.memberID === (selectedID));
 
@@ -146,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function() {
         templateusersList.innerHTML = "";
         if(selectedEvent) {
             selectedEvent.members.forEach((member, index) => {
-            const memberInGroupList = document.createElement("div")
+            const memberInGroupList = document.createElement("div");
             memberInGroupList.id = "users-list";
             memberInGroupList.classList.add("allow-scroll", "no-scroll");
 

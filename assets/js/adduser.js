@@ -120,15 +120,10 @@ const bodyMenu = document.querySelector('.main-page');
 burgerBar.addEventListener('click', () => {
   burgerBar.classList.toggle('active');
   offScreenMenu.classList.toggle('active');
-  bodyMenu.classList.add('hidden-menu-body');
-})
+  bodyMenu.classList.toggle('hidden-menu-body');
 
-  // Code to execute if the media query matches (viewport width is 768px or greater)
-  console.log('Media query matches!');
-} else {
-  // Code to execute if the media query does not match
-  console.log('Media query does not match.');
-}
+});
+};
 
 /*****EXIT HAMBURGER MENU***********************************/
 
@@ -148,4 +143,9 @@ burgerLinks.forEach(function(burgerLink) {
   offScreenMenu.classList.toggle('active');
   bodyMenu.classList.remove('hidden-menu-body');
 });
+
 });
+
+
+
+ 

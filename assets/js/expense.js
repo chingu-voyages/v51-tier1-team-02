@@ -1,3 +1,5 @@
+// This module is used in the events.js module
+
 import { members } from "./arrays.js";
 import { getSelectedEvent } from "./events.js";
 console.log(getSelectedEvent);

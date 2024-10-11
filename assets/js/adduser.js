@@ -168,10 +168,13 @@ if (mediaQuery.matches) {
 const burgerBar = document.querySelector('.burger-bar');
 
 const offScreenMenu = document.querySelector('.off-screen-menu');
+const bodyMenu = document.querySelector('.main-page');
 
 burgerBar.addEventListener('click', () => {
   burgerBar.classList.toggle('active');
   offScreenMenu.classList.toggle('active');
+  /*bodyMenu.classList.toggle('hidden-menu-body');*/
+  bodyMenu.classList.add('hidden-menu-body');
 })
 
   // Code to execute if the media query matches (viewport width is 768px or greater)
@@ -188,6 +191,7 @@ const burgerLink = document.querySelector('.burger-link');
 const hiddenMenu = document.getElementById('hidden-menu');
 const offScreenMenu = document.querySelector('.off-screen-menu');
 const burgerBar = document.querySelector('.burger-bar');
+const bodyMenu = document.querySelector('.main-page');
 
 
 console.log(hiddenMenu);
@@ -196,6 +200,8 @@ burgerLinks.forEach(function(burgerLink) {
   burgerLink.addEventListener('click', function() {
   burgerBar.classList.toggle('active');
   offScreenMenu.classList.toggle('active');
+  bodyMenu.classList.remove('hidden-menu-body');
+
   console.log(':))))');
 });
 });

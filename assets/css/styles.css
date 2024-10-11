@@ -28,8 +28,6 @@ body {
   font-style: normal;
 }
 
-
-
 button {
   border-style: none;
 }
@@ -43,10 +41,21 @@ a:link {
   color: #000000;
 } /*not sure if thisll work*/
 
+#hidden-menu a {
+  color: white;
+}
+
+#hidden-menu a:visited {
+  text-decoration: none;
+  color: white;
+}
+
 a:visited {
   text-decoration: none;
   color: #000000;
 }
+
+
 
 .plus {
   padding-right: 3px;
@@ -99,7 +108,7 @@ a:visited {
 /******************* HEADER CSS **********************/
 /***Burger styling code was supported by https: //www.youtube.com/watch?v=aNDqzlAKmZc***/
 .off-screen-menu {
-  background-color: black;
+  background-color: #588b5f;
   height: 100vh;
   width: 100%;
   max-width: 450px;
@@ -139,8 +148,16 @@ a {
   position: relative;
   background-color: #588b5f;
   border-radius: 0.3em 0.3em 0em 0em;
+  z-index: 1;
 }
 
+.hidden-menu-body {
+  overflow: hidden;
+}
+
+.clicked-menu-body {
+  background-color: #d43e3e;
+ }
 
 .burger-bar span {
   height: 5px;
@@ -163,6 +180,7 @@ a {
 
 .burger-bar span:nth-child(2) {
   margin-top: 10px;
+
 }
 
 .burger-bar span:nth-child(3) {
@@ -700,7 +718,7 @@ display: flex;
 
 #expense-table th {
   background-color: #f2f2f2;
-  position: sticky; /*looks weird when opening the burger menu on mobile*/
+  /*position: sticky; */ /*looks weird when opening the burger menu on mobile*/
   top: 0;
 }
 

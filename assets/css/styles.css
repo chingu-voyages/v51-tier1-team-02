@@ -1,15 +1,12 @@
 /******************* MOBILE LAYOUT **********************/
 
-
 /******************* GENERAL CSS **********************/
-
 
 html {
   background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   font-size: 16px;
-  /* font-family: Arial, Helvetica, sans-serif;*/ 
 }
 
 body {
@@ -21,7 +18,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -39,7 +35,7 @@ a {
 
 a:link {
   color: #000000;
-} /*not sure if thisll work*/
+} 
 
 #hidden-menu a {
   color: white;
@@ -54,8 +50,6 @@ a:visited {
   text-decoration: none;
   color: #000000;
 }
-
-
 
 .plus {
   padding-right: 3px;
@@ -86,7 +80,6 @@ a:visited {
   margin-top: 0px;
   margin-bottom: 0px;
   font-size: 1.5em;
-
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -97,13 +90,11 @@ a:visited {
   margin-top: 0px;
   margin-bottom: 0px;
   font-size: 1.5em;
-
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
-
 
 /******************* HEADER CSS **********************/
 /***Burger styling code was supported by https: //www.youtube.com/watch?v=aNDqzlAKmZc***/
@@ -133,7 +124,6 @@ a {
 
 .off-screen-menu.active {
   right: 0;
-
 }
 
 .off-screen-menu.active ul {
@@ -154,10 +144,6 @@ a {
 .hidden-menu-body {
   overflow: hidden;
 }
-
-.clicked-menu-body {
-  background-color: #d43e3e;
- }
 
 .burger-bar span {
   height: 5px;
@@ -180,7 +166,6 @@ a {
 
 .burger-bar span:nth-child(2) {
   margin-top: 10px;
-
 }
 
 .burger-bar span:nth-child(3) {
@@ -223,7 +208,6 @@ a {
   color: white;
   border-color: black;
   border-radius:  0em 0em 0.3em 0.3em ;
-
 }
 
 #icon {
@@ -242,7 +226,6 @@ a {
 h1 {
   margin-top: 20px;
   margin-bottom: 0px;
-
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -254,7 +237,6 @@ h1 {
   display: flex;
   flex-direction: column;
   width: 100%;
- /* margin-bottom: 2%; */
 }
 
 .header {
@@ -267,8 +249,6 @@ h1 {
   background-color: #fedb98;
   border-color: #fedb98;
   box-shadow: none;
-  /*padding: 2.5px 15px;*/
-  /* padding: 3px 30px; */
   padding: 0.14em 1.3em;
   font-size: 1.7vw;
   width:30%;
@@ -282,7 +262,6 @@ h1 {
   border-top-left-radius: 0.3em;
   border-bottom-left-radius: 0.3em;
   width: 100%;
-
 }
 
 #header-button-2 {
@@ -306,11 +285,6 @@ h1 {
   width: 100%;
 }
 
-
-
-
-/*changed to burger-bar*/
-
 .nav{
   display: none;
 }
@@ -331,20 +305,14 @@ h1 {
 display: flex;
 }
 
-
-
 .search {
   background-color: white;
   width:100%;
-  /* height: 100px; */
 }
 
 #select-event-header {
   color: #294633;
 }
-
-
-
 
 /******************* EVENTS CSS **********************/
 
@@ -367,7 +335,6 @@ display: flex;
   display: flex;
   flex-direction: column;
 }
-
 
 /* Remove the bullet points on the list of events */
 #events {
@@ -411,7 +378,6 @@ display: flex;
   margin: 1em 0em 1em 0em;
   border: 1px solid #000000; /* Optional: adds a separator between events */
   border-radius: 0.3em;
-
 }
 
 /* Style for the event name */
@@ -461,11 +427,6 @@ display: flex;
   width: 300px; /* Adjust the width as needed */
   padding: 5px;
   width: 100%;
-  /* border-bottom: 1px solid #ccc;  Optional: adds a separator between events */
-  /* display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%; Adjust width as needed */
 }
 
 #addEvent {
@@ -479,7 +440,6 @@ display: flex;
 
 /* Event name edit button styling */
 .edit-event-name-button {
-  /*padding: 2px 5px;*/
   cursor: pointer;
   background-color: #fedb98;
   border-width: 1px;
@@ -505,6 +465,10 @@ display: flex;
   margin: 10px;
 }
 
+#event-modifications-header input{
+  width: 50%;
+}
+
 
 
 /******************* ADD-USER CSS **********************/
@@ -521,15 +485,15 @@ display: flex;
 }
 
 #users-list {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    padding: 0;
-    align-items: center;
-    height: 79px;
-    overflow: unset;
-    flex-wrap: inherit;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  padding: 0;
+  align-items: center;
+  height: 79px;
+  overflow: unset;
+  flex-wrap: inherit;
 }
 
 .profile-style {
@@ -538,18 +502,15 @@ display: flex;
   border-radius: 50%;
 }
 
-/*trial styling
-.memberDiv {
-  width: 10px;
-}*/
-
 .delete-users-button {
   margin: 0px 40px;
 }
+
 .delete-users-button:hover {
   font-weight: bold;
   cursor: pointer;
 }
+
 .select-member-add-button:hover {
   font-weight: bold;
   cursor: pointer;
@@ -577,12 +538,15 @@ display: flex;
   border-style: solid;
   border-color: black;
 }
+
 #username {
   cursor: pointer;
 }
+
 #form-close {
   margin-right: 10px;
 }
+
 #form-close:hover {
   font-weight: bold;
   cursor: pointer;
@@ -603,6 +567,7 @@ display: flex;
   height: 30px;
   width: 80px;
 }
+
 #submit-name:hover{
   font-weight: bold;
   cursor: pointer;
@@ -624,7 +589,6 @@ display: flex;
   flex-direction: column; /*added this to get the people section lined up*/
 }
 
-
 /*turn off this class for modal to close*/
 .hidden {
   display: none;
@@ -636,14 +600,13 @@ display: flex;
 }
 
 .user-container {
-  
   border: 5px solid #3eb0d4;
   height: 200px;
   width: 500px;
 }
 
 .profile-picture {
-  border: 5px solid #d43ed1;
+  border: 5px solid;
   height: 100px;
   width: 100px;
 }
@@ -652,7 +615,6 @@ display: flex;
   border: 5px solid #d5a53f;
   height: 70px;
   width: 100px;
-
 }
 
 #color-block-user {
@@ -664,7 +626,7 @@ display: flex;
 #user-container {
   display: flex;
   justify-content: center;
-  align-items: center; /*this isn't applying*/
+  align-items: center; 
   height: 10%;
   flex-direction: column;
   width: 100%;
@@ -673,7 +635,7 @@ display: flex;
 #user-event-warning-message {
   font-size: small;
   color: red;
-  height: 1.5em; /*maybe*/
+  height: 1.5em; 
 }
 /* Natalie added above */
 
@@ -696,7 +658,7 @@ display: flex;
 .balances-text {
   width: 100%;
  } 
-/* ***************** */
+
 .table-container {
   width: 100%;           
   max-height: 150px;      
@@ -718,7 +680,6 @@ display: flex;
 
 #expense-table th {
   background-color: #f2f2f2;
-  /*position: sticky; */ /*looks weird when opening the burger menu on mobile*/
   top: 0;
 }
 
@@ -739,6 +700,15 @@ button {
 .button:hover {
   font-weight: bold;
   cursor: pointer;
+}
+
+.expense-edit, 
+.expense-date, 
+.expense-expense, 
+.expense-owner, 
+.expense-total, 
+.expense-owe {
+  color: #294633;
 }
 
 /******************* EXPENSE CSS **********************/
@@ -762,23 +732,26 @@ button {
   flex-direction: column;
 }
 
-
-
 .edit-expense-name {
   color: red;
 }
+
 .edit-expense-name:hover {
   cursor: pointer;
 }
+
 .edit-expense-amount {
   color: red;
 }
+
 .edit-expense-amount:hover {
   cursor: pointer;
 }
+
 .edit-payer-select {
   color: red;
 }
+
 .edit-payer-select {
   cursor: pointer;
 }
@@ -786,12 +759,15 @@ button {
 #expenseName {
   margin: 0.5em;
 }
+
 #expenseName:hover {
   cursor: pointer;
 }
+
 #expenseAmount {
   margin: 0.5em;
 }
+
 #expenseAmount:hover {
   cursor: pointer;
 }
@@ -800,9 +776,11 @@ button {
   margin: 0.5em;
   width: 200px;
 }
+
 #payer:hover {
   cursor: pointer;
 }
+
 .expense-box {
   background-color:white;
 }
@@ -822,7 +800,6 @@ button {
 #individual-amount {
   margin: 15px;
 }
-
 
 #color-block-expenses {
   display: flex;
@@ -860,8 +837,6 @@ input[type="number"]::-webkit-inner-spin-button {
  /* -moz-appearance: textfield; */
 /* } */
 
-
-
 /*********************FOOTER***********************/
 .footer {
   background-color: #6cb876;
@@ -876,20 +851,9 @@ input[type="number"]::-webkit-inner-spin-button {
   text-align: center;
 }
 
-
-
-
-@media only screen and (min-width: 768px) {
-
 /*******************Desktop styles********************************/
 
-/*Header CSS*/
-/* .header {
-    width: 72%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  } */
+@media only screen and (min-width: 768px) {
    
   body {
     width: 80%;
@@ -905,7 +869,6 @@ input[type="number"]::-webkit-inner-spin-button {
   .header {
     width: 72%;
     height: 100%;
-
   }
 
   h1 {
@@ -920,7 +883,6 @@ input[type="number"]::-webkit-inner-spin-button {
     width: 25%;
     border-radius: 0.3em;
     height: 100%;
-
   }
 
   .nav {
@@ -960,44 +922,34 @@ input[type="number"]::-webkit-inner-spin-button {
 
   .search {
     height: 50%;
-
   }
-
 
   .off-screen-menu {
     display: none;
-
   }
   
   .off-screen-menu.active {
     display: none;
-
   }
   
   .burger-bar {
     display: none;
-
   }
-  
   
   .burger-bar span {
     display: none;
-
   }
   
   .burger-bar span:nth-child(1) {
     display: none;
-
   }
   
   .burger-bar span:nth-child(3) {
     display: none;
-
   }
   
   .burger-bar.active span:nth-child(1) {
     display: none;
-
   }
   
   .burger-bar.active span:nth-child(2) {
@@ -1022,8 +974,18 @@ input[type="number"]::-webkit-inner-spin-button {
   }
 
   .event-name-container {
-    width: 300px;
+    /* width: 300px; */
   }
 
+  #events input {
+    width: 100%;
+  }
 
-}  
+  #eventContainer .event-name{
+    width:100%;
+  }
+
+  #eventContainer{ 
+    display: flex;  
+  }  
+}

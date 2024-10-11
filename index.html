@@ -5,117 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Expense Sharing App</title>
     <link rel="stylesheet" href="assets/css/styles.css">
-
+    <!--fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/805760b91e.js" crossorigin="anonymous"></script>
-</head>
+  </head>
 
-<body class="main-page"><!--grey-->
-<div class="header-container">
-  <!--hamburger menu-->
-  <div class="burger-bar">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-
-  <!--yellow-->
-  <div class="pizza-container">
-    <div id="icon">
-      <img id="pizza" src="assets/img/Split.png">
-      <h1>Sp|it</h1>
+  <body class="main-page">
+    <div class="header-container">
+    <!--hamburger menu-->
+    <div class="burger-bar">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-  </div>
 
-  
-  <!--black and red-->
-  <section class="header">
-    <!--black-->
-
-    <!--mobile menu-->
-    <div id="hidden-menu" class="off-screen-menu">
-      <ul>
-        <a href="#search" class="burger-link"><li class="mobile-list">Home</li></a>
-        <a href="#events" class="burger-link"><li class="mobile-list">Groups</li></a>
-        <a href="#expense-input-container" class="burger-link"><li class="mobile-list">Expenses</li></a>
-      </ul>
+    <div class="pizza-container">
+      <div id="icon">
+        <img id="pizza" src="assets/img/Split.png">
+        <h1>Sp|it</h1>
+      </div>
     </div>
-    
-    <div class="nav" class="hidden">
-      <!--desktop menu-->
-      <div class="nav-bar">
-        <a href="#search"><button class="header-button" id="header-button-1">Home</button></a>
-        <a href="#events"><button class="header-button" id="header-button-2">Groups</button></a>
-        <a href="#expense-input-container"><button class="header-button" id="header-button-3">Expenses</button></a>
 
+    <section class="header">
+
+      <!--mobile menu-->
+      <div id="hidden-menu" class="off-screen-menu">
+        <ul>
+          <a href="#search" class="burger-link"><li class="mobile-list">Home</li></a>
+          <a href="#events" class="burger-link"><li class="mobile-list">Groups</li></a>
+          <a href="#expense-input-container" class="burger-link"><li class="mobile-list">Expenses</li></a>
+        </ul>
       </div>
       
-      <div class="welcome-info">
-        <img id="welcome" src="assets/img/anon.png">
-        <p>Hi, Cole!</p>
-      </div>
-    </div>  
-    <!--red-->
-    <section class="search" id="search">
-      <!--search -->
-      <!-- Natalie addition div - when event is clicked, event header here? -->
-      <div id="event-modifications-header"></div>
-     
+      <div class="nav" class="hidden">
+        <!--desktop menu-->
+        <div class="nav-bar">
+          <a href="#search"><button class="header-button" id="header-button-1">Home</button></a>
+          <a href="#events"><button class="header-button" id="header-button-2">Groups</button></a>
+          <a href="#expense-input-container"><button class="header-button" id="header-button-3">Expenses</button></a>
+        </div>
+        
+        <div class="welcome-info">
+          <img id="welcome" src="assets/img/anon.png">
+          <p>Hi, Cole!</p>
+        </div>
+      </div>  
+
+      <section class="search" id="search">
+        <!--event header here -->
+        <div id="event-modifications-header"></div>
+      </section>
+      
     </section>
-    
-  </section>
 
+    </div> 
 
-</div> 
+    <!-- Events section -->
+    <div class="group-expenses">
 
-<!--GREY-->
-<!-- Events section -->
-<div class="group-expenses">
-  <!--GREEN-->
-  <section id="events">
-    <div class="color-block" id="cole-events">
-      <h2>Cole's Events</h2>
-    </div>
-    <div id="list_of_events">
-      <ul id="events-list"></ul>
-    </div>
-    <button class="add-edit-button" id="addEvent"><img src="assets/img/plus-circle.png" alt="add" class="plus"/>Add/Edit</button>
-    <div id="eventContainer"></div>
-  </section>
+    <section id="events">
+      <div class="color-block" id="cole-events">
+        <h2>Cole's Events</h2>
+      </div>
+      <div id="list_of_events">
+        <ul id="events-list"></ul>
+      </div>
+      <button class="add-edit-button" id="addEvent"><img src="assets/img/plus-circle.png" alt="add" class="plus"/>Add/Edit</button>
+      <div id="eventContainer"></div>
+    </section>
 
-  <!--LIME-->
-  <div class="main-rows">
-    <!--PURPLE-->
-    <!-- button to add a person.-->
-    
-
-    <!--add user-form is the modal-->
-    <div id="add-user-form" class="hidden">
+    <div class="main-rows">
+      <!--add user-form is the modal-->
+      <div id="add-user-form" class="hidden">
         <button id="form-close">X</button>
         <form id="get-information">
-            <!--<input type="text" id="profile-picture" name="profile-picture" />-->
             <label for="username">Name:</label>
             <input type="text" id="username" name="username"/>
         </form>  
-        <button type="submit" id="submit-name">Add</button>
-
-      <!--modal popup-->  
-    </div>
-
-    <!--This is where the list of people will be displayed-->  
-    <!-- WHEN EVENT IS SELECTED, THIS SECTION SHOWS USERS IN EVENTS  -->
-    <section id="user-list-section">
-      <div class="color-block" id="color-block-user">
-        <h2>People</h2><!--changed User List to People-->
-        <button class="add-edit-button" id="add-user"><img src="assets/img/plus-circle.png" alt="add" class="plus"/>
-          Add/Edit
-        </button>
+        <button type="submit" id="submit-name">Add</button> 
       </div>
-        <div id="list-of-users">
 
+      <!--This is where the list of people will be displayed-->  
+      <!-- WHEN EVENT IS SELECTED, THIS SECTION SHOWS USERS IN EVENTS  -->
+      <section id="user-list-section">
+        <div class="color-block" id="color-block-user">
+          <h2>People</h2>
+          <button class="add-edit-button" id="add-user"><img src="assets/img/plus-circle.png" alt="add" class="plus"/>
+            Add/Edit
+          </button>
+        </div>
+
+        <div id="list-of-users">
           <ul id="users-list">
             <div class="memberDiv"></div>
             <div class="nameimgDiv"></div>
@@ -124,85 +106,76 @@
             <div id="user-event-warning-message"></div>
             <div id="select-member-dropdown"></div>  
           </div>
-
         </div>
-    </section>
+      </section>
 
-    <!--ORANGE-->
-    <!-- Balances section -->
-    <section class="balances">
-      <div class="color-block" id="color-block-user">
-        <h2>Balances</h2>
-        <button class="add-edit-button" id="export-to-excel"><img src="assets/img/plus-circle.png" alt="add" class="plus"/>
-          Export
-        </button>
-      </div>
-      <div class="balances-text">
-
-        <div id="table-container" class="table-container">
-          <table id="expense-table">
-            <tr class="expense-rows">
-              <th class="expense-edit">Edit/Delete</th>
-              <th class="expense-date">Date</th>
-              <th class="expense-expense">Expense</th>
-              <th class="expense-owner">Original Payer</th>
-              <th class="expense-total">Total Amount</th>
-              <th class="expense-owe">Amount I owe</th>
-            </tr>
-            
-          </table>
+      <!-- Balances section -->
+      <section class="balances">
+        <div class="color-block" id="color-block-user">
+          <h2>Balances</h2>
+          <button class="add-edit-button" id="export-to-excel"><img src="assets/img/plus-circle.png" alt="add" class="plus"/>
+            Export
+          </button>
         </div>
-        
+        <div class="balances-text">
+          <div id="table-container" class="table-container">
+            <table id="expense-table">
+              <tr class="expense-rows">
+                <th class="expense-edit">Edit/Delete</th>
+                <th class="expense-date">Date</th>
+                <th class="expense-expense">Expense</th>
+                <th class="expense-owner">Original Payer</th>
+                <th class="expense-total">Total Amount</th>
+                <th class="expense-owe">Amount I owe</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
 
-      </div>
-    </section>
-
-    <!--PINK-->
-    <!--Box to display divided costs-->
-    <section class="expense-box">
-      <div class="color-block" id="color-block-expenses">
-        <h2>Expenses</h2>
-        <button class="add-edit-button" id="addExpenseButton"><img src="assets/img/plus-circle.png" alt="add" class="plus"/> Add</button>
-      </div>
-      
-      <div id="expense-input-container">
-        <input id="expenseName" type="text" placeholder="Expense Name" />
-        <span class="currencyinput">$<input id="expenseAmount" type="number" placeholder="0.00" type="text" name="currency"></span>
-        <select id="payer"><option>Select a Member</option></select>
-        <div id="expense-warning-container"></div> 
-      </div>
-      
-      <!--button was here-->
-
-      <div class="result" id="result">
-        <ul id="expenseList"></ul>
-        <div class="amount-container">
-          <h3 id="total-amount">
-            Total Amount:
-            <span id="totalAmount">$0.00</span>
-          </h3>
-          <h3 id="individual-amount">
-            Total Amount Cole Owes:
-            <span id="total-individual-amount">$0.00</span>
-          </h3>
+      <!--Box to display divided costs-->
+      <section class="expense-box">
+        <div class="color-block" id="color-block-expenses">
+          <h2>Expenses</h2>
+          <button class="add-edit-button" id="addExpenseButton"><img src="assets/img/plus-circle.png" alt="add" class="plus"/> Add</button>
         </div>
         
-      </div>
+        <div id="expense-input-container">
+          <input id="expenseName" type="text" placeholder="Expense Name" />
+          <span class="currencyinput">$<input id="expenseAmount" type="number" placeholder="0.00" type="text" name="currency"></span>
+          <select id="payer"><option>Select a Member</option></select>
+          <div id="expense-warning-container"></div> 
+        </div>
+        
+        <div class="result" id="result">
+          <ul id="expenseList"></ul>
+          <div class="amount-container">
+            <h3 id="total-amount">
+              Total Amount:
+              <span id="totalAmount">$0.00</span>
+            </h3>
+            <h3 id="individual-amount">
+              Total Amount Cole Owes:
+              <span id="total-individual-amount">$0.00</span>
+            </h3>
+          </div>
+        </div>
+        
+      </section>
+    </div>
+    </div>
+
+    <section class="footer">
+    <p><a href="https://github.com/chingu-voyages/v51-tier1-team-02" target=”_blank”>GitHub Repo Link</a></p>
     </section>
-  </div>
-</div>
 
-<section class="footer">
-  <p><a href="https://github.com/chingu-voyages/v51-tier1-team-02" target=”_blank”>GitHub Repo Link</a></p>
-</section>
-  
-<!-- Export as a PDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <!-- Export as a PDF -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
 
-    <script type="module" src="assets/js/arrays.js"></script>
-    <script type="module" src="assets/js/events.js"></script>
-    <script type="module" src="assets/js/adduser.js"></script>
-    <!-- <script type="module" src="assets/js/expense.js"></script> -->
+      <script type="module" src="assets/js/arrays.js"></script>
+      <script type="module" src="assets/js/events.js"></script>
+      <script type="module" src="assets/js/adduser.js"></script>
+      <!-- <script type="module" src="assets/js/expense.js"></script> -->
   </body>
 </html>
